@@ -13,29 +13,29 @@
         
 
 <body>
-<div id="Menu" style="border: 0.5px solid white;display: flex;background-color: #082969; color:white;">
+<div id="Menu"class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
 
-    <div style="text-align: left;align-content: left;justify-content: left; width: 25%;margin-left: 5%;">
-        <img src="../RESSOURCES/logo_departement_informatique.ico" alt="Icon_Département" width="100px" height="100px" style="padding: 15px;">    
+<div  class="row">
+    <div  class="col" style="text-align: left;align-content: left;justify-content: left; width: 25%;margin-left: 5%;">
+        <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département" style="padding: 15px;">    
     </div>
 
-<div style="display: flex; justify-content:right ;align-content: right;text-align: right;width: 75%;">
-    <div class="HomeMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;display: flex; justify-content: center; flex-direction:column; align-content: center;text-align: center;">
+    <div class="col HomeMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;justify-content: center;align-content: center;text-align: center;">
         <i id="HomeMenuI" class="material-icons">home</i>
         <p id="HomeMenuP" style="visibility:hidden;">Home</p>
     </div>
     
-    <div class="ForumMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;display: flex; justify-content: center; flex-direction:column;align-content: center;text-align: center;">
+    <div class="col ForumMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
         <i id="ForumMenuI" class="material-icons">forum</i>
         <p id="ForumMenuP" style="visibility:hidden;">Forum</p>
     </div>
     
-    <div class="SearchMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;display: flex; justify-content: center; flex-direction:column;align-content: center;text-align: center;">
+    <div class="col SearchMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
         <i id="SearchMenuI" class="material-icons">search</i>
         <p id="SearchMenuP" style="visibility:hidden;">Advanced search</p>
     </div>
     
-    <div class="LoginMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;display: flex; justify-content: center; flex-direction:column;align-content: center; text-align: center;">
+    <div class="col LoginMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
         <i  id="LoginMenuI" class="material-icons">login</i>
         <p id="LoginMenuP" style="visibility:hidden;">Login</p>
     </div>
@@ -80,7 +80,7 @@
 
 
     //Navigation
-    $("#HomeMenuI").click(function() {
+   /* $("#HomeMenuI").click(function() {
         location.replace("Home.html");
     });
     $("#HomeMenuP").click(function() {
@@ -110,7 +110,7 @@
     $("#LoginMenuP").click(function() {
         location.replace("Login.html");
     });
-
+*/
 
 </script>
 
