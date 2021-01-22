@@ -16,36 +16,43 @@
     <div id="Menu" class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
 
         <div  class="row" style="text-align: center;justify-content: center;text-align: center;margin: 3%;">
-            <div  class="col-sm-2">
+            <div  class="col-sm-1">
                 <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département">    
             </div>
 
-            <div class="col-sm-10" style="text-align: center;justify-content: center;text-align: center;">
+            <div class="col-sm-11" style="text-align: center;justify-content: center;text-align: center;">
               <div class="row">
-                    <div class="col HomeMenu" class="MenuOption">
-                        <i id="HomeMenuI" class="material-icons" style="cursor: pointer;">home</i>
+
+
+                    <div Class="col PhoneMenu">
+                        <i id="PhoneMenuI" class="material-icons" style="visibility:hidden">menu</i>
+                        <p id="PhoneMenuP" style="visibility:hidden">Menu</p>
+                    </div>
+
+                    <div class="col HomeMenu">
+                        <i id="HomeMenuI" class="material-icons">home</i>
                         <p id="HomeMenuP" >Accueil</p>
                     </div>
             
-                    <div class="col ProgrammeMenu" class="MenuOption" >
+                    <div class="col ProgrammeMenu">
                         <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
                         <p id="ProgrammeMenuP" style="cursor: pointer;" >Le programme</p>
                     </div>
             
-                <div class="col TeacherMenu" class="MenuOption">
-                    <i id="TeacherMenuI" class="material-icons">account_box</i>
-                    <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
-                </div>
+                    <div class="col TeacherMenu">
+                        <i id="TeacherMenuI" class="material-icons">account_box</i>
+                        <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
+                    </div>
             
-                <div class="col ContactMenu" class="MenuOption">
-                    <i id="ContactMenuI" class="material-icons">book</i>
-                    <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
-                </div>
+                    <div class="col ContactMenu">
+                        <i id="ContactMenuI" class="material-icons">book</i>
+                        <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
+                    </div>
 
-                <div class="col LinkMenu" class="MenuOption">
-                    <i id="LinkMenuI" class="material-icons">link</i>
-                    <p id="LinkMenuP">Liens utiles</p>
-                </div>
+                    <div class="col LinkMenu">
+                        <i id="LinkMenuI" class="material-icons">link</i>
+                        <p id="LinkMenuP">Liens utiles</p>
+                    </div>
             </div>
        
         </div>
@@ -72,6 +79,8 @@
     $("#LinkMenuI").on("mouseover", function() {menuMouseOver("#LinkMenuI","#LinkMenuP")});
     $("#LinkMenuI").on("mouseout", function() {menuMouseOut("#LinkMenuI","#LinkMenuP")});
 
+    $("#PhoneMenuI").on("mouseover", function() {menuMouseOver("#PhoneMenuI","#PhoneMenuP")});
+    $("#PhoneMenuI").on("mouseout", function() {menuMouseOut("#PhoneMenuI","#PhoneMenuP")});
 
 
     function menuMouseOver(elementId,elementIdP){
@@ -94,7 +103,7 @@
     //Put menu to sticky mode
 
     // When the user scrolls the page, execute myFunction
-    window.onscroll = function() {myFunction()};
+    window.onscroll = function() {scrollMyPage()};
 
     // Get the navbar
     var navbar = document.getElementById("Menu");
@@ -103,7 +112,7 @@
     var sticky = navbar.offsetTop;
 
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function myFunction() {
+    function scrollMyPage() {
      if (window.pageYOffset >= sticky) {
         navbar.classList.add("sticky")
     } else {
@@ -134,7 +143,6 @@
         location.replace("Enseignant.html");
     });
 
-
     $("#ContactMenuI").click(function() {
         location.replace("Nous_Contacter.html");
     });
@@ -142,7 +150,6 @@
         location.replace("Nous_Contacter.html");
     });
 
-    
     $("#LinkMenuI").click(function() {
         location.replace("Lien_utile.html");
     });

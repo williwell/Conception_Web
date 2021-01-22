@@ -9,3 +9,126 @@
   .sticky + .content {
     padding-top: 60px;
   }
+
+
+  
+/*Version téléphone*/
+@media all and (max-width: 450px) {
+  .top{
+      width: auto;
+      height: auto;
+      /* padding: 250px 0; */
+      margin-bottom: 0px;
+      background-image: url("../img/tel-dark.jpg");
+      background-size:cover;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* filter: blur(8px);
+      -webkit-filter: blur(8px); */
+  }
+  
+  .boite {
+      /* On small screens, we are no longer using row direction but column */
+      flex-direction: column;
+  }
+
+  .boite img{
+      width: 100%;
+      max-width: 450px;
+      max-height: 300px;
+  }
+
+
+  .texte-item-boite{
+      width: 100%;
+  }
+
+  .top img{
+      /* margin-left: 15px; */
+      width: 300px;
+      height: 200px;
+      box-sizing: border-box;
+  }
+
+  .texte-top{
+      font-weight: bold;
+      font-size: 12px;
+      font-family: 'Spartan', sans-serif;
+      color:white;
+      box-sizing: border-box;
+      text-align: center;
+      width: 100%;
+      margin: 10px 15px 15px 0px;
+  }
+
+  .intro h1{
+      color: ;
+      font-size: 40px;
+      font-family: 'Paytone One', sans-serif;
+  }
+
+  .texte-item-boite h1{
+      font-size: 25px;
+      font-weight: bold;
+      font-family: 'Spartan', sans-serif;
+      text-align: center;
+  }
+
+  .texte-item-boite li, p{
+      font-size: 14px;
+      font-family: 'Lato', sans-serif;
+      margin: 5px 30px 20px 10px;
+      box-sizing: border-box;
+  }
+
+  .image{
+      order: -1;
+  }
+
+}
+
+@media all and (min-width: 450px) and (max-width: 1500px)
+{
+  .boite {
+      /* On small screens, we are no longer using row direction but column */
+      flex-direction: column;
+  }
+  
+  .boite img{
+      width: 100%;
+      max-width: 1500px;
+      height: auto;
+  }
+
+  .texte-item-boite h1{
+      font-size: 25px;
+      font-weight: bold;
+      font-family: 'Spartan', sans-serif;
+      text-align: center;
+  }
+
+  .texte-item-boite li, p{
+      font-size: 14px;
+      font-family: 'Lato', sans-serif;
+      margin: 5px 30px 20px 10px;
+      box-sizing: border-box;
+  }
+
+  .image{
+      order: -1;
+  }
+
+  .boite-cartes{
+      padding: 15px 0px;
+      margin: 5px 0px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+  }
+}
