@@ -13,70 +13,45 @@
         
 
 <body>
-<div id="MenuComplet"class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
+    <div id="Menu" class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
 
-<div  class="row" style="text-align: center;justify-content: center;text-align: center;margin: 3%;">
-    <div  class="col-sm-2">
-        <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département">    
-    </div>
-
-    <div class="col-sm-10" style="text-align: center;justify-content: center;text-align: center;">
-        <div class="row">
-            <div class="col HomeMenu" class="MenuOption">
-                <i id="HomeMenuI" class="material-icons" style="cursor: pointer;">home</i>
-                <p id="HomeMenuP" >Accueil</p>
-            </div>
-            
-            <div class="col ProgrammeMenu" class="MenuOption" >
-                <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
-                <p id="ProgrammeMenuP" style="cursor: pointer;" >Le programme</p>
-            </div>
-            
-            <div class="col TeacherMenu" class="MenuOption">
-                <i id="TeacherMenuI" class="material-icons">account_box</i>
-                <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
-            </div>
-            
-            <div class="col ContactMenu" class="MenuOption">
-                <i id="ContactMenuI" class="material-icons">book</i>
-                <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
+        <div  class="row" style="text-align: center;justify-content: center;text-align: center;margin: 3%;">
+            <div  class="col-sm-2">
+                <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département">    
             </div>
 
-            <div class="col LinkMenu" class="MenuOption">
-                <i id="LinkMenuI" class="material-icons">link</i>
-                <p id="LinkMenuP">Liens utiles</p>
+            <div class="col-sm-10" style="text-align: center;justify-content: center;text-align: center;">
+              <div class="row">
+                    <div class="col HomeMenu" class="MenuOption">
+                        <i id="HomeMenuI" class="material-icons" style="cursor: pointer;">home</i>
+                        <p id="HomeMenuP" >Accueil</p>
+                    </div>
+            
+                    <div class="col ProgrammeMenu" class="MenuOption" >
+                        <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
+                        <p id="ProgrammeMenuP" style="cursor: pointer;" >Le programme</p>
+                    </div>
+            
+                <div class="col TeacherMenu" class="MenuOption">
+                    <i id="TeacherMenuI" class="material-icons">account_box</i>
+                    <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
+                </div>
+            
+                <div class="col ContactMenu" class="MenuOption">
+                    <i id="ContactMenuI" class="material-icons">book</i>
+                    <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
+                </div>
+
+                <div class="col LinkMenu" class="MenuOption">
+                    <i id="LinkMenuI" class="material-icons">link</i>
+                    <p id="LinkMenuP">Liens utiles</p>
+                </div>
             </div>
-        </div>
        
-    </div>
+        </div>
   
-</div>
+    </div>
 
-</div>
-
-<div>
-<br>
-<br>
-<br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br>
-<br>
-<br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br>
-<br>
-<br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br>
-<br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br>
-<br>
-<br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<p>bruh</p>
-
-</div>
 </body>
 
 <script>
@@ -122,7 +97,7 @@
     window.onscroll = function() {myFunction()};
 
     // Get the navbar
-    var navbar = document.getElementById("MenuComplet");
+    var navbar = document.getElementById("Menu");
 
     // Get the offset position of the navbar
     var sticky = navbar.offsetTop;
@@ -169,12 +144,11 @@
 
     
     $("#LinkMenuI").click(function() {
-        location.replace("Liens_utile.html");
+        location.replace("Lien_utile.html");
     });
     $("#LinkMenuP").click(function() {
-        location.replace("Liens_utile.html");
+        location.replace("Lien_utile.html");
     });
-
 
 </script>
 
