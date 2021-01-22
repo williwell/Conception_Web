@@ -14,7 +14,7 @@
         
 
 <body>
-    <div id="MenuBar" style="padding-bottom: 12%;"></div>
+    <div id="MenuBar" ></div>
 
 <div id="BeginDiv" class="row" style="margin-left: 2%;">
     <div class="col-md-12"><h1>Techniques de l'informatique</h1></div>
@@ -266,14 +266,7 @@
 
 <script type="text/javascript">
     jQuery('#MenuBar').load('Menu.html#Menu'); 
-
-    
-
-    function setMarginBegin() {
-        var height = document.getElementById('MenuBar').style.height;
-        document.getElementById('BeginDiv').style.marginTop = height;
-    }
-
+    $('#MenuBar').css("padding-bottom","10%");
 </script>
 
 </html>
