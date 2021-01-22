@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../CSS/Style.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <meta charset="utf-8" />
+        <meta name="author" content="Alexandra Sirois, William-Arthur Cinq-Mars, Mathieu Harvey">
+		<meta http-equiv="refresh" content="60">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+        
+
+<body>
+<div id="Menu" style="border: 0.5px solid white;display: flex;background-color: #082969; color:white;">
+
+    <div style="text-align: left;align-content: left;justify-content: left; width: 25%;margin-left: 5%;">
+        <img src="../RESSOURCES/logo_departement_informatique.ico" alt="Icon_Département" width="100px" height="100px" style="padding: 15px;">    
+    </div>
+
+<div style="display: flex; justify-content:right ;align-content: right;text-align: right;width: 75%;">
+    <div class="HomeMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;display: flex; justify-content: center; flex-direction:column; align-content: center;text-align: center;">
+        <i id="HomeMenuI" class="material-icons">home</i>
+        <p id="HomeMenuP" style="visibility:hidden;">Home</p>
+    </div>
+    
+    <div class="ForumMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;display: flex; justify-content: center; flex-direction:column;align-content: center;text-align: center;">
+        <i id="ForumMenuI" class="material-icons">forum</i>
+        <p id="ForumMenuP" style="visibility:hidden;">Forum</p>
+    </div>
+    
+    <div class="SearchMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;display: flex; justify-content: center; flex-direction:column;align-content: center;text-align: center;">
+        <i id="SearchMenuI" class="material-icons">search</i>
+        <p id="SearchMenuP" style="visibility:hidden;">Advanced search</p>
+    </div>
+    
+    <div class="LoginMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;display: flex; justify-content: center; flex-direction:column;align-content: center; text-align: center;">
+        <i  id="LoginMenuI" class="material-icons">login</i>
+        <p id="LoginMenuP" style="visibility:hidden;">Login</p>
+    </div>
+</div>
+
+    
+</div>
+</body>
+
+<script>
+
+    //Add the animation
+    $("#HomeMenuI").on("mouseover", function() {menuMouseOver("#HomeMenuI","#HomeMenuP")});
+    $("#HomeMenuI").on("mouseout", function() {menuMouseOut("#HomeMenuI","#HomeMenuP")});
+
+    $("#ForumMenuI").on("mouseover", function() {menuMouseOver("#ForumMenuI","#ForumMenuP")});
+    $("#ForumMenuI").on("mouseout", function() {menuMouseOut("#ForumMenuI","#ForumMenuP")});
+
+    $("#SearchMenuI").on("mouseover", function() {menuMouseOver("#SearchMenuI","#SearchMenuP")});
+    $("#SearchMenuI").on("mouseout", function() {menuMouseOut("#SearchMenuI","#SearchMenuP")});
+
+    $("#LoginMenuI").on("mouseover", function() {menuMouseOver("#LoginMenuI","#LoginMenuP")});
+    $("#LoginMenuI").on("mouseout", function() {menuMouseOut("#LoginMenuI","#LoginMenuP")});
+
+
+
+    function menuMouseOver(elementId,elementIdP){
+        $(elementId).css("color","#cf152d");
+        $(elementId).animate({fontSize: '3em'}, "8s");
+        $(elementIdP).css("visibility","visible");
+        $(elementIdP).css("color","#cf152d");
+        //$(elementIdP).animate({fontSize: '3em'}, "8s");
+    }
+
+    function menuMouseOut(elementId,elementIdP){
+        $(elementId).css("color","White");
+        $(elementId).animate({fontSize: '28px'}, "1ms");
+        $(elementIdP).css("visibility","hidden");
+        $(elementIdP).css("color","White");
+        //$(elementIdP).animate({fontSize: '20px'}, "10s");   
+     }
+
+
+    //Navigation
+    $("#HomeMenuI").click(function() {
+        location.replace("Home.html");
+    });
+    $("#HomeMenuP").click(function() {
+        location.replace("Home.html");
+    });
+
+
+    $("#ForumMenuI").click(function() {
+        location.replace("Forum.html");
+    });
+    $("#ForumMenuP").click(function() {
+        location.replace("Forum.html");
+    });
+
+
+    $("#SearchMenuI").click(function() {
+        location.replace("Search.html");
+    });
+    $("#SearchMenuP").click(function() {
+        location.replace("Search.html");
+    });
+
+
+    $("#LoginMenuI").click(function() {
+        location.replace("Login.html");
+    });
+    $("#LoginMenuP").click(function() {
+        location.replace("Login.html");
+    });
+
+
+</script>
+
+
+</html>
