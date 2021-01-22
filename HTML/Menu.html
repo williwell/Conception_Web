@@ -13,36 +13,45 @@
         
 
 <body>
-<div id="Menu"class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
+    <div id="Menu" class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
 
-<div  class="row">
-    <div  class="col" style="text-align: left;align-content: left;justify-content: left; width: 25%;margin-left: 5%;">
-        <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département" style="padding: 15px;">    
+        <div  class="row" style="text-align: center;justify-content: center;text-align: center;margin: 3%;">
+            <div  class="col-sm-2">
+                <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département">    
+            </div>
+
+            <div class="col-sm-10" style="text-align: center;justify-content: center;text-align: center;">
+              <div class="row">
+                    <div class="col HomeMenu" class="MenuOption">
+                        <i id="HomeMenuI" class="material-icons" style="cursor: pointer;">home</i>
+                        <p id="HomeMenuP" >Accueil</p>
+                    </div>
+            
+                    <div class="col ProgrammeMenu" class="MenuOption" >
+                        <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
+                        <p id="ProgrammeMenuP" style="cursor: pointer;" >Le programme</p>
+                    </div>
+            
+                <div class="col TeacherMenu" class="MenuOption">
+                    <i id="TeacherMenuI" class="material-icons">account_box</i>
+                    <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
+                </div>
+            
+                <div class="col ContactMenu" class="MenuOption">
+                    <i id="ContactMenuI" class="material-icons">book</i>
+                    <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
+                </div>
+
+                <div class="col LinkMenu" class="MenuOption">
+                    <i id="LinkMenuI" class="material-icons">link</i>
+                    <p id="LinkMenuP">Liens utiles</p>
+                </div>
+            </div>
+       
+        </div>
+  
     </div>
 
-    <div class="col HomeMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;justify-content: center;align-content: center;text-align: center;">
-        <i id="HomeMenuI" class="material-icons">home</i>
-        <p id="HomeMenuP" style="visibility:hidden;">Home</p>
-    </div>
-    
-    <div class="col ForumMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
-        <i id="ForumMenuI" class="material-icons">forum</i>
-        <p id="ForumMenuP" style="visibility:hidden;">Forum</p>
-    </div>
-    
-    <div class="col SearchMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
-        <i id="SearchMenuI" class="material-icons">search</i>
-        <p id="SearchMenuP" style="visibility:hidden;">Advanced search</p>
-    </div>
-    
-    <div class="col LoginMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
-        <i  id="LoginMenuI" class="material-icons">login</i>
-        <p id="LoginMenuP" style="visibility:hidden;">Login</p>
-    </div>
-</div>
-
-    
-</div>
 </body>
 
 <script>
@@ -51,66 +60,95 @@
     $("#HomeMenuI").on("mouseover", function() {menuMouseOver("#HomeMenuI","#HomeMenuP")});
     $("#HomeMenuI").on("mouseout", function() {menuMouseOut("#HomeMenuI","#HomeMenuP")});
 
-    $("#ForumMenuI").on("mouseover", function() {menuMouseOver("#ForumMenuI","#ForumMenuP")});
-    $("#ForumMenuI").on("mouseout", function() {menuMouseOut("#ForumMenuI","#ForumMenuP")});
+    $("#ProgrammeMenuI").on("mouseover", function() {menuMouseOver("#ProgrammeMenuI","#ProgrammeMenuP")});
+    $("#ProgrammeMenuI").on("mouseout", function() {menuMouseOut("#ProgrammeMenuI","#ProgrammeMenuP")});
 
-    $("#SearchMenuI").on("mouseover", function() {menuMouseOver("#SearchMenuI","#SearchMenuP")});
-    $("#SearchMenuI").on("mouseout", function() {menuMouseOut("#SearchMenuI","#SearchMenuP")});
+    $("#TeacherMenuI").on("mouseover", function() {menuMouseOver("#TeacherMenuI","#TeacherMenuP")});
+    $("#TeacherMenuI").on("mouseout", function() {menuMouseOut("#TeacherMenuI","#TeacherMenuP")});
 
-    $("#LoginMenuI").on("mouseover", function() {menuMouseOver("#LoginMenuI","#LoginMenuP")});
-    $("#LoginMenuI").on("mouseout", function() {menuMouseOut("#LoginMenuI","#LoginMenuP")});
+    $("#ContactMenuI").on("mouseover", function() {menuMouseOver("#ContactMenuI","#ContactMenuP")});
+    $("#ContactMenuI").on("mouseout", function() {menuMouseOut("#ContactMenuI","#ContactMenuP")});
+
+    $("#LinkMenuI").on("mouseover", function() {menuMouseOver("#LinkMenuI","#LinkMenuP")});
+    $("#LinkMenuI").on("mouseout", function() {menuMouseOut("#LinkMenuI","#LinkMenuP")});
 
 
 
     function menuMouseOver(elementId,elementIdP){
         $(elementId).css("color","#cf152d");
+        $(elementId).css("cursor","pointer");
         $(elementId).animate({fontSize: '3em'}, "8s");
-        $(elementIdP).css("visibility","visible");
         $(elementIdP).css("color","#cf152d");
-        //$(elementIdP).animate({fontSize: '3em'}, "8s");
+        $(elementIdP).css("cursor","pointer");
     }
 
     function menuMouseOut(elementId,elementIdP){
         $(elementId).css("color","White");
+        $(elementId).css("cursor","pointer");
         $(elementId).animate({fontSize: '28px'}, "1ms");
-        $(elementIdP).css("visibility","hidden");
         $(elementIdP).css("color","White");
-        //$(elementIdP).animate({fontSize: '20px'}, "10s");   
+        $(elementIdP).css("cursor","pointer");
      }
 
 
+    //Put menu to sticky mode
+
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {myFunction()};
+
+    // Get the navbar
+    var navbar = document.getElementById("Menu");
+
+    // Get the offset position of the navbar
+    var sticky = navbar.offsetTop;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+     if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+    } else {
+     navbar.classList.remove("sticky");
+    }
+}
     //Navigation
-   /* $("#HomeMenuI").click(function() {
-        location.replace("Home.html");
+    $("#HomeMenuI").click(function() {
+        location.replace("Accueil.html");
     });
     $("#HomeMenuP").click(function() {
-        location.replace("Home.html");
+        location.replace("Accueil.html");
     });
 
 
-    $("#ForumMenuI").click(function() {
-        location.replace("Forum.html");
+    $("#ProgrammeMenuI").click(function() {
+        location.replace("Présentation_Programme.html");
     });
-    $("#ForumMenuP").click(function() {
-        location.replace("Forum.html");
-    });
-
-
-    $("#SearchMenuI").click(function() {
-        location.replace("Search.html");
-    });
-    $("#SearchMenuP").click(function() {
-        location.replace("Search.html");
+    $("#ProgrammeMenuP").click(function() {
+        location.replace("Présentation_Programme.html");
     });
 
 
-    $("#LoginMenuI").click(function() {
-        location.replace("Login.html");
+    $("#TeacherMenuI").click(function() {
+        location.replace("Enseignant.html");
     });
-    $("#LoginMenuP").click(function() {
-        location.replace("Login.html");
+    $("#TeacherMenuP").click(function() {
+        location.replace("Enseignant.html");
     });
-*/
+
+
+    $("#ContactMenuI").click(function() {
+        location.replace("Nous_Contacter.html");
+    });
+    $("#ContactMenuP").click(function() {
+        location.replace("Nous_Contacter.html");
+    });
+
+    
+    $("#LinkMenuI").click(function() {
+        location.replace("Lien_utile.html");
+    });
+    $("#LinkMenuP").click(function() {
+        location.replace("Lien_utile.html");
+    });
 
 </script>
 
