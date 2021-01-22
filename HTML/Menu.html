@@ -13,22 +13,16 @@
         
 
 <body>
-    <div id="Menu" class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
+    <div id="MenuOrdi" class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
 
         <div  class="row" style="text-align: center;justify-content: center;text-align: center;margin: 3%;">
-            <div  class="col-sm-1">
+            <div  class="col-sm-2">
                 <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département">    
             </div>
 
-            <div class="col-sm-11" style="text-align: center;justify-content: center;text-align: center;">
+            <div class="col-sm-10" style="text-align: center;justify-content: center;text-align: center;">
               <div class="row">
-
-
-                    <div Class="col PhoneMenu">
-                        <i id="PhoneMenuI" class="material-icons" style="visibility:hidden">menu</i>
-                        <p id="PhoneMenuP" style="visibility:hidden">Menu</p>
-                    </div>
-
+                  
                     <div class="col HomeMenu">
                         <i id="HomeMenuI" class="material-icons">home</i>
                         <p id="HomeMenuP" >Accueil</p>
@@ -106,7 +100,7 @@
     window.onscroll = function() {scrollMyPage()};
 
     // Get the navbar
-    var navbar = document.getElementById("Menu");
+    var navbar = document.getElementById("MenuOrdi");
 
     // Get the offset position of the navbar
     var sticky = navbar.offsetTop;
