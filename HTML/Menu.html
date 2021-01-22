@@ -13,36 +13,43 @@
         
 
 <body>
-<div id="Menu"class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
+<div id="MenuComplet"class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
 
-<div  class="row">
-    <div  class="col" style="text-align: left;align-content: left;justify-content: left; width: 25%;margin-left: 5%;">
+<div  class="row" style="text-align: center;justify-content: center;text-align: center;">
+    <div  class="col-sm-4" style="text-align: left;align-content: left;justify-content: left; width: 25%;margin-left: 5%;">
         <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département" style="padding: 15px;">    
     </div>
 
-    <div class="col HomeMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;justify-content: center;align-content: center;text-align: center;">
-        <i id="HomeMenuI" class="material-icons">home</i>
-        <p id="HomeMenuP" style="visibility:hidden;">Home</p>
+    <div class="col-sm-8" style="text-align: center;justify-content: center;text-align: center; padding-top:3.5%;">
+        <div class="row">
+            <div class="col HomeMenu" class="MenuOption">
+                <i id="HomeMenuI" class="material-icons">home</i>
+                <p id="HomeMenuP" style="visibility:hidden;">Home</p>
+            </div>
+            
+            <div class="col ForumMenu" class="MenuOption" >
+                <i id="ForumMenuI" class="material-icons">forum</i>
+                <p id="ForumMenuP" style="visibility:hidden;">Forum</p>
+            </div>
+            
+            <div class="col SearchMenu" class="MenuOption">
+                <i id="SearchMenuI" class="material-icons">search</i>
+                <p id="SearchMenuP" style="visibility:hidden;">Advanced search</p>
+            </div>
+            
+            <div class="col LoginMenu" class="MenuOption">
+                <i  id="LoginMenuI" class="material-icons">login</i>
+                <p id="LoginMenuP" style="visibility:hidden;">Login</p>
+            </div>
+        </div>
+       
     </div>
-    
-    <div class="col ForumMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
-        <i id="ForumMenuI" class="material-icons">forum</i>
-        <p id="ForumMenuP" style="visibility:hidden;">Forum</p>
-    </div>
-    
-    <div class="col SearchMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
-        <i id="SearchMenuI" class="material-icons">search</i>
-        <p id="SearchMenuP" style="visibility:hidden;">Advanced search</p>
-    </div>
-    
-    <div class="col LoginMenu" class="MenuOption" style="margin-left: 50px;margin-right: 50px;margin-top: 10px;">
-        <i  id="LoginMenuI" class="material-icons">login</i>
-        <p id="LoginMenuP" style="visibility:hidden;">Login</p>
-    </div>
+  
 </div>
 
     
 </div>
+
 </body>
 
 <script>
@@ -64,21 +71,40 @@
 
     function menuMouseOver(elementId,elementIdP){
         $(elementId).css("color","#cf152d");
+        $(elementId).css("cursor","pointer");
         $(elementId).animate({fontSize: '3em'}, "8s");
         $(elementIdP).css("visibility","visible");
         $(elementIdP).css("color","#cf152d");
-        //$(elementIdP).animate({fontSize: '3em'}, "8s");
     }
 
     function menuMouseOut(elementId,elementIdP){
         $(elementId).css("color","White");
+        $(elementId).css("cursor","pointer");
         $(elementId).animate({fontSize: '28px'}, "1ms");
         $(elementIdP).css("visibility","hidden");
         $(elementIdP).css("color","White");
-        //$(elementIdP).animate({fontSize: '20px'}, "10s");   
      }
 
 
+    //Put menu to sticky mode
+
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {myFunction()};
+
+    // Get the navbar
+    var navbar = document.getElementById("MenuComplet");
+
+    // Get the offset position of the navbar
+    var sticky = navbar.offsetTop;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+     if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+    } else {
+     navbar.classList.remove("sticky");
+    }
+}
     //Navigation
    /* $("#HomeMenuI").click(function() {
         location.replace("Home.html");
