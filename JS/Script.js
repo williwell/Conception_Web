@@ -11,18 +11,13 @@ function printCards(list) {
 					"</figure>"+
 					"<div class='card__header'>"+
 					"<figure class='card__profile'>"+
-						"<img src='../RESSOURCES/PHOTO_ENSEIGNANT/"+list[0][0]+".png' alt='author picture' width='25px' height='25px'>"+
+						"<img src='../RESSOURCES/PHOTO_ENSEIGNANT/"+list[i][0]+".png' alt='author picture' width='25px' height='25px'>"+
 					  "</figure>"+
 					"</div>"+
 					"<div class='card__body'>"+
-					  "<h3 class='card__name'>"+list[0][1]+' '+list[0][2]+"</h3>"+
-					  "<p class='card__job'>"+list[0][3]+"</p>"+
-                      "<p class='card__bio'>"+list[0][5]+"</p>"+
-                      "<p class='card__bio'>"+list[0][6]+" poste "+list[0][7]+"</p>"+
-					"</div>"+
-					"<div class='card__footer'>"+
-					  //"<p class='card__date'>"+list[0][5]+"</p><br>"+
-					  //"<p class='card__date'>"+list[0][6]+" poste "+list[0][7]+"</p>"+
+					  "<h3 class='card__name'>"+list[i][1]+' '+list[i][2]+"</h3>"+
+					  "<p class='card__job'>"+list[i][3]+"</p>"+
+                      "<p class='card__bio'>"+list[i][4]+"<br>"+list[i][5]+" poste "+list[i][6]+"</p>"+
 					"</div>"+
 				  "</div>"+
 				"</section>"
