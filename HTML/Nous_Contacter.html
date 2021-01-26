@@ -1,34 +1,86 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>Accueil</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/Style.css"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../CSS/Style.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        
+        <meta charset="utf-8" />
+        <meta name="author" content="Alexandra Sirois, William-Arthur Cinq-Mars, Mathieu Harvey">
+		<meta http-equiv="refresh" content="60">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nous Contacter</title>
     </head>
     <body>
         
         <div id="MenuBar"></div>
+<DIV style="margin-top:5%;">
 
+    <div id="BeginDiv" class="row" style="margin-left: 2%;">
+        <div class="col-md-12"><h1>Nous joindre</h1></div>
+    </div>
+    <div class="row" style="margin-top: 1%">
+        <div class="col-md-1"></div>
+        <div class="col-md-11"><h2>Adresse Civique</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10"><p>Cégep de Trois-Rivières<br>Pavillon des Sciences<br>3500 rue de Courval<br>Trois-Rivières (Québec) G9A 5E6<br>Localisation: <a href="https://www.google.com/maps/place/C%C3%A9gep+de+Trois-Rivi%C3%A8res/@46.3545694,-72.575121,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc7c8baf4e3b8b1:0x799f8b93d17aae1e!8m2!3d46.3545657!4d-72.5729323">Google Map</a></p></div>
+    </div>
+<!--
+    <div class="row" style="margin-top: 1%">
+        <div class="col-md-1"></div>
+        <div class="col-md-11"><h2>Adresse Postale</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10"><p>Cégep de Trois-Rivières<br>Pavillon des Sciences<br>3500 rue de Courval<br>Trois-Rivières (Québec) G9A 5E6</p></div>
+    </div>
+-->
+    <div class="row" style="margin-top: 1%">
+        <div class="col-md-1"></div>
+        <div class="col-md-11"><h2>Secrétariat du Cégep</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10"><p>Téléphone: (819) 376-1721<br>Télécopieur: (819) 693-8023</p></div>
+    </div>
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-md-1"></div>
+        <div class="col-md-11"><h2>Nous joindre par courriel</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10"><p>Veuillez remplir ce formulaire afin de communiquer avec nous par courriel</p></div>
+    </div>
+    <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+    <form>
+        <div class="col-md-10">
+        <label for="fname">Prénom</label><br>
+        <input type="text" id=fname name=fname></div>
+        <div class="col-md-10">
+        <label for="lname">Nom</label><br>
+        <input type="text" id=lname name=lname></div>
+        <label for="mail">Courriel</label><br>
+        <input type="text" id=mail name=mail><br>
+        <label for="text">Message</label><br>
+        <input type="text" id=text name=text><br>
+        <button>Envoyer</button>
+    </form>
+    </div>
+    </div>
+
+</DIV>
 
     </body>
 
 
 
     <script type="text/javascript">
-        function resize() {
-            if(screen.width>800){
-            jQuery('#MenuBar').load('Menu.html#MenuOrdi'); 
-            }
-            else{
-            jQuery('#MenuBar').load('MenuCell.html#MenuCell'); 
-            }
-        }
-        $(window).on("resize", resize);
-        resize(); // call once initially
-    
+        jQuery('#MenuBar').load('Menu.html#Menu'); 
         $('#MenuBar').css("padding-bottom","10%");
-        </script>
+    </script>
 </html>
