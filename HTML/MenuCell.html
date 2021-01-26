@@ -13,51 +13,72 @@
         
 
 <body>
-    <div id="MenuOrdi" class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;">
+    <div id="MenuCell" class="container-fluid" style="border: 0.5px solid white;background-color: #082969; color:white;width: 100%;">
 
-        <div  class="row" style="text-align: center;justify-content: center;text-align: center;margin: 3%;">
-            <div  class="col-sm-2">
-                <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département">    
+        <div  class="row" style="padding: 3%;">
+            <div  class="col" style="text-align: left;justify-content: center;align-content: center;padding-top: 2%;">
+                <img src="../RESSOURCES/logo département informatique small.png" alt="Icon_Département">    
             </div>
-
-            <div class="col-sm-10" style="text-align: center;justify-content: center;text-align: center;">
-              <div class="row">
-                  
-                    <div class="col HomeMenu">
-                        <i id="HomeMenuI" class="material-icons">home</i>
-                        <p id="HomeMenuP" >Accueil</p>
-                    </div>
             
-                    <div class="col ProgrammeMenu">
-                        <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
-                        <p id="ProgrammeMenuP" style="cursor: pointer;" >Le programme</p>
-                    </div>
-            
-                    <div class="col TeacherMenu">
-                        <i id="TeacherMenuI" class="material-icons">account_box</i>
-                        <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
-                    </div>
-            
-                    <div class="col ContactMenu">
-                        <i id="ContactMenuI" class="material-icons">book</i>
-                        <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
-                    </div>
-
-                    <div class="col LinkMenu">
-                        <i id="LinkMenuI" class="material-icons">link</i>
-                        <p id="LinkMenuP">Liens utiles</p>
-                    </div>
+            <div Class="col PhoneMenu" style="text-align: right;justify-content: right;align-content: right;">
+                <i id="PhoneMenuI" class="material-icons"  onclick="openNav()">menu</i>
+                <p id="PhoneMenuP"  onclick="openNav()">Menu</p>
             </div>
        
         </div>
   
     </div>
 
+    <div id="mySidenav" class="sidenav" style="display: none;height: 100%;width: 40%; position: fixed;z-index: 1;top: 0;right:0;background-color: #082969;color:white;overflow-x: hidden;align-content: center;justify-content: center;text-align: center; padding-top: 10%;">
+        <div class="col HomeMenu">
+            <i id="HomeMenuI" class="material-icons">home</i>
+            <p id="HomeMenuP" >Accueil</p>
+        </div>
+
+        <div class="col ProgrammeMenu">
+            <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
+            <p id="ProgrammeMenuP" style="cursor: pointer;" >Le programme</p>
+        </div>
+
+        <div class="col TeacherMenu">
+            <i id="TeacherMenuI" class="material-icons">account_box</i>
+            <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
+        </div>
+
+        <div class="col ContactMenu">
+            <i id="ContactMenuI" class="material-icons">book</i>
+            <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
+        </div>
+
+        <div class="col LinkMenu">
+            <i id="LinkMenuI" class="material-icons">link</i>
+            <p id="LinkMenuP">Liens utiles</p>
+        </div>
+
+        <div class="col CloseMenu">
+            <i id="CloseMenuI" class="material-icons" onclick="closeNav()" >close</i>
+            <p id="CloseMenuP" onclick="closeNav()">Fermer le menu</p>
+        </div>
+      </div>
+      
+      <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.display = "block";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.display = "none";
+      }
+      </script>
+
 </body>
 
 <script>
 
     //Add the animation
+    $("#PhoneMenuI").on("mouseover", function() {menuMouseOver("#PhoneMenuI","#PhoneMenuP")});
+    $("#PhoneMenuI").on("mouseout", function() {menuMouseOut("#PhoneMenuI","#PhoneMenuP")});
+
     $("#HomeMenuI").on("mouseover", function() {menuMouseOver("#HomeMenuI","#HomeMenuP")});
     $("#HomeMenuI").on("mouseout", function() {menuMouseOut("#HomeMenuI","#HomeMenuP")});
 
@@ -73,12 +94,14 @@
     $("#LinkMenuI").on("mouseover", function() {menuMouseOver("#LinkMenuI","#LinkMenuP")});
     $("#LinkMenuI").on("mouseout", function() {menuMouseOut("#LinkMenuI","#LinkMenuP")});
 
+    $("#CloseMenuI").on("mouseover", function() {menuMouseOver("#CloseMenuI","#CloseMenuP")});
+    $("#CloseMenuI").on("mouseout", function() {menuMouseOut("#CloseMenuI","#CloseMenuP")});
 
 
     function menuMouseOver(elementId,elementIdP){
         $(elementId).css("color","#cf152d");
         $(elementId).css("cursor","pointer");
-        $(elementId).animate({fontSize: '3em'}, "8s");
+        $(elementId).animate({fontSize: '2em'}, "8s");
         $(elementIdP).css("color","#cf152d");
         $(elementIdP).css("cursor","pointer");
     }
@@ -112,42 +135,38 @@
     }
 }
     //Navigation
-    $("#HomeMenuI").click(function() {
+   //Navigation
+   $("#HomeMenuI").click(function() {
         location.replace("Accueil.html");
     });
     $("#HomeMenuP").click(function() {
         location.replace("Accueil.html");
     });
-
-
     $("#ProgrammeMenuI").click(function() {
         location.replace("Présentation_Programme.html");
     });
     $("#ProgrammeMenuP").click(function() {
         location.replace("Présentation_Programme.html");
     });
-
-
     $("#TeacherMenuI").click(function() {
         location.replace("Enseignant.html");
     });
     $("#TeacherMenuP").click(function() {
         location.replace("Enseignant.html");
     });
-
     $("#ContactMenuI").click(function() {
         location.replace("Nous_Contacter.html");
     });
     $("#ContactMenuP").click(function() {
         location.replace("Nous_Contacter.html");
     });
-
     $("#LinkMenuI").click(function() {
         location.replace("Lien_utile.html");
     });
     $("#LinkMenuP").click(function() {
         location.replace("Lien_utile.html");
     });
+
 
 </script>
 
