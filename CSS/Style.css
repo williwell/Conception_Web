@@ -9,16 +9,3 @@
   .sticky + .content {
     padding-top: 60px;
   }
-
-
-  
-/*Version téléphone*/
-@media all and (max-width: 450px) {
-
-
-}
-
-@media all and (min-width: 450px) and (max-width: 1500px)
-{
-
-}

@@ -17,7 +17,17 @@
 
 
     <script type="text/javascript">
-        jQuery('#MenuBar').load('Menu.html#MenuOrdi');
-        $('#MenuBar').css("padding-bottom","10%"); 
-    </script>
+        function resize() {
+            if(screen.width>800){
+            jQuery('#MenuBar').load('Menu.html#MenuOrdi'); 
+            }
+            else{
+            jQuery('#MenuBar').load('MenuCell.html#MenuCell'); 
+            }
+        }
+        $(window).on("resize", resize);
+        resize(); // call once initially
+    
+        $('#MenuBar').css("padding-bottom","10%");
+        </script>
 </html>
