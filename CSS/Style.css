@@ -1,17 +1,45 @@
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
   
-  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-  .sticky + .content {
-    padding-top: 60px;
-  }
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
 
+a {
+  border: solid  rgba(238, 31, 31, 0.925);
+  border-radius: 10%;
+  font-size: large;
+}
 
-  
+/* unvisited link */
+a:link {
+  color:red;
+  text-decoration: none;
+  background-color: rgba(238, 31, 31, 0.925);
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: black;
+  background-color: white;
+  border: none;
+}
+
+/* selected link */
+a:active {
+  color: black;
+} 
+
 /*Version téléphone*/
 @media all and (max-width: 450px) {
 
