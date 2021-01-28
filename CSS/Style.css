@@ -11,50 +11,11 @@
 }
 
 
-  input{
+input{
 	font-size: 25px;
-  }
-  button{
-	width: 40px;height: 40px;
-  }
-
-  a {
-  border: solid  rgb(218, 26, 50);
-  border-radius: 10%;
-  font-size: xx-large;
 }
 
-/* unvisited link */
-a:link {
-  color:black;
-  text-decoration: none;
-  background-color: rgb(218, 26, 50);
-}
 
-/* visited link */
-a:visited {
-  color: black;
-}
-
-/* mouse over link */
-a:hover {
-  color: black;
-  background-color: white;
-}
-
-/* selected link */
-a:active {
-  color: black;
-}
-
-.sessionTitle {
-	color: #DA1A50;
-}
-
-/* session title*/
-h3 {
-	color: #DA1A50;
-}
 
 #MenuOrdi{
 	z-index: 5;
