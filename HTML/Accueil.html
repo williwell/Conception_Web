@@ -62,23 +62,8 @@
       <h3>Événements</h3>
     </div>
 
-    <div class="row" style="margin-left: 5%; margin-right: 5%;">
-      <div class="col-md-3">
-        <h5>Titre Événements 1</h5>
-        <h5>Date Événements 1</h5>
-      </div>
-      <div class="col-md-3">
-        <h5>Titre Événements 2</h5>
-        <h5>Date Événements 2</h5>
-      </div>
-      <div class="col-md-3">
-        <h5>Titre Événements 3</h5>
-        <h5>Date Événements 3</h5>
-      </div>
-      <div class="col-md-3">
-        <h5>Titre Événements 4</h5>
-        <h5>Date Événements 4</h5>
-      </div>
+    <div id="Event" class="row" style="margin-left: 5%; margin-right: 5%;">
+     
     </div>
   </body>
 
@@ -128,5 +113,19 @@
       dots[slideIndex-1].className += " active";
       captionText.innerHTML = dots[slideIndex-1].alt;
     }
+
+    $(document).ready(function () {
+      $.ajax({
+        url: "../PHP/GetEvent.php",
+        type: "POST",
+        dataType: "json",
+        success: function(result){
+          putEvent(result);
+        },
+        error: function (message, er) {
+          console.log("erreur lors du chargement des événements:" + er);
+        }
+      });
+    });
   </script>
 </html>

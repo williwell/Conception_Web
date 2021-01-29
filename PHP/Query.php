@@ -26,4 +26,19 @@ class Query
            return $lines;
        }
    }
+
+   function getEvent():array
+   {
+       $lines = array();
+       try {
+           $request = "SELECT * FROM event";
+           $result = $this->connexion->query($request);
+           $lines = $result->fetchAll();
+
+           return $lines;
+       }
+       catch(PDOException $e) {
+           return $lines;
+       }
+   }
 }
