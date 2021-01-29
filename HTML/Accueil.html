@@ -14,7 +14,7 @@
         
     <div id="MenuBar"></div>
 
-    <h1 style="margin: 5%; margin-top: 0%;">Département d'informatique du Cégep de Trois-Rivières</h1>
+    <h1 style="margin-left: 5%; margin-right: 5%; margin-bottom: 5%;">Département d'informatique du Cégep de Trois-Rivières</h1>
 
     <div class="container" style="width: 100%;">
       <!-- Full-width images with number text -->
@@ -44,17 +44,17 @@
 
     <div class="row" style="margin-left: 5%; margin-right: 5%;">
       <div class="col-md-4">
-      </div>
         <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
         <h5>Titre actualité 1</h5>
+      </div>
       <div class="col-md-4">
         <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
         <h5>Titre actualité 2</h5>
       </div>
       <div class="col-md-4">
         <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
-      </div>
         <h5>Titre actualité 3</h5>
+      </div>
     </div>
     <div class="row" style="margin-left: 5%; margin-top: 5%;">
 
@@ -67,7 +67,7 @@
     <div id="Footer"></div>
   </body>
 
-
+  <script src="../JS/Script.js"></script>
 
   <script type="text/javascript">
     function resize() {
@@ -107,6 +107,20 @@
       }
       slides[slideIndex-1].style.display = "block";
     }
+
+    $(document).ready(function () {
+      $.ajax({
+        url:"../PHP/GetActualite.php",
+        type: "POST",
+        dataType: "Json",
+        success:function(result){
+          putActualite(result);
+        },
+        error: function(message, er) {
+          console.log("erreur lors du chargment des actualités:" + er);
+        }
+      });
+    });
 
     $(document).ready(function () {
       $.ajax({
