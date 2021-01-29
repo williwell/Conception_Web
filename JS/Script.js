@@ -24,5 +24,17 @@ function printCards(list) {
 				"</section>"
 	  			);
 				
+	}
 }
+
+function putEvent(list) {
+	console.log("downloading book review: success");
+    for (var i = 0; i < list.length; i++) {
+					$("#Event").append("<div class='col-md-3'>"+
+					"<h5>Titre Événements 1</h5>"+
+					"<h5>Date Événements 1</h5>"+
+				  "</div>"
+	  			);
+				
+	}
 }
