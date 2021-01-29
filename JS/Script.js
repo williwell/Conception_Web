@@ -1,8 +1,8 @@
 function printCards(list) {
-	console.log("downloading book review: success");
+	console.log("téléchargement de la card des enseignant: success");
 	
     for (var i = 0; i < list.length; i++) {
-					$("#Teacher").append("<section class='wrapper'>"+
+					$("#Teacher").append("<div class='col'>"+
 					"<div class='card' data-effect='zoom'>"+
 					"<button class='card__save  js-save' type='button'>"+
 					  "<i class='fa  fa-bookmark'></i>"+
@@ -21,7 +21,7 @@ function printCards(list) {
                       "<p class='card__bio'>"+list[i][4]+"<br>"+list[i][5]+" poste "+list[i][6]+"</p>"+
 					"</div>"+
 				  "</div>"+
-				"</section>"
+				"</div>"
 	  			);
 				
 	}
