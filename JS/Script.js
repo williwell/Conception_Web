@@ -38,3 +38,7 @@ function putEvent(list) {
 				
 	}
 }
+
+function putActualite(list) {
+	
+}
