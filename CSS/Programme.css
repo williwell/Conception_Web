@@ -117,7 +117,7 @@
         width: 60%;
         height: 30%;
         margin: 2%;
-        border: 2px solid var(--hover-color);
+        border: 3px solid var(--hover-color);
         font-size: 15px;
         cursor: pointer;
         padding: 5%;
