@@ -31,7 +31,7 @@ class Query
    {
        $lines = array();
        try {
-           $request = "SELECT * FROM event";
+           $request = "SELECT * FROM events";
            $result = $this->connexion->query($request);
            $lines = $result->fetchAll();
 
