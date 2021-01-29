@@ -47,7 +47,6 @@
 	line-height: 1.2;
 	letter-spacing: 0.005rem;
 	-webkit-font-smoothing: subpixel-antialiased;
-	font-smoothing: subpixel-antialiased;
   }
   
   .wrapper {
@@ -55,7 +54,6 @@
 	grid-template-columns: repeat( auto-fit, 1fr );
 	grid-template-rows: auto;
 	grid-template-areas:
-	  "menu menu menu"
 	  ". card .";
 	width: 100vw;
 	min-height: 100vh;
@@ -63,49 +61,7 @@
 	padding-bottom: 40px;
   }
   
-  .menu {
-	grid-area: menu;
-	align-self: end;
-  }
-  
-  .menu__list {
-	text-align: center;
-  }
-  
-  .menu__item {
-	position: relative;
-	display: inline-block;
-	padding: 10px 20px;
-	font-size: var(--fontMedium);
-	font-weight: var(--fontRegular);
-	text-transform: uppercase;
-	color: #a9a9a9;
-	cursor: pointer;
-	-webkit-transition: all var(--speed) ease;
-	transition: all var(--speed) ease;
-  }
-  
-  .menu__item::after {
-	content: "";
-	display: block;
-	width: 0;
-	height: 2px;
-	margin-top: 6px;
-	background: rgba(100, 100, 250, 1);
-	-webkit-transition: all var(--speed) ease;
-	transition: all var(--speed) ease;
-  }
-  
-  .menu__item:hover {
-	color: rgba(150, 150, 255, 1);
-  }
-  .menu__item.active {
-	color: rgba(100, 100, 250, 1);
-  }
-  
-  .menu__item.active::after {
-	width: 100%;
-  }
+
   
   .card {
 	position: relative;
@@ -115,7 +71,7 @@
 	overflow: hidden;
 	display: block;
 	width: 100%;
-	max-width: 250px;
+	max-width: 350px;
 	height: 400px;
 	font-size: var(--fontOrigin);
 	border-radius: 8px;
