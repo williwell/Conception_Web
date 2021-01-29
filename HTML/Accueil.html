@@ -16,8 +16,7 @@
 
     <h1 style="margin: 5%; margin-top: 0%;">Département d'informatique du Cégep de Trois-Rivières</h1>
 
-    <div class="container">
-
+    <div class="container" style="width: 100%;">
       <!-- Full-width images with number text -->
       <div class="mySlides">
         <div class="numbertext">1 / 3</div>
@@ -45,26 +44,27 @@
 
     <div class="row" style="margin-left: 5%; margin-right: 5%;">
       <div class="col-md-4">
+      </div>
         <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
         <h5>Titre actualité 1</h5>
-      </div>
       <div class="col-md-4">
         <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
         <h5>Titre actualité 2</h5>
       </div>
       <div class="col-md-4">
         <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
-        <h5>Titre actualité 3</h5>
       </div>
+        <h5>Titre actualité 3</h5>
     </div>
-
     <div class="row" style="margin-left: 5%; margin-top: 5%;">
+
       <h3>Événements</h3>
     </div>
 
     <div id="Event" class="row" style="margin-left: 5%; margin-right: 5%;">
      
     </div>
+    <div id="Footer"></div>
   </body>
 
 
@@ -79,8 +79,9 @@
       }
     }
     $(window).on("resize", resize);
-    resize(); // call once initially
+    resize();
 
+    jQuery('#Footer').load('Footer.html#Footer'); 
     $('#MenuBar').css("padding-bottom","15%");
 
     var slideIndex = 1;

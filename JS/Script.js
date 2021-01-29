@@ -1,5 +1,6 @@
 function printCards(list) {
 	console.log("downloading book review: success");
+	
     for (var i = 0; i < list.length; i++) {
 					$("#Teacher").append("<section class='wrapper'>"+
 					"<div class='card' data-effect='zoom'>"+
