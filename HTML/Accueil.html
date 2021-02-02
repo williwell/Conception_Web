@@ -10,6 +10,14 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         
   </head>
+
+  <style>
+    
+
+  </style>
+
+
+
   <body>
         
     <div id="MenuBar"></div>
@@ -40,28 +48,14 @@
       <h3>Actualité</h3>
     </div>
 
-    <div class="row" style="margin-left: 5%; margin-right: 5%;">
-      <div class="col-md-4">
-        <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
-        <h5>Titre actualité 1</h5>
-      </div>
-      <div class="col-md-4">
-        <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
-        <h5>Titre actualité 2</h5>
-      </div>
-      <div class="col-md-4">
-        <img src="../RESSOURCES/photo test.jpg" style="width: 100%; height: 250px; border: solid black; border-width: thin;">
-        <h5>Titre actualité 3</h5>
-      </div>
-    </div>
-    <div class="row" style="margin-left: 5%; margin-top: 5%;">
+    <div id="Actu" class="row" style="margin-left: 5%; margin-right: 5%;"></div>
 
+    <div class="row" style="margin-left: 5%; margin-top: 5%;">
       <h3>Événements</h3>
     </div>
 
-    <div id="Event" class="row" style="margin-left: 5%; margin-right: 5%;">
-     
-    </div>
+    <div id="Event" class="row" style="margin-left: 5%; margin-right: 5%;"></div>
+
     <div id="Footer"></div>
   </body>
 
@@ -132,11 +126,15 @@
         dataType: "json",
         success: function(result){
           putEvent(result);
+          $('#EventClick').on('click', function() {
+            window.location = "https://www.cegeptr.qc.ca/futurs-etudiants/inscription/";
+          });
         },
         error: function (message, er) {
           console.log("erreur lors du chargement des événements:" + er);
         }
       });
     });
+
   </script>
 </html>
