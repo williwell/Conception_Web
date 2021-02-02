@@ -2,20 +2,19 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Accueil</title>
+        <title>Enseignant</title>
         <link rel="stylesheet" type="text/css" href="../CSS/Teacher.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        
     </head>
     <body>
         <div id="MenuBar"></div>
-        <div id="Teacher" class="row row-cols-2 row-cols-md-3 g-4"></div>
+        <div id="Teacher" class="row row-cols-2 row-cols-md-3 g-4 justify-content-center"></div>
         <div id="Footer"></div>
     </body>
 
-    <script src="../JS/Script.js"></script>
+
 
     <script type="text/javascript">
         function resize() {
@@ -32,7 +31,8 @@
         jQuery('#Footer').load('Footer.html#Footer'); 
     </script>
 
-        
+<script src="../JS/Script.js"></script>
+
     <script>
         $(document).ready(function () {
     		$.ajax({
