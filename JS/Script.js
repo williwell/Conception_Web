@@ -2,7 +2,7 @@ function printCards(list) {
 	console.log("téléchargement de la card des enseignant: success");
 	
     for (var i = 0; i < list.length; i++) {
-					$("#Teacher").append("<div class='col'>"+
+					$("#Teacher").append("<div class='col-xl justify-content-center align-items-center' style='display:flex;'>"+
 					"<div class='card' data-effect='zoom'>"+
 					"<button class='card__save  js-save' type='button'>"+
 					  "<i class='fa  fa-bookmark'></i>"+

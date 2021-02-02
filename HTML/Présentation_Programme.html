@@ -15,10 +15,10 @@
 
 <body>
     <div id="MenuBar" ></div>
-
-<div style=" margin-top: 5%;">
+    <div id="Banner"> </div>
+<div style=" margin-top: 2%;">
     <div id="BeginDiv" class="row" style="margin-left: 2%; border-left: solid black; border-bottom: solid black;">
-        <div class="col-md-12"><h1>Techniques de l'informatique</h1></div>
+        
 <div class="row" style="margin-top: 1%">
     <div class="col-md-1"></div>
     <div class="col-md-11"><h2>Présentation du programme</h2></div>
@@ -303,6 +303,14 @@
 
     $("#lienGrille").on('click', function() {
         window.location = "https://athena-portail.cegeptr.qc.ca/Grille/Index?programmeP=420B0";
+    });
+
+    $(document).ready(function () {
+                $('#Banner').load('Banner.html#Banner',function(){
+                $('#PremierMot').text("Technique"); 
+                $('#DeuxiemeMot').text("de l'informatique"); 
+            }); 
+     
     });
 
 </script>
