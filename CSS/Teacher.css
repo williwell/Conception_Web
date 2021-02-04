@@ -48,29 +48,12 @@
 	letter-spacing: 0.005rem;
 	-webkit-font-smoothing: subpixel-antialiased;
   }
-  
-  .wrapper {
-	width: 100%;
-	min-height: 100%;
-	padding-top: 40px;
-	padding-bottom: 40px;
-  }
 
-  .center{
-	align-content: center;
-	justify-content: center;
-	text-align: center; 
-  }
-  
-
-  
   .card {
-	position: relative;
-	grid-area: card;
+	display:flex;
 	align-self: center;
 	justify-self: center;
 	overflow: hidden;
-	display: block;
 	width: 100%;
 	max-width: 350px;
 	height: 400px;

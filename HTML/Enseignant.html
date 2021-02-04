@@ -10,7 +10,8 @@
     </head>
     <body>
         <div id="MenuBar"></div>
-        <div id="Teacher" class="row row-cols-2 row-cols-md-3 g-4 justify-content-center"></div>
+        <div id="Banner"> </div>
+        <div id="Teacher" class="row row-cols-1 row-cols-md-3 g-4 justify-content-center align-items-center" style="margin-top:4% ;"></div>
         <div id="Footer"></div>
     </body>
 
@@ -28,13 +29,19 @@
         $(window).on("resize", resize);
         resize(); // call once initially
 
-        jQuery('#Footer').load('Footer.html#Footer'); 
+    
     </script>
 
 <script src="../JS/Script.js"></script>
 
     <script>
         $(document).ready(function () {
+            $('#Footer').load('Footer.html#Footer'); 
+            $('#Banner').load('Banner.html#Banner',function(){
+                $('#PremierMot').text("Les"); 
+                $('#DeuxiemeMot').text("Enseignants"); 
+            }); 
+          
     		$.ajax({
                 url: "../PHP/GetEnseignant.php",
                 type: "POST",

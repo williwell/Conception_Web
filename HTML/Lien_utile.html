@@ -13,14 +13,10 @@
     <body>
         
         <div id="MenuBar"></div>
+        <div id="Banner"> </div>
         <div style="display: flex;flex-direction: row;">
         <DIV style="width:50%">
 
-            <div id="BeginDiv" class="row" style="margin-left: 2%;">
-                <div class="col-md-1"></div>
-                <div class="col-md-11"><h1>Liens utiles</h1></div>
-            </div>
-            <br>
             <div class="row" style="margin-top: 1%">
                 <div class="col-md-4"></div>
                 <div class="col-md-6"><h2>Catégories</h2></div>
@@ -60,8 +56,15 @@
         }
         $(window).on("resize", resize);
         resize(); // call once initially
-    
-        $('#MenuBar').css("padding-bottom","10%");
         jQuery('#Footer').load('Footer.html#Footer'); 
+
+        $(document).ready(function () {
+                $('#Banner').load('Banner.html#Banner',function(){
+                $('#PremierMot').text("Liens"); 
+                $('#DeuxiemeMot').text("Utiles"); 
+                $('#Banner').css("margin-bottom","5%")
+            }); 
+    
+        });
         </script>
 </html>
