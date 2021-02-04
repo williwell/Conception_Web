@@ -13,7 +13,7 @@
         
 
 <body>
-    <div id="MenuCell" class="container-fluid"  style="border: 0.5px solid #0d3d9a;background-color: #082969; color:white;    box-shadow: 2px 2px 5px #0d3d9a;">
+    <div id="MenuCell" class="container-fluid"  style="background-image: linear-gradient( #0c3a94, #082969);  color:white;">
 
         <div  class="row" style="padding: 3%;">
             <div  class="col" style="text-align: left;justify-content: center;align-content: center;padding-top: 2%;">
@@ -29,11 +29,22 @@
   
     </div>
 
-    <div id="mySidenav" class="sidenav" style="display: none;height: 100%;width: 40%; position: fixed;z-index: 1;top: 0;right:0;background-color: #082969;color:white;overflow-x: hidden;align-content: center;justify-content: center;text-align: center; padding-top: 10%;">
+    <div id="mySidenav" class="sidenav" style="display: none;height: 100%;width: 40%; position: fixed;z-index: 1;top: 0;right:0;background-image: linear-gradient( #0c3a94, #082969); color:white;overflow-x: hidden;align-content: center;justify-content: center;text-align: center; padding-top: 10%;">
         <div class="col HomeMenu">
             <i id="HomeMenuI" class="material-icons">home</i>
             <p id="HomeMenuP" >Accueil</p>
         </div>
+        
+        <div class="col ActualiteMenu">
+            <i id="ActualiteMenuI" class="material-icons">announcement</i>
+            <p id="ActualiteMenuP" style="cursor: pointer;" >Actualité</p>
+        </div>
+
+        <div class="col EventMenu">
+            <i id="EventMenuI" class="material-icons">event_note</i>
+            <p id="EventMenuP" style="cursor: pointer;">Événement</p>
+        </div>
+
 
         <div class="col ProgrammeMenu">
             <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
@@ -82,6 +93,12 @@
     $("#HomeMenuI").on("mouseover", function() {menuMouseOver("#HomeMenuI","#HomeMenuP")});
     $("#HomeMenuI").on("mouseout", function() {menuMouseOut("#HomeMenuI","#HomeMenuP")});
 
+    $("#ActualiteMenuI").on("mouseover", function() {menuMouseOver("#ActualiteMenuI","#ActualiteMenuP")});
+    $("#ActualiteMenuI").on("mouseout", function() {menuMouseOut("#ActualiteMenuI","#ActualiteMenuP")});
+
+    $("#EventMenuI").on("mouseover", function() {menuMouseOver("#EventMenuI","#EventMenuP")});
+    $("#EventMenuI").on("mouseout", function() {menuMouseOut("#EventMenuI","#EventMenuP")});
+
     $("#ProgrammeMenuI").on("mouseover", function() {menuMouseOver("#ProgrammeMenuI","#ProgrammeMenuP")});
     $("#ProgrammeMenuI").on("mouseout", function() {menuMouseOut("#ProgrammeMenuI","#ProgrammeMenuP")});
 
@@ -115,25 +132,6 @@
      }
 
 
-    //Put menu to sticky mode
-
-    // When the user scrolls the page, execute myFunction
-    window.onscroll = function() {scrollMyPage()};
-
-    // Get the navbar
-    var navbar = document.getElementById("MenuOrdi");
-
-    // Get the offset position of the navbar
-    var sticky = navbar.offsetTop;
-
-    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function scrollMyPage() {
-     if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-    } else {
-     navbar.classList.remove("sticky");
-    }
-}
     //Navigation
    //Navigation
    $("#HomeMenuI").click(function() {
@@ -141,6 +139,20 @@
     });
     $("#HomeMenuP").click(function() {
         location.replace("Accueil.html");
+    });
+    
+    $("#ActualiteMenuI").click(function() {
+        location.replace("Actualite.html");
+    });
+    $("#ActualiteMenuP").click(function() {
+        location.replace("Actualite.html");
+    });
+
+    $("#EventMenuI").click(function() {
+        location.replace("Event.html");
+    });
+    $("#EventMenuP").click(function() {
+        location.replace("Event.html");
     });
     $("#ProgrammeMenuI").click(function() {
         location.replace("Présentation_Programme.html");

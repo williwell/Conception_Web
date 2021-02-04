@@ -12,45 +12,58 @@
     </head>
         
 <body>
-    <div id="MenuOrdi" class="container-fluid" style="border: 0.5px solid #082969;background-color: #082969; color:white;">
 
-        <div  class="row" style="text-align: center;justify-content: center;text-align: center;margin: 3%;">
-            <div  class="col-sm-2">
-                <img src="../RESSOURCES/logo département informatique.png" alt="Icon_Département">    
+    <nav class="navbar sticky-top navbar-light bg-light" style="margin-bottom: 0%;">
+            <div id="MenuOrdi" class="container-fluid" style="background-image: linear-gradient( #0c3a94, #082969); color:white;width: 100%;">
+                <div  class="row justify-content-evenly" style="text-align: center;justify-content: center;text-align: center;margin: 3%;margin-bottom:0%;width: 100%;">
+
+                            <div class="col">
+                                <img src="../RESSOURCES/logo département informatique.png" alt="">
+                            </div>
+
+                            <div class="col HomeMenu">
+                                <i id="HomeMenuI" class="material-icons">home</i>
+                                <p id="HomeMenuP" style="cursor: pointer;">Accueil</p>
+                            </div>
+        
+                            <div class="col ActualiteMenu">
+                                <i id="ActualiteMenuI" class="material-icons">announcement</i>
+                                <p id="ActualiteMenuP" style="cursor: pointer;" >Actualité</p>
+                            </div>
+        
+                            <div class="col EventMenu">
+                                <i id="EventMenuI" class="material-icons">event_note</i>
+                                <p id="EventMenuP" style="cursor: pointer;">Événement</p>
+                            </div>
+                    
+                            <div class="col ProgrammeMenu">
+                                <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
+                                <p id="ProgrammeMenuP" style="cursor: pointer;" >Le programme</p>
+                            </div>
+                    
+                            <div class="col TeacherMenu">
+                                <i id="TeacherMenuI" class="material-icons">account_box</i>
+                                <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
+                            </div>
+                    
+                            <div class="col ContactMenu">
+                                <i id="ContactMenuI" class="material-icons">book</i>
+                                <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
+                            </div>
+        
+                            <div class="col LinkMenu">
+                                <i id="LinkMenuI" class="material-icons">link</i>
+                                <p id="LinkMenuP">Liens utiles</p>
+                            </div>
+                    </div>
+               
+                </div>
+          
             </div>
+      </nav>
 
-            <div class="col-sm-10" style="text-align: center;justify-content: center;text-align: center;">
-              <div class="row">
-                  
-                    <div class="col HomeMenu">
-                        <i id="HomeMenuI" class="material-icons">home</i>
-                        <p id="HomeMenuP" >Accueil</p>
-                    </div>
-            
-                    <div class="col ProgrammeMenu">
-                        <i id="ProgrammeMenuI" class="material-icons">view_quilt</i>
-                        <p id="ProgrammeMenuP" style="cursor: pointer;" >Le programme</p>
-                    </div>
-            
-                    <div class="col TeacherMenu">
-                        <i id="TeacherMenuI" class="material-icons">account_box</i>
-                        <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
-                    </div>
-            
-                    <div class="col ContactMenu">
-                        <i id="ContactMenuI" class="material-icons">book</i>
-                        <p id="ContactMenuP" style="cursor: pointer;" >Nous contacter</p>
-                    </div>
 
-                    <div class="col LinkMenu">
-                        <i id="LinkMenuI" class="material-icons">link</i>
-                        <p id="LinkMenuP">Liens utiles</p>
-                    </div>
-            </div>
-       
-        </div>
-  
-    </div>
+   
 
 </body>
 
@@ -59,6 +72,12 @@
     //Add the animation
     $("#HomeMenuI").on("mouseover", function() {menuMouseOver("#HomeMenuI","#HomeMenuP")});
     $("#HomeMenuI").on("mouseout", function() {menuMouseOut("#HomeMenuI","#HomeMenuP")});
+
+    $("#ActualiteMenuI").on("mouseover", function() {menuMouseOver("#ActualiteMenuI","#ActualiteMenuP")});
+    $("#ActualiteMenuI").on("mouseout", function() {menuMouseOut("#ActualiteMenuI","#ActualiteMenuP")});
+
+    $("#EventMenuI").on("mouseover", function() {menuMouseOver("#EventMenuI","#EventMenuP")});
+    $("#EventMenuI").on("mouseout", function() {menuMouseOut("#EventMenuI","#EventMenuP")});
 
     $("#ProgrammeMenuI").on("mouseover", function() {menuMouseOver("#ProgrammeMenuI","#ProgrammeMenuP")});
     $("#ProgrammeMenuI").on("mouseout", function() {menuMouseOut("#ProgrammeMenuI","#ProgrammeMenuP")});
@@ -71,7 +90,6 @@
 
     $("#LinkMenuI").on("mouseover", function() {menuMouseOver("#LinkMenuI","#LinkMenuP")});
     $("#LinkMenuI").on("mouseout", function() {menuMouseOut("#LinkMenuI","#LinkMenuP")});
-
 
 
     function menuMouseOver(elementId,elementIdP){
@@ -90,27 +108,7 @@
         $(elementIdP).css("cursor","pointer");
      }
 
-/*
-    //Put menu to sticky mode
 
-    // When the user scrolls the page, execute myFunction
-    window.onscroll = function() {scrollMyPage()};
-
-    // Get the navbar
-    var navbar = document.getElementById("MenuOrdi");
-
-    // Get the offset position of the navbar
-    var sticky = navbar.offsetTop;
-
-    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function scrollMyPage() {
-     if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-    } else {
-     navbar.classList.remove("sticky");
-    }
-}
-*/
     //Navigation
     $("#HomeMenuI").click(function() {
         location.replace("Accueil.html");
@@ -119,6 +117,19 @@
         location.replace("Accueil.html");
     });
 
+    $("#ActualiteMenuI").click(function() {
+        location.replace("Actualite.html");
+    });
+    $("#ActualiteMenuP").click(function() {
+        location.replace("Actualite.html");
+    });
+
+    $("#EventMenuI").click(function() {
+        location.replace("Event.html");
+    });
+    $("#EventMenuP").click(function() {
+        location.replace("Event.html");
+    });
 
     $("#ProgrammeMenuI").click(function() {
         location.replace("Présentation_Programme.html");
