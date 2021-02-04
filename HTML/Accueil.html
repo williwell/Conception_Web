@@ -109,6 +109,9 @@
         dataType: "Json",
         success:function(result){
           putActualite(result);
+          $('#ActuClick').on('click', function() {
+            window.location = "https://www.cegeptr.qc.ca/futurs-etudiants/inscription/";
+          });
         },
         error: function(message, er) {
           console.log("erreur lors du chargment des actualités:" + er);
@@ -124,7 +127,7 @@
         success: function(result){
           putEvent(result);
           $('#EventClick').on('click', function() {
-            window.location = "https://www.cegeptr.qc.ca/futurs-etudiants/inscription/";
+            window.location = "https://www.cegeptr.qc.ca/futurs-etudiants/inscription/"; //A changer
           });
         },
         error: function (message, er) {
