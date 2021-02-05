@@ -56,4 +56,19 @@ class Query
            return $lines;
        }
    }
+
+   function getActualite():array
+   {
+       $lines = array();
+       try {
+           $request = "SELECT * FROM actualite Order by noActualite Desc";
+           $result = $this->connexion->query($request);
+           $lines = $result->fetchAll();
+
+           return $lines;
+       }
+       catch(PDOException $e) {
+           return $lines;
+       }
+   }
 }

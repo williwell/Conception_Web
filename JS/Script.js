@@ -49,3 +49,7 @@ function putActualite(list) {
 		  "</div>");
 	}
 }
+
+function putActualiteDetail(list) {
+	console.log("downloading news detail")
+}
