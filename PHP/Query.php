@@ -57,7 +57,7 @@ class Query
        }
    }
 
-   function getActualite():array
+   function getActualiteDetail():array
    {
        $lines = array();
        try {
