@@ -31,10 +31,10 @@ DROP TABLE IF EXISTS `actualite`;
 CREATE TABLE IF NOT EXISTS `actualite` (
   `noActualite` int NOT NULL AUTO_INCREMENT,
   `titreActualite` text NOT NULL,
-  `TexteActu` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `TexteActu` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `photoActu` varchar(75) NOT NULL,
   PRIMARY KEY (`noActualite`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `actualite`
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `enseignant` (
   `Téléphone` varchar(14) DEFAULT NULL,
   `Poste` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`Matricule`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `enseignant`
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `dateE` date NOT NULL,
   `link` varchar(150) NOT NULL,
   PRIMARY KEY (`noEvent`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `events`
