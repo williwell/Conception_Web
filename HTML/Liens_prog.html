@@ -15,10 +15,11 @@
         <div id="Banner"> </div>
         <div id="BeginDiv" class="row" style="margin-left: 2%;">
             <div class="col-md-1"></div>
-            <div class="col-md-11"><h1>Apprendre à programmer</h1></div>
         </div>
         <DIV style="margin-top:5%;">
-            <div class=row  id="Link"></div>
+            <div class=row  id="Link">
+                
+            </div>
         </DIV>
         <div id="Footer"></div>
     </body>
@@ -46,8 +47,8 @@
         $(document).ready(function () {
             $('#Footer').load('Footer.html#Footer'); 
             $('#Banner').load('Banner.html#Banner',function(){
-                $('#PremierMot').text("Annonces"); 
-                $('#DeuxiemeMot').text("des Étudiants"); 
+                $('#PremierMot').text("Apprendre"); 
+                $('#DeuxiemeMot').text("à Programmer"); 
             }); 
           
     		$.ajax({

@@ -34,7 +34,8 @@ function printProg(list){
 		if(list[i][1]=="Prog"){
 					$("#Link").append(
 					"<div class='col-md-2'></div>"+
-					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'><div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
+					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'>"
+					+"<div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
 					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
 					+"<div class='col-md-3'></div>"
 				  );

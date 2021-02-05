@@ -72,11 +72,11 @@ class Query
        }
    }
 
-    function getLiens():array
+    function getLink():array
     {
         $lines = array();
        try {
-           $request = "SELECT * FROM Liens";
+           $request = "SELECT * FROM liens";
            $result = $this->connexion->query($request);
            $lines = $result->fetchAll();
 
