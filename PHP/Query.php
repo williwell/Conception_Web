@@ -7,7 +7,7 @@ class Query
 
     public function __construct()
     {
-        $constants = new ConnectionDB();
+        $constants = new ConnexionDB();
         $this->connexion = $constants->getConnexion();
     }
 
