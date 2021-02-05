@@ -12,19 +12,15 @@
     <body>
         
         <div id="MenuBar"></div>
+        <div id="Banner"> </div>
         <div id="BeginDiv" class="row" style="margin-left: 2%;">
             <div class="col-md-1"></div>
             <div class="col-md-11"><h1>Apprendre à programmer</h1></div>
         </div>
         <DIV style="margin-top:5%;">
-            <!--Début du div d'un lien-->
-            <div class=row style="height:25px">
-                <div class="col-md-2"></div>
-                <a class="col-md-7" style="text-decoration: none;color: black;display: flex;flex-direction: row;"href="google.com"><div style="width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;" id="Description"><p>Ici on inscrit la description du lien</p></div>
-                <div style="width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;" id="nom"><p>Nom de la personne</p></div></a>
-            </div>
-            <!--Fin du div d'un lien-->
+            <div class=row  id="Link"></div>
         </DIV>
+        <div id="Footer"></div>
     </body>
 
 
@@ -40,7 +36,31 @@
         }
         $(window).on("resize", resize);
         resize(); // call once initially
+
     
-        $('#MenuBar').css("padding-bottom","10%");
-        </script>
+    </script>
+
+    <script src="../JS/Script.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#Footer').load('Footer.html#Footer'); 
+            $('#Banner').load('Banner.html#Banner',function(){
+                $('#PremierMot').text("Annonces"); 
+                $('#DeuxiemeMot').text("des Étudiants"); 
+            }); 
+          
+    		$.ajax({
+                url: "../PHP/GetLiens.php",
+                type: "POST",
+                dataType: "json",
+                success: function(result){
+                    printProg(result);
+                },
+                error: function (message, er) {
+                    console.log("erreur lors du chargement du profil des enseignants:" + er);
+                }
+            });
+        });
+    </script>
 </html>

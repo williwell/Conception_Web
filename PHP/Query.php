@@ -57,7 +57,7 @@ class Query
        }
    }
 
-   function getActualite():array
+   function getActualiteDetail():array
    {
        $lines = array();
        try {
@@ -71,4 +71,19 @@ class Query
            return $lines;
        }
    }
+
+    function getLiens():array
+    {
+        $lines = array();
+       try {
+           $request = "SELECT * FROM Liens";
+           $result = $this->connexion->query($request);
+           $lines = $result->fetchAll();
+
+           return $lines;
+       }
+       catch(PDOException $e) {
+           return $lines;
+       }
+    }
 }
