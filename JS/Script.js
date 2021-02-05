@@ -89,12 +89,21 @@ function putActualite(list) {
 	console.log("downloading book review: success");
 	for(var i=0; i < list.length; i++) {
 		$('#Actu').append("<div class='col-md-4'>"+
-        "<img src='"+list[i][3]+"' style='width: 100%; height: 250px; border: solid black; border-width: thin;'>"+
+		"<img src='"+list[i][3]+
+		"' style='width: 100%; height: 250px; border: solid black; border-width: thin;'>"+
         "<h5>"+list[i][1]+"</h5>"+
-		  "</div>");
+		"</div>");
 	}
 }
 
 function putActualiteDetail(list) {
-	console.log("downloading news detail")
+	console.log("downloading news detail");
+	for(var i=0; i < list.length; i++) {
+		$('#Actualite').append(
+			"<div class='col-md-4'>"+
+				"<img src='"+list[i][3]+"'style='width: 100%; height: 250px; border: solid black; border-width: thin;'>"+
+			"</div>"+
+			"<div class='col-md-8'>"+
+				"<p>"+list[i][1]);
+	}
 }

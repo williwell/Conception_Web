@@ -2,7 +2,7 @@ function printCardsAdmin(list) {
 	console.log("téléchargement de la card des enseignant: success");
 	
     for (var i = 0; i < list.length; i++) {
-					$("#Teacher").append("<div id='"+list[i][0]+"' class='col-xl justify-content-center align-items-center' style='display:flex;'  onclick='modifyTeacher("+list+","+i+")'>"+
+					$("#Teacher").append("<div id='"+list[i][0]+"' class='col-xl justify-content-center align-items-center' style='display:flex;'>"+
 					"<div class='card' data-effect='zoom'>"+
 					"<button class='card__save  js-save' type='button'>"+
 					  "<i class='fa  fa-bookmark'></i>"+
@@ -22,15 +22,12 @@ function printCardsAdmin(list) {
 					"</div>"+
 				  "</div>"+
 				"</div>"
-	  			);
+				  );
+				  var id="#"+list[i][0];
+				  $(id).click(function() {
+					  location.replace("Menu.html");
+				  });
     }
-    var id="#"+list[i][0];
-    $(id).click(function() {
-        location.replace("Menu.html");
-    });
+   
 
-}
-
-function modifyTeacher(list,i){
-alert("bruh");
 }
