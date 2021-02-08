@@ -55,10 +55,15 @@ function putActualiteDetail(list) {
 	console.log("downloading news detail");
 	for(var i=0; i < list.length; i++) {
 		$('#Actualite').append(
-			"<div class='col-md-4'>"+
-				"<img src='"+list[i][3]+"'style='width: 100%; height: 250px; border: solid black; border-width: thin;'>"+
-			"</div>"+
-			"<div class='col-md-8'>"+
-				"<p>"+list[i][1]);
+			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
+				"<div class='col-md-4'>"+
+					"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+				"</div>"+
+				"<div class='col-md-8'>"+
+					"<h3>"+list[i][1]+"</h3>"+
+					"<p>"+list[i][2]+"</p>"+
+				"</div>"+
+			"</div>"
+		);
 	}
 }
