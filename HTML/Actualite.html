@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Actualité</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../CSS/Style.css"/>
+  <head>
+    <meta charset="utf-8">
+    <title>Actualité</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../CSS/Style.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  </head>
 
-    </head>
+  <body>
+    <div id="MenuBar"></div>
+    <div id="Banner"> </div>
+    <div id='Actualite' class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+      <h2>Les desrnières actualités</h2>
+    </div>
+    <div id="Footer"></div>
+  </body>
 
-    <body>
-        <div id='Actualite' class="row" style="margin-left: 5%; margin-right: 5%;"></div>
+  <script src="../JS/Script.js"></script>
 
-    </body>
+  <script>
+    function resize() {
+      if(screen.width>800){
+        jQuery('#MenuBar').load('Menu.html#MenuOrdi'); 
+      }
+      else{
+        jQuery('#MenuBar').load('MenuCell.html#MenuCell'); 
+      }
+    }
+    $(window).on("resize", resize);
+    resize();
 
-    <script>
-      $(document).ready(function () {
-        $.ajax({
-          url:"../PHP/GetActualiteDetail.php",
-          type: "POST",
-          dataType: "Json",
-          success:function(result){
-            putActualiteDetail(result);
-          },
-          error: function(message, er) {
-            console.log("erreur lors du chargment des actualités:" + er);
-          }
-        });
+    jQuery('#Footer').load('Footer.html#Footer'); 
+
+    $(document).ready(function () {
+      $('#Banner').load('Banner.html#Banner',function(){
+        $('#PremierMot').text("Département d'informatique"); 
+        $('#DeuxiemeMot').text("du Cégep de Trois-Rivières"); 
       });
-    </script>
+      $.ajax({
+        url:"../PHP/GetActualiteDetail.php",
+        type: "POST",
+        dataType: "Json",
+        success:function(result){
+          putActualiteDetail(result);
+        },
+        error: function(message, er) {
+          console.log("erreur lors du chargment des actualités:" + er);
+        }
+      });
+    });
+  </script>
     
 </html>

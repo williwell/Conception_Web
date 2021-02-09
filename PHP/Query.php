@@ -61,7 +61,7 @@ class Query
    {
        $lines = array();
        try {
-           $request = "SELECT * FROM actualite Order by noActualite Desc";
+           $request = "SELECT * FROM actualite Order by noActualite Desc limit 20";
            $result = $this->connexion->query($request);
            $lines = $result->fetchAll();
 
@@ -86,4 +86,31 @@ class Query
            return $lines;
        }
     }
+
+   function getConnexion():array
+   {
+       $lines = array();
+       try {
+           $request = "SELECT * FROM compte";
+           $result = $this->connexion->query($request);
+           $lines = $result->fetchAll();
+
+           return $lines;
+       }
+       catch(PDOException $e) {
+           return $lines;
+       }
+   }
+
+   function creerComtpe($User,$Mdp):String
+   {
+       try{
+           $request = "insert into compte values($User,$Mdp)";
+           $result = $this->connexion->query($request);
+           return $result;
+       }
+       catch(PDOException $e) {
+           return $result;
+       }
+   }
 }
