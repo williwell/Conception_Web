@@ -74,7 +74,7 @@ function printAnnonces(list){
 }
 
 function putEvent(list) {
-	console.log("downloading book review: success");
+	console.log("downloading event: success");
     for (var i = 0; i < list.length; i++) {
 					$("#Event").append("<div id='EventClick' class='col-md-3'>"+
 					"<h5 style='cursor: pointer;'>"+list[i][1]+"</h5>"+
@@ -82,6 +82,25 @@ function putEvent(list) {
 				  "</div>"
 	  			);
 				
+	}
+}
+
+function putEventDetail(list) {
+	console.log("downloading event detail");
+	for(var i=0; i < list.length; i++) {
+		$('#Event').append(
+			"<a href='"+list[i][3]+"'>"+
+			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
+				"<div class='col-md-4'>"+
+					//"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+				"</div>"+
+				"<div class='col-md-8'>"+
+					"<h3>"+list[i][1]+"</h3>"+
+					"<p>"+list[i][2]+"</p>"+
+				"</div>"+
+			"</div>"+
+			"</a>"
+		);
 	}
 }
 
@@ -101,10 +120,16 @@ function putActualiteDetail(list) {
 	console.log("downloading news detail");
 	for(var i=0; i < list.length; i++) {
 		$('#Actualite').append(
-			"<div class='col-md-4'>"+
-				"<img src='"+list[i][3]+"'style='width: 100%; height: 250px; border: solid black; border-width: thin;'>"+
-			"</div>"+
-			"<div class='col-md-8'>"+
-				"<p>"+list[i][1]);
+			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
+				"<div class='col-md-4'>"+
+					"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+				"</div>"+
+				"<div class='col-md-8'>"+
+					"<h3>"+list[i][1]+"</h3>"+
+					"<p>"+list[i][2]+"</p>"+
+				"</div>"+
+			"</div>"
+		);
 	}
 }
+

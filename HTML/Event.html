@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Évènements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../CSS/Style.css"/>
+    <link rel="stylesheet" type="text/css" href="../CSS/Calendrier.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div id="MenuBar"></div>
+    <div id="Banner"> </div>
+    <div id='Event' class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+      <h2>Les prochains évènements</h2>
+    </div>
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-9" id=calendrier>
+  <div id=title style="display:flex;flex-direction: row;">
+    <div id=mois>
+      <select id="select-mois" onchange="change()">
+        <option value=0>Janvier</option>
+        <option value=1>Février</option>
+        <option value=2>Mars</option>
+        <option value=3>Avril</option>
+        <option value=4>Mai</option>
+        <option value=5>Juin</option>
+        <option value=6>Juillet</option>
+        <option value=7>Août</option>
+        <option value=8>Septembre</option>
+        <option value=9>Octobre</option>
+        <option value=10>Novembre</option>
+        <option value=11>Décembre</option>
+      </select>
+      <select id="select-year" onchange="change()">
+        <option value=0>2011</option>
+        <option value=1>2012</option>
+        <option value=2>2013</option>
+        <option value=3>2014</option>
+        <option value=4>2015</option>
+        <option value=5>2016</option>
+        <option value=6>2017</option>
+        <option value=7>2018</option>
+        <option value=8>2019</option>
+        <option value=9>2020</option>
+        <option value=10>2021</option>
+        <option value=11>2022</option>
+        <option value=12>2023</option>
+        <option value=13>2024</option>
+        <option value=14>2025</option>
+        <option value=15>2026</option>
+        <option value=16>2027</option>
+        <option value=17>2028</option>
+        <option value=18>2029</option>
+        <option value=19>2030</option>
+        <option value=20>2031</option>
+      </select>
+      </div>
+      <div style="width:10%;"></div>
+    <div id="gauche" onclick="precedent()" style="cursor: pointer;"><i class="material-icons">chevron_left</i></div>
+    <div id="droite" onclick="suivant()" style="cursor: pointer;"><i class="material-icons">chevron_right</i></div>
+    </div>
+  </div>
+</div>
+
+
+    <div id="Footer"></div>
+  </body>
+
+  <script src="../JS/Script.js"></script>
+
+  <script>
+    var mois;
+    var annee;
+    function resize() {
+      if(screen.width>800){
+        jQuery('#MenuBar').load('Menu.html#MenuOrdi'); 
+      }
+      else{
+        jQuery('#MenuBar').load('MenuCell.html#MenuCell'); 
+      }
+    }
+    $(window).on("resize", resize);
+    resize();
+
+    jQuery('#Footer').load('Footer.html#Footer'); 
+
+    $(document).ready(function () {
+      $('#Banner').load('Banner.html#Banner',function(){
+        $('#PremierMot').text("Département d'informatique"); 
+        $('#DeuxiemeMot').text("du Cégep de Trois-Rivières"); 
+        var d = new Date();
+        mois = d.getMonth();
+        annee = d.getFullYear();
+        $("#select-mois").val(mois);
+        $("#select-year").val(annee-2011);
+      });
+      
+      $.ajax({
+        url:"../PHP/GetEvent.php",
+        type: "POST",
+        dataType: "Json",
+        success:function(result){
+          putEventDetail(result);
+        },
+        error: function(message, er) {
+          console.log("erreur lors du chargment des évènements:" + er);
+        }
+      });
+    });
+
+    function suivant(){
+      if(mois==11){
+        mois=0;
+        annee=1+ +annee;
+        $("#select-year").val(annee-2011);
+      }
+      else{
+        mois=1+ +mois;}
+      $("#select-mois").val(mois);
+    }
+
+    function precedent(){
+      if(mois==0){
+        mois=11;
+        annee=annee-1;
+        $("#select-year").val(annee-2011);
+      }
+      else{
+        mois=mois-1;}
+      $("#select-mois").val(mois);
+    }
+
+    function change(){
+      mois = $("#select-mois").val();
+      annee = 2011 + +$("#select-year").val();
+    }
+  </script>
+    
+</html>
