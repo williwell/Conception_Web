@@ -132,3 +132,4 @@ function putActualiteDetail(list) {
 		);
 	}
 }
+
