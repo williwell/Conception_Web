@@ -13,8 +13,11 @@
 <body>
     <div id="MenuBar"></div>
     <div  class="container-fluid justify-content-evenly">
-        <div id="GestionEnseignant"class="row row-cols-1 row-cols-md-1 g-1 justify-content-center align-items-center" style="margin-top:4% ;"></div>
-        <div id="Teacher" class="row row-cols-1 row-cols-md-3 g-4 justify-content-center align-items-center" style="margin-top:4% ;"></div>
+        <div id="GestionEnseignant"class="row row-cols-1 row-cols-md-1 g-1 justify-content-center align-items-center" style="margin-top:0%;margin-bottom:0% ;margin:4% ;padding:4%;"></div>
+        <div id="Teacher" class="row row-cols-1 row-cols-md-3 g-4 justify-content-center align-items-center" style="margin:4% ;"></div>
+        <div id="AddTeacher" class="row justify-content-center align-items-center" style="margin-top:4% ;">
+            <p id="btnAjouter" class='horizontal' style="width: 40%;height: 50%;"><span class='text'>Ajouter un enseignant</span></p>
+        </div>
     </div>
     
     
@@ -37,8 +40,13 @@
 <script src="../JS/ScriptAdmin.js"></script>
 
 <script>
+
+$("#btnAjouter").click(function() {
+    ajouterPageEnseignant();
+});
+
+
     $(document).ready(function () { 
-          
         $.ajax({
             url: "../../PHP/GetEnseignant.php",
             type: "POST",

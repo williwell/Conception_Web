@@ -16,3 +16,10 @@
     height: 100%;
     cursor: pointer;
 }
+
+.centerItemPlz{
+	display:flex;
+	align-self: center;
+	justify-self: center;
+text-align: center;
+}
