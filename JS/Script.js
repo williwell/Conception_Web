@@ -27,6 +27,52 @@ function printCards(list) {
 	}
 }
 
+function printProg(list){
+	console.log("téléchargement du lien: success");
+	
+    for (var i = 0; i < list.length; i++) {
+		if(list[i][1]=="Prog"){
+					$("#Link").append(
+					"<div class='col-md-2'></div>"+
+					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'>"
+					+"<div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
+					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
+					+"<div class='col-md-3'></div>"
+				  );
+			}	
+	}
+}
+
+function printInfo(list){
+	console.log("téléchargement du lien: success");
+	
+    for (var i = 0; i < list.length; i++) {
+		if(list[i][1]=="Info"){
+					$("#Link").append(
+					"<div class='col-md-2'></div>"+
+					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'><div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
+					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
+					+"<div class='col-md-3'></div>"
+				  );
+			}	
+	}
+}
+
+function printAnnonces(list){
+	console.log("téléchargement du lien: success");
+	
+    for (var i = 0; i < list.length; i++) {
+		if(list[i][1]=="Annonces"){
+					$("#Link").append(
+					"<div class='col-md-2'></div>"+
+					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'><div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
+					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
+					+"<div class='col-md-3'></div>"
+				  );
+			}	
+	}
+}
+
 function putEvent(list) {
 	console.log("téléchargement des événements: success");
     for (var i = 0; i < list.length; i++) {
@@ -36,6 +82,25 @@ function putEvent(list) {
 				  "</div>"
 	  			);
 				
+	}
+}
+
+function putEventDetail(list) {
+	console.log("downloading event detail");
+	for(var i=0; i < list.length; i++) {
+		$('#Event').append(
+			"<a href='"+list[i][3]+"'>"+
+			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
+				"<div class='col-md-4'>"+
+					//"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+				"</div>"+
+				"<div class='col-md-8'>"+
+					"<h3>"+list[i][1]+"</h3>"+
+					"<p>"+list[i][2]+"</p>"+
+				"</div>"+
+			"</div>"+
+			"</a>"
+		);
 	}
 }
 
@@ -67,3 +132,4 @@ function putActualiteDetail(list) {
 		);
 	}
 }
+

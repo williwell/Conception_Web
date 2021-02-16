@@ -1,7 +1,7 @@
 <?php
 
 
-class ConnexionDB
+class ConnexionDBAdmin
 {
     public $connexion;
     public function __construct()
