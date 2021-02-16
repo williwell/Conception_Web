@@ -72,15 +72,15 @@ class Query
        }
    }
 
-   function getConnexion($user,$mdp):string
+   function getConnexion($user):array
    {
        $lines = array();
        try {
-           $request = "SELECT COUNT(*) FROM compte WHERE User = $user and Mdp = '$mdp'";
+           $request = "SELECT * FROM compte WHERE User = $user";
            $result = $this->connexion->query($request);
            $lines = $result->fetchAll();
 
-           return $lines[0][0];
+           return $lines;
        }
        catch(PDOException $e) {
            return $e;
