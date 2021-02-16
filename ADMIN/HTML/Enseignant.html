@@ -40,22 +40,40 @@
 <script src="../JS/ScriptAdmin.js"></script>
 
 <script>
+    $("#btnAjouter").click(function() {
+        ajouterPageEnseignant();
+    });
 
-$("#btnAjouter").click(function() {
-    ajouterPageEnseignant();
-});
 
-
-    $(document).ready(function () { 
+    $(document).ready(function () {
         $.ajax({
-            url: "../../PHP/GetEnseignant.php",
+            url: "../PHP/CheckConnexion.php",
             type: "POST",
             dataType: "json",
-            success: function(result){
-                printCardsAdmin(result);
+            success: function(result)
+            {
+                if(result == true)
+                {
+                    $.ajax({
+                        url: "../../PHP/GetEnseignant.php",
+                        type: "POST",
+                        dataType: "json",
+                        success: function(result){
+                            printCardsAdmin(result);
+                        },
+                        error: function (message, er) {
+                            console.log("erreur lors du chargement du profil des enseignants:" + er);
+                        }
+                    });
+                }
+                else
+                {
+                    alert("Un erreur est survenu. vous devez vous reconnecter")
+                    window.location = "http://localhost/Conception%20web/HTML/Connexion.html";
+                }
             },
             error: function (message, er) {
-                console.log("erreur lors du chargement du profil des enseignants:" + er);
+                console.log("erreur test:" + er);
             }
         });
     });

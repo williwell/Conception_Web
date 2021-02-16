@@ -22,6 +22,10 @@
             </form>
         </div>
 
+        <div id="test">
+            <p id="test">test</p>
+        </div>
+
         <div id="Footer"></div>
     </body>
 
@@ -52,7 +56,8 @@
                     success: function(result){
                         if(result == true)
                         {
-                            console.log("Connection correct");
+                            localStorage.setItem("user",document.getElementById("user").value);
+                            window.location = "http://localhost/Conception%20web/ADMIN/HTML/Enseignant.html";
                         }
                         else
                         {
@@ -93,6 +98,22 @@
                 return false;
             }
         }
+
+        $(document).ready(function(){
+            $("#test").click(function(){
+                $.ajax({
+                    url: "../PHP/test.php",
+                    type: "POST",
+                    dataType: "json",
+                    success: function(result){
+                        alert("OK");
+                    },
+                    error: function(message, er) {
+                        console.log("erreur test:" + er);
+                    }
+                });
+            });
+        });
 
         /*function creer() {
             console.log(document.getElementById("user2").value+"  "+document.getElementById("mdp2").value);

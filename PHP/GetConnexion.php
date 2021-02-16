@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('Query.php');
 
 $user = $_POST["user"];
@@ -12,6 +13,8 @@ if (is_array($lines))
 {
     if(password_verify($mdp,$lines[0][1]))
     {
+        $_SESSION["user"] = $user;
+        $_SESSION["mdp"] = $mdp;
         echo json_encode(TRUE);
     }
     else
