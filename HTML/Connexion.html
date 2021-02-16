@@ -12,11 +12,20 @@
         <div id="MenuBar"></div>
         <div id="Banner"> </div>
 
-        <div class="row" style="margin-left: 5%;">
-            <form action="../PHP/GetConnexion.php">
-                <label for="user">Nom utilisateur</label>
+        <div class="row" style="margin-left: 5%;margin-top: 3%;">
+            <form action="javascript:;" onsubmit="connecter()">
+                <label for="user">Nom utilisateur</label><br>
                 <input type="text" id="user" name="user"><br>
-                <input type="submit" value="Connexion">
+                <label for="mdp">Mot de passe</label><br>
+                <input type="password" id="mdp" name="mdp"><br>
+                <input type="submit" value="Connexion" style="margin-top: 1%">
+            </form>
+            <form action="javascript:;" onsubmit="creer()">
+                <label for="user2">Nom utilisateur</label><br>
+                <input type="text" id="user2" name="user2"><br>
+                <label for="mdp2">Mot de passe</label><br>
+                <input type="password" id="mdp2" name="mdp2"><br>
+                <input type="submit" value="creer" style="margin-top: 1%">
             </form>
         </div>
 
@@ -38,5 +47,35 @@
         resize();
 
         jQuery('#Footer').load('Footer.html#Footer');
+
+        function connecter() {
+            $.ajax({
+                url: "../PHP/GetConnexion.php",
+                type: "POST",
+                dataType: "json",
+                data: {"user":document.getElementById("user").value,"mdp":document.getElementById("mdp").value},
+                success: function(result){
+                    
+                },
+                error: function (message, er) {
+                    console.log("erreur lors de la connexion:" + er);
+                }
+            });
+        }
+        function creer() {
+            console.log(document.getElementById("user2").value+"  "+document.getElementById("mdp2").value);
+            $.ajax({
+                url: "../PHP/CreerCompte.php",
+                type: "POST",
+                dataType: "json",
+                data: {"user":document.getElementById("user2").value,"mdp":document.getElementById("mdp2").value},
+                success: function(result){
+                    console.log("good");
+                },
+                error: function (message, er) {
+                    console.log("erreur lors de la creation:" + er);
+                }
+            });
+        }
     </script>
 </html>

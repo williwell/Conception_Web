@@ -28,7 +28,7 @@ function printCards(list) {
 }
 
 function putEvent(list) {
-	console.log("downloading book review: success");
+	console.log("téléchargement des événements: success");
     for (var i = 0; i < list.length; i++) {
 					$("#Event").append("<div id='EventClick' class='col-md-3'>"+
 					"<h5 style='cursor: pointer;'>"+list[i][1]+"</h5>"+
@@ -41,7 +41,7 @@ function putEvent(list) {
 
 
 function putActualite(list) {
-	console.log("downloading book review: success");
+	console.log("téléchargement des actualités: success");
 	for(var i=0; i < list.length; i++) {
 		$('#Actu').append("<div class='col-md-4'>"+
 		"<img src='"+list[i][3]+
@@ -52,7 +52,7 @@ function putActualite(list) {
 }
 
 function putActualiteDetail(list) {
-	console.log("downloading news detail");
+	console.log("téléchargement des infos actualités: success");
 	for(var i=0; i < list.length; i++) {
 		$('#Actualite').append(
 			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
