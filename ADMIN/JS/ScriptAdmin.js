@@ -57,10 +57,12 @@ function gestionEnseignant(matricule,prenom,nom,emploi,courriel,telephone, poste
 				"<div class='row justify-content-center'>"+
 		
 						"<div class='col centerItemPlz'>"+
-							"<img class='centerItemPlz' src='../../RESSOURCES/PHOTO_ENSEIGNANT/"+matricule+".png' alt='author picture' width='150PX' height='150PX'>"+
+							"<div class='row centerItemPlz'>"+
+								"<img class='centerItemPlz' src='../../RESSOURCES/PHOTO_ENSEIGNANT/"+matricule+".png' alt='author picture' width='150PX' height='150PX'>"+
 							"</div>"+
-							"<div class='col centerItemPlz'>"+
-							"<p class='horizontal centerItemPlz' style='height:25%;'><span class='text'>Changer la photo</span></p>"+
+							"<div class='row centerItemPlz'>"+
+								"<p class='horizontal centerItemPlz' style='height:25%;'><span class='text'>Changer la photo</span></p>"+
+							"</div>"+
 						"</div>"+
 					"<div class='col'>"+
 						"<form action='' method='post' enctype='text/plain'>"+
@@ -196,10 +198,12 @@ function ajouterPageEnseignant(){
 				"<div class='row justify-content-center'>"+
 		
 						"<div class='col centerItemPlz'>"+
+							"<div class='row centerItemPlz'>"+
 							"<img class='centerItemPlz' src='../../RESSOURCES/PHOTO_ENSEIGNANT/Background.png' alt='author picture' width='150PX' height='150PX'>"+
 							"</div>"+
-							"<div class='col centerItemPlz'>"+
+							"<div class='row centerItemPlz'>"+
 							"<p class='horizontal centerItemPlz' style='height:25%;'><span class='text'>Changer la photo</span></p>"+
+							"</div>"+
 						"</div>"+
 					"<div class='col'>"+
 						"<form action='' method='post' enctype='text/plain'>"+

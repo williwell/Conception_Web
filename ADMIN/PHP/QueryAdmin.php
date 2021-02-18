@@ -26,21 +26,26 @@ class QueryAdmin
         }
     }
  
-    function updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
+    function updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste, $fileTemp)
     {
-        $lines = array();
-        try {
+        try
+       {
+        $coverDirectory="../../RESSOURCES/PHOTO_ENSEIGNANT/";
+           if (!move_uploaded_file($fileTemp, $coverDirectory)) {
+               return "file error";
+           } else {
             $request = "UPDATE enseignant SET Prenom='".$prenom."', Nom = '".$nom."', Type_Employer = '".$typeEmploi."', Courriel = '".$courriel."', Telephone = '".$telephone."', Poste = ".$poste." WHERE Matricule = ".$matricule;
             $this->connexion->exec($request);
 
-            return $request;
-        }
-        catch(PDOException $e) {
-            return $e;
-        }
+            return "pk";
+           }
+       }
+       catch(PDOException $e) {
+           return $e;
+       }
     }
 
-    function updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
+    function addTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
     {
         $lines = array();
         try {
