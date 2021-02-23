@@ -57,7 +57,7 @@ class QueryAdmin
         catch(PDOException $e) {
             return $e;
         }
-    }*/
+    }
  
     function CheckConnexion($user)
     {
