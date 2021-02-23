@@ -59,18 +59,5 @@ class QueryAdmin
         }
     }
  
-    function CheckConnexion($user)
-    {
-        $lines = array();
-        try {
-            $request = "SELECT * FROM compte WHERE User = $user";
-            $result = $this->connexion->query($request);
-            $lines = $result->fetchAll();
- 
-            return $lines;
-        }
-        catch(PDOException $e) {
-            return $e;
-        }
-    }
+
 }
