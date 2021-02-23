@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Évènements</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../CSS/Style.css"/>
     <link rel="stylesheet" type="text/css" href="../CSS/Calendrier.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -17,8 +16,8 @@
       <h2>Les prochains évènements</h2>
     </div>
 <div class="row">
-<div class="col-md-3"></div>
-<div class="col-md-9" id=calendrier>
+<div class="col-md-4"></div>
+<div class="col-md-4" id=calendrier style="padding:10px;display:flex;flex-direction: row;justify-content: space-between;">
   <div id=title style="display:flex;flex-direction: row;">
     <div id=mois>
       <select id="select-mois" onchange="change()">
@@ -63,8 +62,76 @@
     <div id="gauche" onclick="precedent()" style="cursor: pointer;"><i class="material-icons">chevron_left</i></div>
     <div id="droite" onclick="suivant()" style="cursor: pointer;"><i class="material-icons">chevron_right</i></div>
     </div>
+    <div id=cal style="display:flex;flex-direction: column;width:100%">
+      <div id=top style="display:flex;flex-direction: row;width:100%">
+        <div id=dim style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>DIM</p></div>
+        <div id=lun style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>LUN</p></div>
+        <div id=mar style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>MAR</p></div>
+        <div id=mer style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>MER</p></div>
+        <div id=jeu style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>JEU</p></div>
+        <div id=ven style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>VEN</p></div>
+        <div id=sam style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>SAM</p></div>
+      </div>
+      <br>
+      <div id=sem1 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim1 class="case" ></div>
+        <div id=lun1 class="case" ></div>
+        <div id=mar1 class="case" ></div>
+        <div id=mer1 class="case" ></div>
+        <div id=jeu1 class="case" ></div>
+        <div id=ven1 class="case" ></div>
+        <div id=sam1 class="case" ></div>
+      </div>
+      <div id=sem2 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim2 class="case" ></div>
+        <div id=lun2 class="case" ></div>
+        <div id=mar2 class="case" ></div>
+        <div id=mer2 class="case" ></div>
+        <div id=jeu2 class="case" ></div>
+        <div id=ven2 class="case" ></div>
+        <div id=sam2 class="case" ></div>
+      </div>
+      <div id=sem3 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim3 class="case" ></div>
+        <div id=lun3 class="case" ></div>
+        <div id=mar3 class="case" ></div>
+        <div id=mer3 class="case" ></div>
+        <div id=jeu3 class="case" ></div>
+        <div id=ven3 class="case" ></div>
+        <div id=sam3 class="case" ></div>
+      </div>
+      <div id=sem4 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim4 class="case" ></div>
+        <div id=lun4 class="case" ></div>
+        <div id=mar4 class="case" ></div>
+        <div id=mer4 class="case" ></div>
+        <div id=jeu4 class="case" ></div>
+        <div id=ven4 class="case" ></div>
+        <div id=sam4 class="case" ></div>
+      </div>
+      <div id=sem5 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim5 class="case" ></div>
+        <div id=lun5 class="case" ></div>
+        <div id=mar5 class="case" ></div>
+        <div id=mer5 class="case" ></div>
+        <div id=jeu5 class="case" ></div>
+        <div id=ven5 class="case" ></div>
+        <div id=sam5 class="case" ></div>
+      </div>
+      <div id=sem6 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim6 class="case" ></div>
+        <div id=lun6 class="case" ></div>
+        <div id=mar6 class="case" ></div>
+        <div id=mer6 class="case" ></div>
+        <div id=jeu6 class="case" ></div>
+        <div id=ven6 class="case" ></div>
+        <div id=sam6 class="case" ></div>
+      </div>
+    </div>
   </div>
+
 </div>
+
 
 
     <div id="Footer"></div>
@@ -97,6 +164,17 @@
         annee = d.getFullYear();
         $("#select-mois").val(mois);
         $("#select-year").val(annee-2011);
+        var x=new Date(+annee+2011, mois, 1)
+        var weekday=new Array(7);
+        weekday[1] = "Lundi";
+        weekday[2] = "Mardi";
+        weekday[3] = "Mercredi";
+        weekday[4] = "Jeudi";
+        weekday[5] = "Vendredi";
+        weekday[6] = "Samedi";
+        weekday[0] = "Dimanche";
+        var y=new Date(+annee+2011, +mois+1, 1);
+        affichage();
       });
       
       $.ajax({
@@ -112,6 +190,7 @@
       });
     });
 
+
     function suivant(){
       if(mois==11){
         mois=0;
@@ -121,6 +200,7 @@
       else{
         mois=1+ +mois;}
       $("#select-mois").val(mois);
+      affichage();
     }
 
     function precedent(){
@@ -132,12 +212,220 @@
       else{
         mois=mois-1;}
       $("#select-mois").val(mois);
+      affichage();
     }
 
     function change(){
       mois = $("#select-mois").val();
       annee = 2011 + +$("#select-year").val();
+      affichage();
     }
+
+    function affichage(){
+      x=new Date(+annee,mois,1);
+
+      clearcal();
+  
+      date=x;
+          date.setDate(date.getDate()-(x.getDay()));
+          $("#dim1").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>10){
+            document.getElementById("dim1").style.color="#919191";
+          }
+          else{document.getElementById("dim1").style.color="black";}
+          date.setDate(date.getDate()+1);
+          $("#lun1").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>10){
+            document.getElementById("lun1").style.color="#919191";
+          }
+          else{document.getElementById("lun1").style.color="black";}
+          date.setDate(date.getDate()+1);
+          $("#mar1").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>10){
+            document.getElementById("mar1").style.color="#919191";
+          }
+          else{document.getElementById("mar1").style.color="black";}
+          date.setDate(date.getDate()+1);
+          $("#mer1").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>10){
+            document.getElementById("mer1").style.color="#919191";
+          }
+          else{document.getElementById("mer1").style.color="black";}
+          date.setDate(date.getDate()+1);
+          $("#jeu1").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>10){
+            document.getElementById("jeu1").style.color="#919191";
+          }
+          else{document.getElementById("jeu1").style.color="black";}
+          date.setDate(date.getDate()+1);
+          $("#ven1").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>10){
+            document.getElementById("ven1").style.color="#919191";
+          }
+          else{document.getElementById("ven1").style.color="black";}
+          date.setDate(date.getDate()+1);
+          $("#sam1").append("<p>"+date.getDate()+"</p>");
+          
+          date.setDate(date.getDate()+1);
+          $("#dim2").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#lun2").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#mar2").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#mer2").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#jeu2").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#ven2").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#sam2").append("<p>"+date.getDate()+"</p>");
+
+          date.setDate(date.getDate()+1);
+          $("#dim3").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#lun3").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#mar3").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#mer3").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#jeu3").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#ven3").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#sam3").append("<p>"+date.getDate()+"</p>");
+
+          date.setDate(date.getDate()+1);
+          $("#dim4").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#lun4").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#mar4").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#mer4").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#jeu4").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#ven4").append("<p>"+date.getDate()+"</p>");
+          date.setDate(date.getDate()+1);
+          $("#sam4").append("<p>"+date.getDate()+"</p>");
+
+          date.setDate(date.getDate()+1);
+          $("#dim5").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("dim5").style.color="black";
+          }else{document.getElementById("dim5").style.color="#919191"}
+          date.setDate(date.getDate()+1);
+          $("#lun5").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("lun5").style.color="black";
+          }else{document.getElementById("lun5").style.color="#919191"}
+          date.setDate(date.getDate()+1);
+          $("#mar5").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("mar5").style.color="black";
+          }else{document.getElementById("mar5").style.color="#919191"}
+          date.setDate(date.getDate()+1);
+          $("#mer5").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("mer5").style.color="black";
+          }else{document.getElementById("mer5").style.color="#919191"}
+          date.setDate(date.getDate()+1);
+          $("#jeu5").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("jeu5").style.color="black";
+          }else{document.getElementById("jeu5").style.color="#919191"}
+          date.setDate(date.getDate()+1);
+          $("#ven5").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("ven5").style.color="black";
+          }else{document.getElementById("ven5").style.color="#919191"}
+          date.setDate(date.getDate()+1);
+          $("#sam5").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("sam5").style.color="black";
+          }else{document.getElementById("sam5").style.color="#919191"}
+
+          date.setDate(date.getDate()+1);
+          $("#dim6").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("dim6").style.color="black";
+          }else{document.getElementById("dim6").style.color="#919191"}
+          date.setDate(date.getDate()+1);
+          $("#lun6").append("<p>"+date.getDate()+"</p>");
+          if(date.getDate()>17){
+            document.getElementById("lun6").style.color="black";
+          }else{document.getElementById("lun6").style.color="#919191"}
+          date.setDate(date.getDate()+1);
+          $("#mar6").append("<p>"+date.getDate()+"</p>");
+          document.getElementById("mar6").style.color="#919191";
+          date.setDate(date.getDate()+1);
+          $("#mer6").append("<p>"+date.getDate()+"</p>");
+          document.getElementById("mer6").style.color="#919191";
+          date.setDate(date.getDate()+1);
+          $("#jeu6").append("<p>"+date.getDate()+"</p>");
+          document.getElementById("jeu6").style.color="#919191";
+          date.setDate(date.getDate()+1);
+          $("#ven6").append("<p>"+date.getDate()+"</p>");
+          document.getElementById("ven6").style.color="#919191";
+          date.setDate(date.getDate()+1);
+          $("#sam6").append("<p>"+date.getDate()+"</p>");
+          document.getElementById("sam6").style.color="#919191";
+    }
+
+    function clearcal(){
+
+      $("#dim1").empty();
+      $("#lun1").empty();
+      $("#mar1").empty();
+      $("#mer1").empty();
+      $("#jeu1").empty();
+      $("#ven1").empty();
+      $("#sam1").empty();
+      
+      $("#dim2").empty();
+      $("#lun2").empty();
+      $("#mar2").empty();
+      $("#mer2").empty();
+      $("#jeu2").empty();
+      $("#ven2").empty();
+      $("#sam2").empty();
+      
+      $("#dim3").empty();
+      $("#lun3").empty();
+      $("#mar3").empty();
+      $("#mer3").empty();
+      $("#jeu3").empty();
+      $("#ven3").empty();
+      $("#sam3").empty();
+
+      $("#dim4").empty();
+      $("#lun4").empty();
+      $("#mar4").empty();
+      $("#mer4").empty();
+      $("#jeu4").empty();
+      $("#ven4").empty();
+      $("#sam4").empty();
+
+      $("#dim5").empty();
+      $("#lun5").empty();
+      $("#mar5").empty();
+      $("#mer5").empty();
+      $("#jeu5").empty();
+      $("#ven5").empty();
+      $("#sam5").empty();
+
+      $("#dim6").empty();
+      $("#lun6").empty();
+      $("#mar6").empty();
+      $("#mer6").empty();
+      $("#jeu6").empty();
+      $("#ven6").empty();
+      $("#sam6").empty();
+    }
+
+    
   </script>
     
 </html>
