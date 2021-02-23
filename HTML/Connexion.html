@@ -12,12 +12,18 @@
         <div id="MenuBar"></div>
         <div id="Banner"> </div>
 
-        <div class="row" style="margin-left: 5%;">
-            <form action="../PHP/GetConnexion.php">
-                <label for="user">Nom utilisateur</label>
+        <div class="row" style="margin-left: 40%;margin-top: 3%;">
+            <form action="javascript:;" onsubmit="connecter()">
+                <label for="user">Nom utilisateur</label><br>
                 <input type="text" id="user" name="user"><br>
-                <input type="submit" value="Connexion">
+                <label for="mdp">Mot de passe</label><br>
+                <input type="password" id="mdp" name="mdp"><br>
+                <input type="submit" value="Connexion" style="margin-top: 1%">
             </form>
+        </div>
+
+        <div id="test">
+            <p id="test">test</p>
         </div>
 
         <div id="Footer"></div>
@@ -38,5 +44,91 @@
         resize();
 
         jQuery('#Footer').load('Footer.html#Footer');
+
+        function connecter() {
+            if(checkUser() && checkPassWord())
+            {
+                $.ajax({
+                    url: "../PHP/GetConnexion.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {"user":document.getElementById("user").value,"mdp":document.getElementById("mdp").value},
+                    success: function(result){
+                        if(result == true)
+                        {
+                            localStorage.setItem("user",document.getElementById("user").value);
+                            window.location = "http://localhost/Conception%20web/ADMIN/HTML/Enseignant.html";
+                        }
+                        else
+                        {
+                            alert("Le nom d'utilisateur ou le mot de passe est incorrect");
+                        }
+                    },
+                    error: function (message, er) {
+                        console.log("erreur lors de la connexion:" + er);
+                    }
+                });
+            }
+            else{
+                alert("Vous devez entrer un nom d'utilisateur et un mot de passe")
+            }
+            
+        }
+
+        function myTrim(x) {
+            return x.replace(/^\s+|\s+$/gm,'');
+        }
+
+        function checkUser() {
+            if (myTrim(document.getElementById("user").value) != "" )
+            {
+                return true;  
+            }
+            else{
+                return false;
+            }
+        }
+
+        function checkPassWord() {
+            if (myTrim(document.getElementById("mdp").value) != "" )
+            {
+                return true;  
+            }
+            else{
+                return false;
+            }
+        }
+
+        $(document).ready(function(){
+            $("#test").click(function(){
+                $.ajax({
+                    url: "../PHP/test.php",
+                    type: "POST",
+                    dataType: "json",
+                    success: function(result){
+                        alert("OK");
+                    },
+                    error: function(message, er) {
+                        console.log("erreur test:" + er);
+                    }
+                });
+            });
+        });
+
+        /*function creer() {
+            console.log(document.getElementById("user2").value+"  "+document.getElementById("mdp2").value);
+            $.ajax({
+                url: "../PHP/CreerCompte.php",
+                type: "POST",
+                dataType: "json",
+                data: {"user":document.getElementById("user2").value,"mdp":document.getElementById("mdp2").value},
+                success: function(result){
+                    console.log("good");
+                },
+                error: function (message, er) {
+                    console.log("erreur lors de la creation:" + er);
+                }
+            });
+        }*/
     </script>
 </html>
