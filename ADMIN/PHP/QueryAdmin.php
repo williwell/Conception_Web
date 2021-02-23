@@ -40,7 +40,7 @@ class QueryAdmin
         }
     }
 
-    /*function updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
+    function addTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
     {
         $lines = array();
         try {
@@ -52,7 +52,7 @@ class QueryAdmin
         catch(PDOException $e) {
             return $e;
         }
-    }*/
+    }
  
     function CheckConnexion($user)
     {
