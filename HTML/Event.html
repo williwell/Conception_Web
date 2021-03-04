@@ -17,7 +17,7 @@
     </div>
 <div class="row">
 <div class="col-md-4"></div>
-<div class="col-md-4" id=calendrier style="padding:10px;display:flex;flex-direction: row;justify-content: space-between;">
+<div class="col-md-4" id=calendrier style="padding:10px;display:flex;flex-direction: column;justify-content: space-between;">
   <div id=title style="display:flex;flex-direction: row;">
     <div id=mois>
       <select id="select-mois" onchange="change()">
@@ -62,6 +62,7 @@
     <div id="gauche" onclick="precedent()" style="cursor: pointer;"><i class="material-icons">chevron_left</i></div>
     <div id="droite" onclick="suivant()" style="cursor: pointer;"><i class="material-icons">chevron_right</i></div>
     </div>
+    <br>
     <div id=cal style="display:flex;flex-direction: column;width:100%">
       <div id=top style="display:flex;flex-direction: row;width:100%">
         <div id=dim style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>DIM</p></div>
@@ -182,7 +183,9 @@
         type: "POST",
         dataType: "Json",
         success:function(result){
+          var evenements=new Array;
           putEventDetail(result);
+          evenements=(result);
         },
         error: function(message, er) {
           console.log("erreur lors du chargment des évènements:" + er);
@@ -190,6 +193,12 @@
       });
     });
 
+
+    function events(){
+      evenements.array.forEach(element => {
+        
+      });
+    }
 
     function suivant(){
       if(mois==11){
