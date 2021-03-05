@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <meta charset="utf-8" />
-        <title>ADMIN Enseignant</title>
         <meta name="author" content="Alexandra Sirois, William-Arthur Cinq-Mars, Mathieu Harvey">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -41,42 +40,22 @@
 <script src="../JS/ScriptAdmin.js"></script>
 
 <script>
-    $("#btnAjouter").click(function() {
-        ajouterPageEnseignant();
-    });
+
+$("#btnAjouter").click(function() {
+    ajouterPageEnseignant();
+});
 
 
-    $(document).ready(function () {
+    $(document).ready(function () { 
         $.ajax({
-            url: "../PHP/CheckConnexion.php",
+            url: "../../PHP/GetEnseignant.php",
             type: "POST",
             dataType: "json",
-            success: function(result)
-            {
-                if(result == true)
-                {
-                    $.ajax({
-                        url: "../../PHP/GetEnseignant.php",
-                        type: "POST",
-                        dataType: "json",
-                        success: function(result){
-                            printCardsAdmin(result);
-                        },
-                        error: function (message, er) {
-                            console.log("erreur lors du chargement du profil des enseignants:" + er);
-                        }
-                    });
-                }
-                else
-                {
-                    alert("Un erreur est survenu. vous devez vous reconnecter")
-                   window.location = "http://localhost/Conception%20web/HTML/Connexion.html";
-                }
+            success: function(result){
+                printCardsAdmin(result);
             },
             error: function (message, er) {
-                console.log("erreur lors tu test de connexion:" + er);
-                alert("Un erreur est survenu. vous devez vous reconnecter")
-                window.location = "http://localhost/Conception%20web/HTML/Connexion.html";
+                console.log("erreur lors du chargement du profil des enseignants:" + er);
             }
         });
     });

@@ -17,8 +17,8 @@
       <h2>Les prochains évènements</h2>
     </div>
 <div class="row">
-<div class="col-md-3"></div>
-<div class="col-md-9" id=calendrier>
+<div class="col-md-4"></div>
+<div class="col-md-4" id=calendrier style="padding:10px;display:flex;flex-direction: column;justify-content: space-between;">
   <div id=title style="display:flex;flex-direction: row;">
     <div id=mois>
       <select id="select-mois" onchange="change()">
@@ -63,6 +63,73 @@
     <div id="gauche" onclick="precedent()" style="cursor: pointer;"><i class="material-icons">chevron_left</i></div>
     <div id="droite" onclick="suivant()" style="cursor: pointer;"><i class="material-icons">chevron_right</i></div>
     </div>
+    <br>
+    <div id=cal style="display:flex;flex-direction: column;width:100%">
+      <div id=top style="display:flex;flex-direction: row;width:100%">
+        <div id=dim style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>DIM</p></div>
+        <div id=lun style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>LUN</p></div>
+        <div id=mar style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>MAR</p></div>
+        <div id=mer style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>MER</p></div>
+        <div id=jeu style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>JEU</p></div>
+        <div id=ven style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>VEN</p></div>
+        <div id=sam style="background-color: white;width: 20%;display: flex;flex-direction: row;justify-content: center;align-items: center;"><p>SAM</p></div>
+      </div>
+      <br>
+      <div id=sem1 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim1 class="case" ></div>
+        <div id=lun1 class="case" ></div>
+        <div id=mar1 class="case" ></div>
+        <div id=mer1 class="case" ></div>
+        <div id=jeu1 class="case" ></div>
+        <div id=ven1 class="case" ></div>
+        <div id=sam1 class="case" ></div>
+      </div>
+      <div id=sem2 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim2 class="case" ></div>
+        <div id=lun2 class="case" ></div>
+        <div id=mar2 class="case" ></div>
+        <div id=mer2 class="case" ></div>
+        <div id=jeu2 class="case" ></div>
+        <div id=ven2 class="case" ></div>
+        <div id=sam2 class="case" ></div>
+      </div>
+      <div id=sem3 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim3 class="case" ></div>
+        <div id=lun3 class="case" ></div>
+        <div id=mar3 class="case" ></div>
+        <div id=mer3 class="case" ></div>
+        <div id=jeu3 class="case" ></div>
+        <div id=ven3 class="case" ></div>
+        <div id=sam3 class="case" ></div>
+      </div>
+      <div id=sem4 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim4 class="case" ></div>
+        <div id=lun4 class="case" ></div>
+        <div id=mar4 class="case" ></div>
+        <div id=mer4 class="case" ></div>
+        <div id=jeu4 class="case" ></div>
+        <div id=ven4 class="case" ></div>
+        <div id=sam4 class="case" ></div>
+      </div>
+      <div id=sem5 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim5 class="case" ></div>
+        <div id=lun5 class="case" ></div>
+        <div id=mar5 class="case" ></div>
+        <div id=mer5 class="case" ></div>
+        <div id=jeu5 class="case" ></div>
+        <div id=ven5 class="case" ></div>
+        <div id=sam5 class="case" ></div>
+      </div>
+      <div id=sem6 style="display:flex;flex-direction: row;width:100%">
+        <div id=dim6 class="case" ></div>
+        <div id=lun6 class="case" ></div>
+        <div id=mar6 class="case" ></div>
+        <div id=mer6 class="case" ></div>
+        <div id=jeu6 class="case" ></div>
+        <div id=ven6 class="case" ></div>
+        <div id=sam6 class="case" ></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -104,13 +171,22 @@
         type: "POST",
         dataType: "Json",
         success:function(result){
+          var evenements=new Array;
           putEventDetail(result);
+          evenements=(result);
         },
         error: function(message, er) {
           console.log("erreur lors du chargment des évènements:" + er);
         }
       });
     });
+
+
+    function events(){
+      evenements.array.forEach(element => {
+        
+      });
+    }
 
     function suivant(){
       if(mois==11){
