@@ -13,7 +13,7 @@ try {
     $telephone=$_POST['telephone'];
     $poste=$_POST['poste'];
     
-    $lines = $query->updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste, $fileTemp);
+    $lines = $query->updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste);
     echo json_encode($lines);
 
 }

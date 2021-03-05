@@ -26,19 +26,14 @@ class QueryAdmin
         }
     }
  
-    function updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste, $fileTemp)
+    function updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
     {
         try
        {
-        $coverDirectory="../../RESSOURCES/PHOTO_ENSEIGNANT/";
-           if (!move_uploaded_file($fileTemp, $coverDirectory)) {
-               return "file error";
-           } else {
             $request = "UPDATE enseignant SET Prenom='".$prenom."', Nom = '".$nom."', Type_Employer = '".$typeEmploi."', Courriel = '".$courriel."', Telephone = '".$telephone."', Poste = ".$poste." WHERE Matricule = ".$matricule;
             $this->connexion->exec($request);
 
-            return "pk";
-           }
+            return "ok";
        }
        catch(PDOException $e) {
            return $e;
@@ -49,10 +44,10 @@ class QueryAdmin
     {
         $lines = array();
         try {
-            $request = "INSERT INTO enseignant VALUES($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)";
+            $request = "INSERT INTO enseignant VALUES('".$matricule."','".$prenom."','".$nom."','".$typeEmploi."','".$courriel."','".$telephone."','".$poste."')";
             $this->connexion->exec($request);
 
-            return $request;
+            return "OK";
         }
         catch(PDOException $e) {
             return $e;
