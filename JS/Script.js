@@ -104,6 +104,96 @@ function putEventDetail(list) {
 	}
 }
 
+function putEventCal(list){
+	console.log("downloading event for calendar");
+	for(var i=0; i < list.length; i++) {
+		var a=list[i][2].substr(0,4);
+		var m=list[i][2].substr(5,2);
+		var j=list[i][2].substr(8);
+		
+		if(a-2011==$('#select-year').val()){
+			if(m-1==$('#select-mois').val()){
+				x=new Date(+a,m-1,1);
+				d=new Date(+a,m-1,+j);
+				y=x.getDay();
+				//alert((+j+y)/7);
+				switch(true){
+					case (+j+y)/7<=1:{
+						switch(d.getDay()){
+							case(0):{document.getElementById('dim1').style.color="red";break;}
+							case(1):{document.getElementById('lun1').style.color="red";break;}
+							case(2):{document.getElementById('mar1').style.color="red";break;}
+							case(3):{document.getElementById('mer1').style.color="red";break;}
+							case(4):{document.getElementById('jeu1').style.color="red";break;}
+							case(5):{document.getElementById('ven1').style.color="red";break;}
+							case(6):{document.getElementById('sam1').style.color="red";break;}
+						}
+						break;
+					}
+					case (+j+y)/7<=2:{
+						switch(d.getDay()){
+							case(0):{document.getElementById('dim2').style.color="red";break;}
+							case(1):{document.getElementById('lun2').style.color="red";break;}
+							case(2):{document.getElementById('mar2').style.color="red";break;}
+							case(3):{document.getElementById('mer2').style.color="red";break;}
+							case(4):{document.getElementById('jeu2').style.color="red";break;}
+							case(5):{document.getElementById('ven2').style.color="red";break;}
+							case(6):{document.getElementById('sam2').style.color="red";break;}
+					}
+					break;}
+					case (+j+y)/7<=3:{
+						switch(d.getDay()){
+							case(0):{document.getElementById('dim3').style.color="red";break;}
+							case(1):{document.getElementById('lun3').style.color="red";break;}
+							case(2):{document.getElementById('mar3').style.color="red";break;}
+							case(3):{document.getElementById('mer3').style.color="red";break;}
+							case(4):{document.getElementById('jeu3').style.color="red";break;}
+							case(5):{document.getElementById('ven3').style.color="red";break;}
+							case(6):{document.getElementById('sam3').style.color="red";break;}
+					}
+					break;}
+					case (+j+y)/7<=4:{
+						switch(d.getDay()){
+							case(0):{document.getElementById('dim4').style.color="red";break;}
+							case(1):{document.getElementById('lun4').style.color="red";break;}
+							case(2):{document.getElementById('mar4').style.color="red";break;}
+							case(3):{document.getElementById('mer4').style.color="red";break;}
+							case(4):{document.getElementById('jeu4').style.color="red";break;}
+							case(5):{document.getElementById('ven4').style.color="red";break;}
+							case(6):{document.getElementById('sam4').style.color="red";break;}
+					}
+					break;}
+					case (+j+y)/7<=5:{
+						switch(d.getDay()){
+							case(0):{document.getElementById('dim5').style.color="red";break;}
+							case(1):{document.getElementById('lun5').style.color="red";break;}
+							case(2):{document.getElementById('mar5').style.color="red";break;}
+							case(3):{document.getElementById('mer5').style.color="red";break;}
+							case(4):{document.getElementById('jeu5').style.color="red";break;}
+							case(5):{document.getElementById('ven5').style.color="red";break;}
+							case(6):{document.getElementById('sam5').style.color="red";break;}
+						}
+						break;
+					}
+					case (+j+y)/7<=6:{
+						switch(d.getDay()){
+							case(0):{document.getElementById('dim6').style.color="red";break;}
+							case(1):{document.getElementById('lun6').style.color="red";break;}
+							case(2):{document.getElementById('mar6').style.color="red";break;}
+							case(3):{document.getElementById('mer6').style.color="red";break;}
+							case(4):{document.getElementById('jeu6').style.color="red";break;}
+							case(5):{document.getElementById('ven6').style.color="red";break;}
+							case(6):{document.getElementById('sam6').style.color="red";break;}
+					}
+					break;}
+				}
+				//Pour la prochaine fois, trouver le jour de la semaine à partir de la date et faire une division par 7 pour trouver quelle semaine on est
+				//exemple: mardi 23: 23/7=3, semaine 0,1,2,3 donc la case à changer sera mar4
+			}
+		}
+	}
+}
+
 
 function putActualite(list) {
 	console.log("téléchargement des actualités: success");

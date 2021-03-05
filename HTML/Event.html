@@ -141,6 +141,7 @@
   <script src="../JS/Script.js"></script>
 
   <script>
+  
     var mois;
     var annee;
     function resize() {
@@ -160,7 +161,9 @@
       $('#Banner').load('Banner.html#Banner',function(){
         $('#PremierMot').text("Département d'informatique"); 
         $('#DeuxiemeMot').text("du Cégep de Trois-Rivières"); 
-        var d = new Date();
+      });
+      
+      var d = new Date();
         mois = d.getMonth();
         annee = d.getFullYear();
         $("#select-mois").val(mois);
@@ -175,22 +178,7 @@
         weekday[6] = "Samedi";
         weekday[0] = "Dimanche";
         var y=new Date(+annee+2011, +mois+1, 1);
-        affichage();
-      });
-      
-      $.ajax({
-        url:"../PHP/GetEvent.php",
-        type: "POST",
-        dataType: "Json",
-        success:function(result){
-          var evenements=new Array;
-          putEventDetail(result);
-          evenements=(result);
-        },
-        error: function(message, er) {
-          console.log("erreur lors du chargment des évènements:" + er);
-        }
-      });
+      affichage();
     });
 
 
@@ -234,153 +222,189 @@
       x=new Date(+annee,mois,1);
 
       clearcal();
-  
       date=x;
           date.setDate(date.getDate()-(x.getDay()));
-          $("#dim1").append("<p>"+date.getDate()+"</p>");
+          $("#dim1").append("<p id='pdim1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
             document.getElementById("dim1").style.color="#919191";
           }
           else{document.getElementById("dim1").style.color="black";}
           date.setDate(date.getDate()+1);
-          $("#lun1").append("<p>"+date.getDate()+"</p>");
+          $("#lun1").append("<p id='plun1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
             document.getElementById("lun1").style.color="#919191";
           }
           else{document.getElementById("lun1").style.color="black";}
           date.setDate(date.getDate()+1);
-          $("#mar1").append("<p>"+date.getDate()+"</p>");
+          $("#mar1").append("<p id='pmar1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
             document.getElementById("mar1").style.color="#919191";
           }
           else{document.getElementById("mar1").style.color="black";}
           date.setDate(date.getDate()+1);
-          $("#mer1").append("<p>"+date.getDate()+"</p>");
+          $("#mer1").append("<p id='pmer1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
             document.getElementById("mer1").style.color="#919191";
           }
           else{document.getElementById("mer1").style.color="black";}
           date.setDate(date.getDate()+1);
-          $("#jeu1").append("<p>"+date.getDate()+"</p>");
+          $("#jeu1").append("<p id='pjeu1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
             document.getElementById("jeu1").style.color="#919191";
           }
           else{document.getElementById("jeu1").style.color="black";}
           date.setDate(date.getDate()+1);
-          $("#ven1").append("<p>"+date.getDate()+"</p>");
+          $("#ven1").append("<p id='pven1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
             document.getElementById("ven1").style.color="#919191";
           }
           else{document.getElementById("ven1").style.color="black";}
           date.setDate(date.getDate()+1);
-          $("#sam1").append("<p>"+date.getDate()+"</p>");
+          $("#sam1").append("<p id='psam1'>"+date.getDate()+"</p>");
           
           date.setDate(date.getDate()+1);
-          $("#dim2").append("<p>"+date.getDate()+"</p>");
+          $("#dim2").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("dim2").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#lun2").append("<p>"+date.getDate()+"</p>");
+          $("#lun2").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("lun2").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#mar2").append("<p>"+date.getDate()+"</p>");
+          $("#mar2").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("mar2").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#mer2").append("<p>"+date.getDate()+"</p>");
+          $("#mer2").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("mer2").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#jeu2").append("<p>"+date.getDate()+"</p>");
+          $("#jeu2").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("jeu2").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#ven2").append("<p>"+date.getDate()+"</p>");
+          $("#ven2").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("ven2").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#sam2").append("<p>"+date.getDate()+"</p>");
+          $("#sam2").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("sam2").style.color="black";
 
           date.setDate(date.getDate()+1);
-          $("#dim3").append("<p>"+date.getDate()+"</p>");
+          $("#dim3").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("dim3").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#lun3").append("<p>"+date.getDate()+"</p>");
+          $("#lun3").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("lun3").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#mar3").append("<p>"+date.getDate()+"</p>");
+          $("#mar3").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("mar3").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#mer3").append("<p>"+date.getDate()+"</p>");
+          $("#mer3").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("mer3").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#jeu3").append("<p>"+date.getDate()+"</p>");
+          $("#jeu3").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("jeu3").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#ven3").append("<p>"+date.getDate()+"</p>");
+          $("#ven3").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("ven3").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#sam3").append("<p>"+date.getDate()+"</p>");
+          $("#sam3").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("sam3").style.color="black";
 
           date.setDate(date.getDate()+1);
-          $("#dim4").append("<p>"+date.getDate()+"</p>");
+          $("#dim4").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("dim4").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#lun4").append("<p>"+date.getDate()+"</p>");
+          $("#lun4").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("lun4").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#mar4").append("<p>"+date.getDate()+"</p>");
+          $("#mar4").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("mar4").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#mer4").append("<p>"+date.getDate()+"</p>");
+          $("#mer4").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("mer4").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#jeu4").append("<p>"+date.getDate()+"</p>");
+          $("#jeu4").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("jeu4").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#ven4").append("<p>"+date.getDate()+"</p>");
+          $("#ven4").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("ven4").style.color="black";
           date.setDate(date.getDate()+1);
-          $("#sam4").append("<p>"+date.getDate()+"</p>");
+          $("#sam4").append("<p id=''>"+date.getDate()+"</p>");
+          document.getElementById("sam4").style.color="black";
 
           date.setDate(date.getDate()+1);
-          $("#dim5").append("<p>"+date.getDate()+"</p>");
+          $("#dim5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("dim5").style.color="black";
           }else{document.getElementById("dim5").style.color="#919191"}
           date.setDate(date.getDate()+1);
-          $("#lun5").append("<p>"+date.getDate()+"</p>");
+          $("#lun5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("lun5").style.color="black";
           }else{document.getElementById("lun5").style.color="#919191"}
           date.setDate(date.getDate()+1);
-          $("#mar5").append("<p>"+date.getDate()+"</p>");
+          $("#mar5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("mar5").style.color="black";
           }else{document.getElementById("mar5").style.color="#919191"}
           date.setDate(date.getDate()+1);
-          $("#mer5").append("<p>"+date.getDate()+"</p>");
+          $("#mer5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("mer5").style.color="black";
           }else{document.getElementById("mer5").style.color="#919191"}
           date.setDate(date.getDate()+1);
-          $("#jeu5").append("<p>"+date.getDate()+"</p>");
+          $("#jeu5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("jeu5").style.color="black";
           }else{document.getElementById("jeu5").style.color="#919191"}
           date.setDate(date.getDate()+1);
-          $("#ven5").append("<p>"+date.getDate()+"</p>");
+          $("#ven5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("ven5").style.color="black";
           }else{document.getElementById("ven5").style.color="#919191"}
           date.setDate(date.getDate()+1);
-          $("#sam5").append("<p>"+date.getDate()+"</p>");
+          $("#sam5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("sam5").style.color="black";
           }else{document.getElementById("sam5").style.color="#919191"}
 
           date.setDate(date.getDate()+1);
-          $("#dim6").append("<p>"+date.getDate()+"</p>");
+          $("#dim6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("dim6").style.color="black";
           }else{document.getElementById("dim6").style.color="#919191"}
           date.setDate(date.getDate()+1);
-          $("#lun6").append("<p>"+date.getDate()+"</p>");
+          $("#lun6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("lun6").style.color="black";
           }else{document.getElementById("lun6").style.color="#919191"}
           date.setDate(date.getDate()+1);
-          $("#mar6").append("<p>"+date.getDate()+"</p>");
+          $("#mar6").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("mar6").style.color="#919191";
           date.setDate(date.getDate()+1);
-          $("#mer6").append("<p>"+date.getDate()+"</p>");
+          $("#mer6").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("mer6").style.color="#919191";
           date.setDate(date.getDate()+1);
-          $("#jeu6").append("<p>"+date.getDate()+"</p>");
+          $("#jeu6").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("jeu6").style.color="#919191";
           date.setDate(date.getDate()+1);
-          $("#ven6").append("<p>"+date.getDate()+"</p>");
+          $("#ven6").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("ven6").style.color="#919191";
           date.setDate(date.getDate()+1);
-          $("#sam6").append("<p>"+date.getDate()+"</p>");
+          $("#sam6").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("sam6").style.color="#919191";
+
+          $.ajax({
+        url:"../PHP/GetEvent.php",
+        type: "POST",
+        dataType: "Json",
+        success:function(result){
+          var evenements=new Array;
+          putEventCal(result);
+          //putEventDetail(result);
+          evenements=(result);
+        },
+        error: function(message, er) {
+          console.log("erreur lors du chargement des évènements:" + er);
+        }
+      });
+          
     }
 
     function clearcal(){
