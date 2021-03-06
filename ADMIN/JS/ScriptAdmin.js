@@ -149,7 +149,6 @@ function changePicture(){
 function rien(matricule){
 	var formSend = new FormData(document.getElementById('send'));
 	formSend.append("matricule",matricule);
-
 	$.ajax({
 				url:"../PHP/upload.php",
 				type:"POST",
@@ -164,7 +163,7 @@ function rien(matricule){
 				},
 				error: function (message, er) {
 					console.log("erreur lors de l'ajout du fichier:" + er);
-					alert("Un erreure c'est produit durant le téléversement de la photo!")
+					alert("Une erreur c'est produit durant le téléversement de la photo!")
 				}
 			});
    }
@@ -176,30 +175,61 @@ function sauvegarderEnseignant(matricule){
 	var courriel=$("#Courriel").val();
 	var telephone= $("#Telephone").val();
 	var poste=$("#Poste").val();
-	
-	if (confirm("Êtes-vous certain de vouloir mettre à jour les informations de l'enseignant: "+matricule)) {
-		$.ajax({
-			url: "../PHP/updateTeacher.php",
-			type: "POST",
-			data: {
-				"matricule": matricule,
-				"prenom": prenom, 
-				"nom": nom,
-				"typeEmployer": typeEmployer,
-				"courriel": courriel,
-				"telephone": telephone,
-				"poste": poste
-			},
-			dataType: "json",
-			success: function(result){
-				$("#GestionEnseignant").empty();
-				location.reload();
-			},
-			error: function (message, er) {
-				console.log("error: " + er);
+
+	if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom))){
+		alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres");
+	}
+	else{
+		if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom))){
+			alert("Le champs nom est obligatoire, il doit être composé seulement de lettres");
+		}
+		else{
+			if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))){
+				alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres");
 			}
-		});
-	  }
+			else{
+				if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))){
+					alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée");
+				}
+				else{
+					if(telephone=="" || telephone==null || !(/^[0-9]*$/.test(telephone)) || telephone.length>10 || telephone.length<10){
+						alert("Le champs téléphone est obligatoire, vérifiez que le numéro entrée suit le forma suivant: 1111111111");
+					}
+					else{
+						if(!(/^[0-9]*$/.test(poste))){
+							alert("Le champs poste doit seulement contenir des chiffres");
+						}
+						else{
+							if (confirm("Êtes-vous certain de vouloir mettre à jour les informations de l'enseignant: "+matricule)) {
+								$.ajax({
+									url: "../PHP/updateTeacher.php",
+									type: "POST",
+									data: {
+										"matricule": matricule,
+										"prenom": prenom, 
+										"nom": nom,
+										"typeEmployer": typeEmployer,
+										"courriel": courriel,
+										"telephone": telephone,
+										"poste": poste
+									},
+									dataType: "json",
+									success: function(result){
+										$("#GestionEnseignant").empty();
+										location.reload();
+									},
+									error: function (message, er) {
+										console.log("error: " + er);
+									}
+								});
+							}
+			  			}
+					}
+				}
+			}
+		}
+	}
+	
 }
 
 function supprimerEnseignant(matricule){
@@ -319,27 +349,67 @@ function ajouterEnseignant(){
 	var telephone= $("#Telephone").val();
 	var poste=$("#Poste").val();
 
-	$.ajax({
-		url: "../PHP/addTeacher.php",
-		type: "POST",
-		data: {
-			"matricule": matricule,
-			"prenom": prenom, 
-			"nom": nom,
-			"typeEmployer": typeEmployer,
-			"courriel": courriel,
-			"telephone": telephone,
-			"poste": poste
-		},
-		dataType: "json",
-		success: function(result){
-			rienAjouter();
-			location.reload();
-		},
-		error: function (message, er) {
-			console.log("error: " + er);
+	if(matricule=="" || matricule==null || !(/^[0-9]*$/.test(matricule)) || matricule.length>7 || matricule.length<7){
+		alert("Le champs matricule est obligatoire, vérifiez que le matricule entré suit le format suivant: 1234567");
+	}
+	else{
+		if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom))){
+			alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres");
 		}
-	});
+		else{
+			if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom))){
+				alert("Le champs nom est obligatoire, il doit être composé seulement de lettres");
+			}
+			else{
+				if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))){
+					alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres");
+				}
+				else{
+					if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))){
+						alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée");
+					}
+					else{
+						if(telephone=="" || telephone==null || !(/^[0-9]*$/.test(telephone)) || telephone.length>10 || telephone.length<10){
+							alert("Le champs téléphone est obligatoire, vérifiez que le numéro entrée suit le forma suivant: 1111111111");
+						}
+						else{
+							if(!(/^[0-9]*$/.test(poste))){
+								alert("Le champs poste doit seulement contenir des chiffres");
+							}
+							else{
+								if (confirm("Êtes-vous certain de vouloir ajouter ce membre du personnel?"+matricule)) {
+									$.ajax({
+										url: "../PHP/addTeacher.php",
+										type: "POST",
+										data: {
+											"matricule": matricule,
+											"prenom": prenom, 
+											"nom": nom,
+											"typeEmployer": typeEmployer,
+											"courriel": courriel,
+											"telephone": telephone,
+											"poste": poste
+										},
+										dataType: "json",
+										success: function(result){
+											rienAjouter();
+											location.reload();
+										},
+										error: function (message, er) {
+											console.log("error: " + er);
+										}
+									});
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+
+
 }
 
 function effacerInformationEnseignant(){

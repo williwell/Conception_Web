@@ -39,7 +39,7 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo json_encode("le fichier ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " a bien ete uploader.");
   } else {
-    echo json_encode("Desoler un erreure c'est produit.");
+    echo json_encode("Desolé, une erreur c'est produit.");
   }
 }
 ?>
