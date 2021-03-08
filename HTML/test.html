@@ -1,36 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      
-    </head>
-    <body>
+<body>
 
-  
-    </body>
+<p>A script on this page starts this clock:</p>
 
-<script src="../JS/Script.js">
-  $(document).ready(function () {
-    $('#Creer').on('click',function() {
-      $.ajax({
-        url: "../PHP/CreerCompte.php",
-        type:"POST",
-        dataType:"json",
-        
-      })
-    })
-  });
+<p id="demo"></p>
 
-  $(document).ready(function () {
-        $.get("../header.html", function (data) {
-            let body = data.replace(/^.*?<body>(.*?)<\/body>.*?$/s, "$1");
-            $(".header").html(body);
-            $(".pageName").text("Nouvel utilisateur");
-            $(".searchBar").css("visibility", "hidden");
-            $(".addButton").css("display", "none");
-            $(".profilePicture").css("display", "none");
-            headerListener();
-        });
-        addUser();
-    });
+<button onclick="clearInterval(myVar)">Stop time</button>
+
+<script>
+var myVar = setInterval(myTimer ,1000);
+function myTimer() {
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
 </script>
+
+</body>
 </html>

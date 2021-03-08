@@ -5,9 +5,10 @@ require_once('QueryAdmin.php');
 
 $query = new QueryAdmin();
 
-
-
-if(isset($_SESSION["user"])){
+if(isset($_SESSION["last_activity"]) && (time() - $_SESSION["last_activity"] < 1800)){
+    
+    $_SESSION["last_activity"] = time();
+    
     $lines = $query->CheckConnexion($_SESSION["user"]);
 
     if (is_array($lines))
@@ -28,6 +29,8 @@ if(isset($_SESSION["user"])){
 }
 else
 {
+    session_unset();
+    session_destroy();
     echo json_encode(FALSE);
 }
 

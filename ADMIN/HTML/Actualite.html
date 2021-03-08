@@ -1,0 +1,37 @@
+
+
+</script>
+
+<script src="../JS/ScriptAdmin.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "../PHP/CheckConnexion.php",
+            type: "POST",
+            dataType: "json",
+            success: function(result)
+            {
+                if(result == true)
+                {
+
+                }
+                else
+                {
+                    alert("Un erreur est survenu. vous devez vous reconnecter")
+                    location.replace("http://localhost/Conception_web/HTML/Connexion.html");
+                }
+            },
+            error: function (message, er) {
+                console.log("erreur lors tu test de connexion:" + er);
+                alert("Un erreur est survenu. vous devez vous reconnecter")
+                location.replace("http://localhost/Conception_web/HTML/Connexion.html");
+            }
+        });
+    });
+</script>
+
+
+
+</html>

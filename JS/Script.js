@@ -74,13 +74,14 @@ function printAnnonces(list){
 }
 
 function putEvent(list) {
-	console.log("téléchargement des événements: success");
+	console.log("downloading event: success");
     for (var i = 0; i < list.length; i++) {
-					$("#Event").append("<div id='EventClick' class='col-md-3'>"+
-					"<h5 style='cursor: pointer;'>"+list[i][1]+"</h5>"+
-					"<h5 style='cursor: pointer;'>"+list[i][2]+"</h5>"+
-				  "</div>"
-	  			);
+		$("#Event").append(
+			"<div onclick='EventClick(this.id)' id='"+list[i][1]+"' class='col-md-3'>"+
+				"<h5 style='cursor: pointer;'>"+list[i][1]+"</h5>"+
+				"<h5 style='cursor: pointer;'>"+list[i][2]+"</h5>"+
+			"</div>"
+	  	);
 				
 	}
 }
@@ -196,23 +197,23 @@ function putEventCal(list){
 
 
 function putActualite(list) {
-	console.log("téléchargement des actualités: success");
+	console.log("downloading book review: success");
 	for(var i=0; i < list.length; i++) {
-		$('#Actu').append("<div class='col-md-4'>"+
-		"<img src='"+list[i][3]+
-		"' style='width: 100%; height: 250px; border: solid black; border-width: thin;'>"+
-        "<h5>"+list[i][1]+"</h5>"+
-		"</div>");
+		$('#Actu').append(
+			"<div onclick='clickActu(this.id)' class='col-md-4' style='cursor: pointer;' id='"+list[i][1]+"'>"+
+				"<img src='../RESSOURCES/Photo_Actu/"+list[i][3]+"' style='width: 100%; height: 250px; border: solid black; border-width: thin;'>"+
+        		"<h5 id='actu'>"+list[i][1]+"</h5>"+
+			"</div>");
 	}
 }
 
 function putActualiteDetail(list) {
-	console.log("téléchargement des infos actualités: success");
+	console.log("downloading news detail");
 	for(var i=0; i < list.length; i++) {
 		$('#Actualite').append(
-			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
+			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;' id='"+list[i][1]+"'>"+
 				"<div class='col-md-4'>"+
-					"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+					"<img src='../RESSOURCES/Photo_Actu/"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
 				"</div>"+
 				"<div class='col-md-8'>"+
 					"<h3>"+list[i][1]+"</h3>"+
@@ -223,3 +224,20 @@ function putActualiteDetail(list) {
 	}
 }
 
+function scrollActu(){
+	if(localStorage.getItem("moveActu") == "true")
+    {
+		try
+		{
+			document.getElementById(localStorage.getItem("actu")).scrollIntoView();
+			localStorage.setItem("moveActu","false");
+			clearInterval(myVar);
+		}
+        catch(err)
+		{}
+    }
+	else{
+		clearInterval(myVar)
+	}
+}
+ 

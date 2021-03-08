@@ -15,6 +15,7 @@ if (is_array($lines))
     {
         $_SESSION["user"] = $user;
         $_SESSION["mdp"] = $mdp;
+        $_SESSION["last_activity"] = time();
         echo json_encode(TRUE);
     }
     else

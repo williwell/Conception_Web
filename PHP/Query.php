@@ -31,7 +31,7 @@ class Query
    {
        $lines = array();
        try {
-           $request = "SELECT * FROM events Order by dateE limit 4";
+           $request = "SELECT * FROM events Order by dateE";
            $result = $this->connexion->query($request);
            $lines = $result->fetchAll();
 
