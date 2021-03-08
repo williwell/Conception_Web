@@ -74,7 +74,7 @@ function printAnnonces(list){
 }
 
 function putEvent(list) {
-	console.log("téléchargement des événements: success");
+	console.log("downloading event: success");
     for (var i = 0; i < list.length; i++) {
 		$("#Event").append(
 			"<div onclick='EventClick(this.id)' id='"+list[i][1]+"' class='col-md-3'>"+
@@ -197,7 +197,7 @@ function putEventCal(list){
 
 
 function putActualite(list) {
-	console.log("téléchargement des actualités: success");
+	console.log("downloading book review: success");
 	for(var i=0; i < list.length; i++) {
 		$('#Actu').append(
 			"<div onclick='clickActu(this.id)' class='col-md-4' style='cursor: pointer;' id='"+list[i][1]+"'>"+
@@ -208,7 +208,7 @@ function putActualite(list) {
 }
 
 function putActualiteDetail(list) {
-	console.log("téléchargement des infos actualités: success");
+	console.log("downloading news detail");
 	for(var i=0; i < list.length; i++) {
 		$('#Actualite').append(
 			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;' id='"+list[i][1]+"'>"+
