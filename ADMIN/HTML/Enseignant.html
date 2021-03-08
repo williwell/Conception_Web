@@ -48,7 +48,7 @@ $("#btnAjouter").click(function() {
 
     $(document).ready(function () { 
         $.ajax({
-            url: "../../PHP/GetEnseignant.php",
+            url: "../PHP/CheckConnexion.php",
             type: "POST",
             dataType: "json",
             success: function(result)

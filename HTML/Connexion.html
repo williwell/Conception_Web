@@ -12,11 +12,13 @@
         <div id="MenuBar"></div>
         <div id="Banner"> </div>
 
-        <div class="row" style="margin-left: 5%;">
-            <form action="../PHP/GetConnexion.php">
-                <label for="user">Nom utilisateur</label>
+        <div class="row" style="margin-left: 40%;margin-top:3%;">
+            <form action="javascript:;" onsubmit="connecter()">
+                <label for="user">Nom utilisateur</label><br>
                 <input type="text" id="user" name="user"><br>
-                <input type="submit" value="Connexion">
+                <label for="mdp">Mot de passe</label><br>
+                <input type="password" id="mdp" name="mdp"><br>
+                <input type="submit" value="Connexion" style="margin-top: 1%;">
             </form>
         </div>
 
