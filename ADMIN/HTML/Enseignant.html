@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <meta charset="utf-8" />
-        <title>ADMIN Enseignant</title>
         <meta name="author" content="Alexandra Sirois, William-Arthur Cinq-Mars, Mathieu Harvey">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -41,14 +40,15 @@
 <script src="../JS/ScriptAdmin.js"></script>
 
 <script>
-    $("#btnAjouter").click(function() {
-        ajouterPageEnseignant();
-    });
+
+$("#btnAjouter").click(function() {
+    ajouterPageEnseignant();
+});
 
 
-    $(document).ready(function () {
+    $(document).ready(function () { 
         $.ajax({
-            url: "../PHP/CheckConnexion.php",
+            url: "../../PHP/GetEnseignant.php",
             type: "POST",
             dataType: "json",
             success: function(result)

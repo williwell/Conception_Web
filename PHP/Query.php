@@ -87,30 +87,30 @@ class Query
        }
     }
 
-   function getConnexion($user):array
+   function getConnexion():array
    {
        $lines = array();
        try {
-           $request = "SELECT * FROM compte WHERE User = $user";
+           $request = "SELECT * FROM compte";
            $result = $this->connexion->query($request);
            $lines = $result->fetchAll();
 
            return $lines;
        }
        catch(PDOException $e) {
-           return $e;
+           return $lines;
        }
    }
 
-   function creerComtpe($User,$Mdp)
+   function creerComtpe($User,$Mdp):String
    {
        try{
-           $request = "insert into compte(User,Mdp) values($User,'$Mdp')";
+           $request = "insert into compte values($User,$Mdp)";
            $result = $this->connexion->query($request);
            return $result;
        }
        catch(PDOException $e) {
-           return $e;
+           return $result;
        }
    }
 }
