@@ -105,7 +105,7 @@
         success:function(result){
           putActualite(result);
           $('#ActuClick').on('click', function() {
-            window.location = "http://localhost/Conception%20web/HTML/Actualite";
+            window.location = "Actualite.html";
           });
         },
         error: function(message, er) {
@@ -121,9 +121,6 @@
         dataType: "json",
         success: function(result){
           putEvent(result);
-          $('#EventClick').on('click', function() {
-            window.location = "http://localhost/Conception%20web/HTML/Event";
-          });
         },
         error: function (message, er) {
           console.log("erreur lors du chargement des événements:" + er);
@@ -131,5 +128,15 @@
       });
     });
 
+    function EventClick(clickid) {
+      
+    }
+    
+    function clickActu(idActu)
+    {
+      localStorage.setItem("moveActu","true");
+      localStorage.setItem("actu",idActu);
+      location.replace("Actualite.html");
+    }
   </script>
 </html>
