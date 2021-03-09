@@ -123,27 +123,42 @@
         resize();
 
         function connecter() {
+            var user =document.getElementById("user").value;
+            var mdp = document.getElementById("mdp").value;
             if(checkUser() && checkPassWord())
             {
-                $.ajax({
-                    url: "../PHP/Gestion_Admin/addAdmin.php",
-                    type: "POST",
-                    dataType: "json",
-                    data: {"user":document.getElementById("user").value,"mdp":document.getElementById("mdp").value},
-                    success: function(result){
-                        if(result == true)
-                        {
-                            alert("Le compte à bien été créée");
-                        }
-                        else
-                        {
-                            alert("Le compte n'a pas pu être créer");
-                        }
-                    },
-                    error: function (message, er) {
-                        console.log("erreur lors de la connexion création du compte:" + er);
+                if(user.length<25){
+                    if(mdp.length<25){
+                        $.ajax({
+                            url: "../PHP/Gestion_Admin/addAdmin.php",
+                            type: "POST",
+                            dataType: "json",
+                            data: {"user":user,
+                            "mdp":mdp},
+                            success: function(result){
+                                if(result == true)
+                                {
+                                    alert("Le compte à bien été créée");
+                                }
+                                else
+                                {
+                                    alert("Le compte n'a pas pu être créer");
+                                }
+                            },
+                            error: function (message, er) {
+                                console.log("erreur lors de la connexion création du compte:" + er);
+                            }
+                        });
                     }
-                });
+                    else{
+                        alert("Le mot de passe entré est trop long");
+                    }
+                        
+                }
+                else{
+                    alert("Le nom d'utilisateur entré est trop long");
+                }
+               
             }
             else{
                 alert("Vous devez entrer un nom d'utilisateur et un mot de passe")

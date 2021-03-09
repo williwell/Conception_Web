@@ -58,7 +58,7 @@ class QueryAdmin
     {
         $lines = array();
         try{
-            $request = "SELECT * FROM compte WHERE User = $user";
+            $request = "SELECT * FROM compte WHERE User = '".$user."'";
             $result = $this->connexion->query($request);
             $lines = $result->fetchAll();
             return $lines;

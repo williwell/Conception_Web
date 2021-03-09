@@ -86,28 +86,18 @@
             {
                 if(result == true)
                 {
-                    $.ajax({
-                        url: "../../PHP/GetEnseignant.php",
-                        type: "POST",
-                        dataType: "json",
-                        success: function(result){
-                            printCardsAdmin(result);
-                        },
-                        error: function (message, er) {
-                            console.log("erreur lors du chargement du profil des enseignants:" + er);
-                        }
-                    });
+
                 }
                 else
                 {
                     alert("Un erreur est survenu. vous devez vous reconnecter")
-                   location.replace("http://localhost/Conception_web/HTML/Connexion.html");
+                   location.replace("../../HTML/Connexion.html");
                 }
             },
             error: function (message, er) {
                 console.log("erreur lors tu test de connexion:" + er);
                 alert("Un erreur est survenu. vous devez vous reconnecter")
-                location.replace("http://localhost/Conception_web/HTML/Connexion.html");
+                location.replace("../../HTML/Connexion.html");
             }
         });
     });
