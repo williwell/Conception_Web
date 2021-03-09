@@ -9,46 +9,65 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
         
+
 <body>
+    <div id="MenuCell" class="container-fluid"  style="background-image: linear-gradient( #134bbb, #082969);  color:white;">
 
-    <nav class="navbar p-0" style="margin-bottom: 0%;">
-            <div id="MenuOrdi" class="container-fluid" style="background-image: linear-gradient( #134bbb, #082969); color:white;width: 100%;height: 100%;">
-                <div  class="row justify-content-evenly" style="text-align: center;justify-content: center;text-align: center;margin: 3%;margin-bottom:0%;width: 100%;">
-
-                            <div class="col">
-                                <img src="../../RESSOURCES/logo département informatique.png" alt="">
-                            </div>
-
-                            <div class="col ActualiteMenu">
-                                <i id="ActualiteMenuI" class="material-icons">announcement</i>
-                                <p id="ActualiteMenuP" style="cursor: pointer;" >Actualité</p>
-                            </div>
-        
-                            <div class="col EventMenu">
-                                <i id="EventMenuI" class="material-icons">event_note</i>
-                                <p id="EventMenuP" style="cursor: pointer;">Événement</p>
-                            </div>
-                    
-                            <div class="col TeacherMenu">
-                                <i id="TeacherMenuI" class="material-icons">account_box</i>
-                                <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
-                            </div>
-                             <div class="col LinkMenu">
-                                <i id="LinkMenuI" class="material-icons">link</i>
-                                <p id="LinkMenuP">Liens utiles</p>
-                            </div>
-                            <div class="col addAccountMenu">
-                                <i id="addAccountMenuI" class="material-icons">manage_accounts</i>
-                                <p id="addAccountMenuP">Profil admin</p>
-                            </div>
-                    </div>
-                </div>
-          
+        <div  class="row" style="padding: 3%;">
+            <div  class="col" style="text-align: left;justify-content: center;align-content: center;padding-top: 2%;">
+                <img src="../../RESSOURCES/logo département informatique small.png" alt="Icon_Département">    
             </div>
-      </nav>
+            
+            <div Class="col PhoneMenu" style="text-align: right;justify-content: right;align-content: right;">
+                <i id="PhoneMenuI" class="material-icons"  onclick="openNav()">menu</i>
+                <p id="PhoneMenuP"  onclick="openNav()">Menu</p>
+            </div>
+       
+        </div>
+  
+    </div>
 
+    <div id="mySidenav" class="sidenav" style="display: none;height: 100%;width: 40%; position: fixed;z-index: 1;top: 0;right:0;background-image: linear-gradient( #0c3a94, #082969); color:white;overflow-x: hidden;align-content: center;justify-content: center;text-align: center; padding-top: 10%;">
+        <div class="col ActualiteMenu">
+            <i id="ActualiteMenuI" class="material-icons">announcement</i>
+            <p id="ActualiteMenuP" style="cursor: pointer;" >Actualité</p>
+        </div>
 
-   
+        <div class="col EventMenu">
+            <i id="EventMenuI" class="material-icons">event_note</i>
+            <p id="EventMenuP" style="cursor: pointer;">Événement</p>
+        </div>
+
+        <div class="col TeacherMenu">
+            <i id="TeacherMenuI" class="material-icons">account_box</i>
+            <p id="TeacherMenuP" style="cursor: pointer;" >Les enseignants</p>
+        </div>
+         <div class="col LinkMenu">
+            <i id="LinkMenuI" class="material-icons">link</i>
+            <p id="LinkMenuP">Liens utiles</p>
+        </div>
+        <div class="col addAccountMenu">
+            <i id="addAccountMenuI" class="material-icons">manage_accounts</i>
+            <p id="addAccountMenuP">Profil admin</p>
+        </div>
+        <div class="col CloseMenu">
+            <i id="CloseMenuI" class="material-icons" onclick="closeNav()" >close</i>
+            <p id="CloseMenuP" onclick="closeNav()">Fermer le menu</p>
+        </div>
+    </div>
+
+     
+      </div>
+      
+      <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.display = "block";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.display = "none";
+      }
+      </script>
 
 </body>
 
@@ -79,6 +98,9 @@
     $("#addAccountMenuI").on("mouseover", function() {menuMouseOver("#addAccountMenuI","#addAccountMenuP")});
     $("#addAccountMenuI").on("mouseout", function() {menuMouseOut("#addAccountMenuI","#addAccountMenuP")});
 
+
+    $("#CloseMenuI").on("mouseover", function() {menuMouseOver("#CloseMenuI","#CloseMenuP")});
+    $("#CloseMenuI").on("mouseout", function() {menuMouseOut("#CloseMenuI","#CloseMenuP")});
 
     function menuMouseOver(elementId,elementIdP){
         $(elementId).css("color","#cf152d");

@@ -87,11 +87,11 @@ class Query
        }
     }
 
-   function getConnexion($user):array
+   function getConnexion($user)
    {
        $lines = array();
        try {
-           $request = "SELECT * FROM compte WHERE User = $user";
+           $request = "SELECT * FROM compte WHERE User = '".$user."'";
            $result = $this->connexion->query($request);
            $lines = $result->fetchAll();
 
@@ -102,15 +102,4 @@ class Query
        }
    }
 
-   function creerComtpe($User,$Mdp)
-   {
-       try{
-           $request = "insert into compte(User,Mdp) values($User,'$Mdp')";
-           $result = $this->connexion->query($request);
-           return $result;
-       }
-       catch(PDOException $e) {
-           return $e;
-       }
-   }
 }
