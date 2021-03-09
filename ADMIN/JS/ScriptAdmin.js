@@ -202,7 +202,7 @@ function sauvegarderEnseignant(matricule){
 						else{
 							if (confirm("Êtes-vous certain de vouloir mettre à jour les informations de l'enseignant: "+matricule)) {
 								$.ajax({
-									url: "../PHP/updateTeacher.php",
+									url: "../PHP/Gestion_Enseignant/updateTeacher.php",
 									type: "POST",
 									data: {
 										"matricule": matricule,
@@ -236,7 +236,7 @@ function supprimerEnseignant(matricule){
 	if (confirm("Êtes-vous certain de vouloir supprimer l'enseignant: "+matricule)) {
 
 		$.ajax({
-			url: "../PHP/deleteTeacher.php",
+			url: "../PHP/Gestion_Enseignant/deleteTeacher.php",
 			type: "POST",
 			data: {
 				"matricule": matricule
@@ -379,7 +379,7 @@ function ajouterEnseignant(){
 							else{
 								if (confirm("Êtes-vous certain de vouloir ajouter ce membre du personnel?"+matricule)) {
 									$.ajax({
-										url: "../PHP/addTeacher.php",
+										url: "../PHP/Gestion_Enseignant/addTeacher.php",
 										type: "POST",
 										data: {
 											"matricule": matricule,

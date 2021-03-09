@@ -1,6 +1,7 @@
 <?php
-require_once('QueryAdmin.php');
+require_once('../QueryAdmin.php');
 
+try {
     $lines = array();
     $query = new QueryAdmin();
 
@@ -11,6 +12,11 @@ require_once('QueryAdmin.php');
     $courriel=$_POST['courriel'];
     $telephone=$_POST['telephone'];
     $poste=$_POST['poste'];
-
-    $lines = $query->addTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste);
+    
+    $lines = $query->updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste);
     echo json_encode($lines);
+
+}
+catch(PDOException $e) {
+    return $lines;
+}
