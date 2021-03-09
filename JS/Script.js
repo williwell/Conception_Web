@@ -121,70 +121,70 @@ function putEventCal(list){
 				switch(true){
 					case (+j+y)/7<=1:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim1').style.color="red";break;}
-							case(1):{document.getElementById('lun1').style.color="red";break;}
-							case(2):{document.getElementById('mar1').style.color="red";break;}
-							case(3):{document.getElementById('mer1').style.color="red";break;}
-							case(4):{document.getElementById('jeu1').style.color="red";break;}
-							case(5):{document.getElementById('ven1').style.color="red";break;}
-							case(6):{document.getElementById('sam1').style.color="red";break;}
+							case(0):{document.getElementById('dim1').style="border:1px solid #5296FF";document.getElementById('dim1').onclick=function(){var i=x;i.setDate(x.getDate()-(x.getDay()));alert(i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun1').style="border:1px solid #5296FF";document.getElementById('lun1').onclick=function(){var i=x;i.setDate(x.getDate()+(1-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar1').style="border:1px solid #5296FF";document.getElementById('mar1').onclick=function(){var i=x;i.setDate(x.getDate()+(2-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer1').style="border:1px solid #5296FF";document.getElementById('mer1').onclick=function(){var i=x;i.setDate(x.getDate()+(3-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu1').style="border:1px solid #5296FF";document.getElementById('jeu1').onclick=function(){var i=x;i.setDate(x.getDate()+(4-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven1').style="border:1px solid #5296FF";document.getElementById('ven1').onclick=function(){var i=x;i.setDate(x.getDate()+(5-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam1').style="border:1px solid #5296FF";document.getElementById('sam1').onclick=function(){var i=x;i.setDate(x.getDate()+(6-x.getDay()));alert(i);x.setDate(1);};break;}
 						}
 						break;
 					}
 					case (+j+y)/7<=2:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim2').style.color="red";break;}
-							case(1):{document.getElementById('lun2').style.color="red";break;}
-							case(2):{document.getElementById('mar2').style.color="red";break;}
-							case(3):{document.getElementById('mer2').style.color="red";break;}
-							case(4):{document.getElementById('jeu2').style.color="red";break;}
-							case(5):{document.getElementById('ven2').style.color="red";break;}
-							case(6):{document.getElementById('sam2').style.color="red";break;}
+							case(0):{document.getElementById('dim2').style="border:1px solid #5296FF";document.getElementById('dim2').onclick=function(){var i=x;i.setDate(x.getDate()+(7-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun2').style="border:1px solid #5296FF";document.getElementById('lun2').onclick=function(){var i=x;i.setDate(x.getDate()+(8-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar2').style="border:1px solid #5296FF";document.getElementById('mar2').onclick=function(){var i=x;i.setDate(x.getDate()+(9-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer2').style="border:1px solid #5296FF";document.getElementById('mer2').onclick=function(){var i=x;i.setDate(x.getDate()+(10-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu2').style="border:1px solid #5296FF";document.getElementById('jeu2').onclick=function(){var i=x;i.setDate(x.getDate()+(11-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven2').style="border:1px solid #5296FF";document.getElementById('ven2').onclick=function(){var i=x;i.setDate(x.getDate()+(12-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam2').style="border:1px solid #5296FF";document.getElementById('sam2').onclick=function(){var i=x;i.setDate(x.getDate()+(13-x.getDay()));alert(i);x.setDate(1);};break;}
 					}
 					break;}
 					case (+j+y)/7<=3:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim3').style.color="red";break;}
-							case(1):{document.getElementById('lun3').style.color="red";break;}
-							case(2):{document.getElementById('mar3').style.color="red";break;}
-							case(3):{document.getElementById('mer3').style.color="red";break;}
-							case(4):{document.getElementById('jeu3').style.color="red";break;}
-							case(5):{document.getElementById('ven3').style.color="red";break;}
-							case(6):{document.getElementById('sam3').style.color="red";break;}
+							case(0):{document.getElementById('dim3').style="border:1px solid #5296FF";document.getElementById('dim3').onclick=function(){var i=x;i.setDate(x.getDate()+(14-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun3').style="border:1px solid #5296FF";document.getElementById('lun3').onclick=function(){var i=x;i.setDate(x.getDate()+(15-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar3').style="border:1px solid #5296FF";document.getElementById('mar3').onclick=function(){var i=x;i.setDate(x.getDate()+(16-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer3').style="border:1px solid #5296FF";document.getElementById('mer3').onclick=function(){var i=x;i.setDate(x.getDate()+(17-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu3').style="border:1px solid #5296FF";document.getElementById('jeu3').onclick=function(){var i=x;i.setDate(x.getDate()+(18-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven3').style="border:1px solid #5296FF";document.getElementById('ven3').onclick=function(){var i=x;i.setDate(x.getDate()+(19-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam3').style="border:1px solid #5296FF";document.getElementById('sam3').onclick=function(){var i=x;i.setDate(x.getDate()+(20-x.getDay()));alert(i);x.setDate(1);};break;}
 					}
 					break;}
 					case (+j+y)/7<=4:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim4').style.color="red";break;}
-							case(1):{document.getElementById('lun4').style.color="red";break;}
-							case(2):{document.getElementById('mar4').style.color="red";break;}
-							case(3):{document.getElementById('mer4').style.color="red";break;}
-							case(4):{document.getElementById('jeu4').style.color="red";break;}
-							case(5):{document.getElementById('ven4').style.color="red";break;}
-							case(6):{document.getElementById('sam4').style.color="red";break;}
+							case(0):{document.getElementById('dim4').style="border:1px solid #5296FF";document.getElementById('dim4').onclick=function(){var i=x;i.setDate(x.getDate()+(21-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun4').style="border:1px solid #5296FF";document.getElementById('lun4').onclick=function(){var i=x;i.setDate(x.getDate()+(22-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar4').style="border:1px solid #5296FF";document.getElementById('mar4').onclick=function(){var i=x;i.setDate(x.getDate()+(23-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer4').style="border:1px solid #5296FF";document.getElementById('mer4').onclick=function(){var i=x;i.setDate(x.getDate()+(24-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu4').style="border:1px solid #5296FF";document.getElementById('jeu4').onclick=function(){var i=x;i.setDate(x.getDate()+(25-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven4').style="border:1px solid #5296FF";document.getElementById('ven4').onclick=function(){var i=x;i.setDate(x.getDate()+(26-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam4').style="border:1px solid #5296FF";document.getElementById('sam4').onclick=function(){var i=x;i.setDate(x.getDate()+(27-x.getDay()));alert(i);x.setDate(1);};break;}
 					}
 					break;}
 					case (+j+y)/7<=5:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim5').style.color="red";break;}
-							case(1):{document.getElementById('lun5').style.color="red";break;}
-							case(2):{document.getElementById('mar5').style.color="red";break;}
-							case(3):{document.getElementById('mer5').style.color="red";break;}
-							case(4):{document.getElementById('jeu5').style.color="red";break;}
-							case(5):{document.getElementById('ven5').style.color="red";break;}
-							case(6):{document.getElementById('sam5').style.color="red";break;}
+							case(0):{document.getElementById('dim5').style="border:1px solid #5296FF";document.getElementById('dim5').onclick=function(){var i=x;i.setDate(x.getDate()+(28-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun5').style="border:1px solid #5296FF";document.getElementById('lun5').onclick=function(){var i=x;i.setDate(x.getDate()+(29-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar5').style="border:1px solid #5296FF";document.getElementById('mar5').onclick=function(){var i=x;i.setDate(x.getDate()+(30-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer5').style="border:1px solid #5296FF";document.getElementById('mer5').onclick=function(){var i=x;i.setDate(x.getDate()+(31-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu5').style="border:1px solid #5296FF";document.getElementById('jeu5').onclick=function(){var i=x;i.setDate(x.getDate()+(32-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven5').style="border:1px solid #5296FF";document.getElementById('ven5').onclick=function(){var i=x;i.setDate(x.getDate()+(33-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam5').style="border:1px solid #5296FF";document.getElementById('sam5').onclick=function(){var i=x;i.setDate(x.getDate()+(34-x.getDay()));alert(i);x.setDate(1);};break;}
 						}
 						break;
 					}
 					case (+j+y)/7<=6:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim6').style.color="red";break;}
-							case(1):{document.getElementById('lun6').style.color="red";break;}
-							case(2):{document.getElementById('mar6').style.color="red";break;}
-							case(3):{document.getElementById('mer6').style.color="red";break;}
-							case(4):{document.getElementById('jeu6').style.color="red";break;}
-							case(5):{document.getElementById('ven6').style.color="red";break;}
-							case(6):{document.getElementById('sam6').style.color="red";break;}
+							case(0):{document.getElementById('dim6').style="border:1px solid #5296FF";document.getElementById('dim6').onclick=function(){var i=x;i.setDate(x.getDate()+(35-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun6').style="border:1px solid #5296FF";document.getElementById('lun6').onclick=function(){var i=x;i.setDate(x.getDate()+(36-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar6').style="border:1px solid #5296FF";document.getElementById('mar6').onclick=function(){var i=x;i.setDate(x.getDate()+(37-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer6').style="border:1px solid #5296FF";document.getElementById('mer6').onclick=function(){var i=x;i.setDate(x.getDate()+(38-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu6').style="border:1px solid #5296FF";document.getElementById('jeu6').onclick=function(){var i=x;i.setDate(x.getDate()+(39-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven6').style="border:1px solid #5296FF";document.getElementById('ven6').onclick=function(){var i=x;i.setDate(x.getDate()+(40-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam6').style="border:1px solid #5296FF";document.getElementById('sam6').onclick=function(){var i=x;i.setDate(x.getDate()+(41-x.getDay()));alert(i);x.setDate(1);};break;}
 					}
 					break;}
 				}
