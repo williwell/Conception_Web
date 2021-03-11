@@ -12,8 +12,8 @@
   <body>
     <div id="MenuBar"></div>
     <div id="Banner"> </div>
-    <div id='Event' class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
-      <h2>Les prochains évènements</h2>
+    <div id='CalendrierEvenements' class="row" style="margin:5%;">
+      <h2>Calendriers des évènements du département</h2>
     </div>
 <div class="row">
 <div class="col-md-4"></div>
@@ -130,6 +130,9 @@
       </div>
     </div>
   </div>
+  <div id="Event" class="row" style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+
+  </div>
 </div>
 
 
@@ -225,237 +228,299 @@
           date.setDate(date.getDate()-(x.getDay()));
           $("#dim1").append("<p id='pdim1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
-            document.getElementById("dim1").style.backgroundColor="grey";
+            document.getElementById("dim1").style="background-color:grey;cursor:default;margin:1px;";
           }
           else{document.getElementById("dim1").style.color="black";
           document.getElementById("dim1").style="border:0px solid white;margin:1px;";}
+          document.getElementById("dim1").onclick=("");
           
           date.setDate(date.getDate()+1);
           $("#lun1").append("<p id='plun1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
-            document.getElementById("lun1").style.backgroundColor="grey";
+            document.getElementById("lun1").style="background-color:grey;cursor:default;margin:1px;";
           }
           else{document.getElementById("lun1").style.color="black";
           document.getElementById("lun1").style="border:0px solid white;margin:1px;";}
+          document.getElementById("lun1").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#mar1").append("<p id='pmar1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
-            document.getElementById("mar1").style.backgroundColor="grey";
+            document.getElementById("mar1").style="background-color:grey;cursor:default;margin:1px;";
           }
           else{document.getElementById("mar1").style.color="black";
           document.getElementById("mar1").style="border:0px solid white;margin:1px;";}
+          document.getElementById("mar1").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#mer1").append("<p id='pmer1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
-            document.getElementById("mer1").style.backgroundColor="grey";
+            document.getElementById("mer1").style="background-color:grey;cursor:default;margin:1px;";
           }
           else{document.getElementById("mer1").style.color="black";
           document.getElementById("mer1").style="border:0px solid white;margin:1px;";}
+          document.getElementById("mer1").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#jeu1").append("<p id='pjeu1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
-            document.getElementById("jeu1").style.backgroundColor="grey";
+            document.getElementById("jeu1").style="background-color:grey;cursor:default;margin:1px;";
           }
           else{document.getElementById("jeu1").style.color="black";
           document.getElementById("jeu1").style="border:0px solid white;margin:1px;";}
+          document.getElementById("jeu1").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#ven1").append("<p id='pven1'>"+date.getDate()+"</p>");
           if(date.getDate()>10){
-            document.getElementById("ven1").style.backgroundColor="grey";
+            document.getElementById("ven1").style="background-color:grey;cursor:default;margin:1px;";
           }
           else{document.getElementById("ven1").style.color="black";
           document.getElementById("ven1").style="border:0px solid white;margin:1px;";}
+          document.getElementById("ven1").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#sam1").append("<p id='psam1'>"+date.getDate()+"</p>");
           document.getElementById("sam1").style="border:0px solid white;margin:1px;";
+          document.getElementById("sam1").onclick=("");
           
           date.setDate(date.getDate()+1);
           $("#dim2").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("dim2").style.color="black";
           document.getElementById("dim2").style="border:0px solid white;margin:1px;";
+          document.getElementById("dim2").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#lun2").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("lun2").style.color="black";
           document.getElementById("lun2").style="border:0px solid white;margin:1px;";
+          document.getElementById("lun2").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#mar2").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("mar2").style.color="black";
           document.getElementById("mar2").style="border:0px solid white;margin:1px;";
+          document.getElementById("mar2").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#mer2").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("mer2").style.color="black";
           document.getElementById("mer2").style="border:0px solid white;margin:1px;";
+          document.getElementById("mer2").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#jeu2").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("jeu2").style.color="black";
           document.getElementById("jeu2").style="border:0px solid white;margin:1px;";
+          document.getElementById("jeu2").onclick=("");
+          
           date.setDate(date.getDate()+1);
           $("#ven2").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("ven2").style.color="black";
           document.getElementById("ven2").style="border:0px solid white;margin:1px;";
+          document.getElementById("ven2").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#sam2").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("sam2").style.color="black";
           document.getElementById("sam2").style="border:0px solid white;margin:1px;";
+          document.getElementById("sam2").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#dim3").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("dim3").style.color="black";
           document.getElementById("dim3").style="border:0px solid white;margin:1px;";
+          document.getElementById("dim3").onclick=("");
+          
           date.setDate(date.getDate()+1);
           $("#lun3").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("lun3").style.color="black";
           document.getElementById("lun3").style="border:0px solid white;margin:1px;";
+          document.getElementById("lun3").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#mar3").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("mar3").style.color="black";
           document.getElementById("mar3").style="border:0px solid white;margin:1px;";
+          document.getElementById("mar3").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#mer3").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("mer3").style.color="black";
           document.getElementById("mer3").style="border:0px solid white;margin:1px;";
+          document.getElementById("mer3").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#jeu3").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("jeu3").style.color="black";
           document.getElementById("jeu3").style="border:0px solid white;margin:1px;";
+          document.getElementById("jeu3").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#ven3").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("ven3").style.color="black";
           document.getElementById("ven3").style="border:0px solid white;margin:1px;";
+          document.getElementById("ven3").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#sam3").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("sam3").style.color="black";
           document.getElementById("sam3").style="border:0px solid white;margin:1px;";
+          document.getElementById("sam3").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#dim4").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("dim4").style.color="black";
           document.getElementById("dim4").style="border:0px solid white;margin:1px;";
+          document.getElementById("dim4").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#lun4").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("lun4").style.color="black";
           document.getElementById("lun4").style="border:0px solid white;margin:1px;";
+          document.getElementById("lun4").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#mar4").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("mar4").style.color="black";
           document.getElementById("mar4").style="border:0px solid white;margin:1px;";
+          document.getElementById("mar4").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#mer4").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("mer4").style.color="black";
           document.getElementById("mer4").style="border:0px solid white;margin:1px;";
+          document.getElementById("mer4").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#jeu4").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("jeu4").style.color="black";
           document.getElementById("jeu4").style="border:0px solid white;margin:1px;";
+          document.getElementById("jeu4").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#ven4").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("ven4").style.color="black";
           document.getElementById("ven4").style="border:0px solid white;margin:1px;";
+          document.getElementById("ven4").onclick=("");
+
           date.setDate(date.getDate()+1);
           $("#sam4").append("<p id=''>"+date.getDate()+"</p>");
           document.getElementById("sam4").style.color="black";
           document.getElementById("sam4").style="border:0px solid white;margin:1px;";
+          document.getElementById("sam4").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#dim5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("dim5").style.color="black";
             document.getElementById("dim5").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("dim5").style.backgroundColor="grey";}
+          }else{document.getElementById("dim5").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("dim5").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#lun5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("lun5").style.color="black";
             document.getElementById("lun5").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("lun5").style.backgroundColor="grey";}
+          }else{document.getElementById("lun5").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("lun5").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#mar5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("mar5").style.color="black";
             document.getElementById("mar5").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("mar5").style.backgroundColor="grey";}
+          }else{document.getElementById("mar5").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("mar5").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#mer5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("mer5").style.color="black";
             document.getElementById("mer5").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("mer5").style.backgroundColor="grey";}
+          }else{document.getElementById("mer5").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("mer5").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#jeu5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("jeu5").style.color="black";
             document.getElementById("jeu5").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("jeu5").style.backgroundColor="grey";}
+          }else{document.getElementById("jeu5").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("jeu5").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#ven5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("ven5").style.color="black";
             document.getElementById("ven5").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("ven5").style.backgroundColor="grey";}
+          }else{document.getElementById("ven5").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("ven5").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#sam5").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("sam5").style.color="black";
             document.getElementById("sam5").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("sam5").style.backgroundColor="grey";}
+          }else{document.getElementById("sam5").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("sam5").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#dim6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("dim6").style.color="black";
             document.getElementById("dim6").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("dim6").style.backgroundColor="grey";}
+          }else{document.getElementById("dim6").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("dim6").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#lun6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("lun6").style.color="black";
             document.getElementById("lun6").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("lun6").style.backgroundColor="grey";}
+          }else{document.getElementById("lun6").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("lun6").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#mar6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("mar6").style.color="black";
             document.getElementById("mar6").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("mar6").style.backgroundColor="grey";}
+          }else{document.getElementById("mar6").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("mar6").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#mer6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("mer6").style.color="black";
             document.getElementById("mer6").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("mer6").style.backgroundColor="grey";}
+          }else{document.getElementById("mer6").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("dim6").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#jeu6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("jeu6").style.color="black";
             document.getElementById("jeu6").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("jeu6").style.backgroundColor="grey";}
+          }else{document.getElementById("jeu6").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("jeu6").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#ven6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("ven6").style.color="black";
             document.getElementById("ven6").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("ven6").style.backgroundColor="grey";}
+          }else{document.getElementById("ven6").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("ven6").onclick=("");
 
           date.setDate(date.getDate()+1);
           $("#sam6").append("<p id=''>"+date.getDate()+"</p>");
           if(date.getDate()>17){
             document.getElementById("sam6").style.color="black";
             document.getElementById("sam6").style="border:0px solid white;margin:1px;";
-          }else{document.getElementById("sam6").style.backgroundColor="grey";}
+          }else{document.getElementById("sam6").style="background-color:grey;cursor:default;margin:1px;";}
+          document.getElementById("sam6").onclick=("");
 
           $.ajax({
         url:"../PHP/GetEvent.php",
