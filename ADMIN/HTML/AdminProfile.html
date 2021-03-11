@@ -23,13 +23,7 @@
         <div id="info"  class="table justify-content-evenly">
         </div>
 
-        <div class="container-fluid">
-            <div  class=" row justify-content-evenly" style="align-content: center;text-align: center;justify-content: center;border: hidden;">
-                <div id="tableHeader" class="table justify-content-evenly" style="align-content: center;text-align: center;justify-content: center;">
-                </div>
-                <div id="Table" class="table-content justify-content-evenly"  style="align-content: center;text-align: center;justify-content: center;">
-                </div>
-            </div>
+        <div id="tableAdmin" class="container-fluid">
 
         </div>
 </body>
@@ -56,11 +50,14 @@
 
     function addAccount(){
         $("#info").empty();
+        $("#tableAdmin").empty();
         jQuery('#info').load('AddAdmin.html#ajouterAdmin'); 
     }
 
     function loadAdminProfil(){
         $("#info").empty();
+        $("#tableAdmin").empty();
+        jQuery('#tableAdmin').load('GestionAdmin.html#tableGestionAdmin'); 
     }
 
     function logOut(){

@@ -234,7 +234,6 @@ function sauvegarderEnseignant(matricule){
 
 function supprimerEnseignant(matricule){
 	if (confirm("Êtes-vous certain de vouloir supprimer l'enseignant: "+matricule)) {
-
 		$.ajax({
 			url: "../PHP/Gestion_Enseignant/deleteTeacher.php",
 			type: "POST",

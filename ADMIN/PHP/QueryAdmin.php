@@ -105,4 +105,17 @@ class QueryAdmin
             return $e;
         }
     }
+
+    function getAllAdmin(){
+        $lines = array();
+        try{
+            $request = "SELECT * FROM compte";
+            $result = $this->connexion->query($request);
+            $lines = $result->fetchAll();
+            return $lines;
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
 }
