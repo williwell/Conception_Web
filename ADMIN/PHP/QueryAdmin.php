@@ -87,7 +87,7 @@ class QueryAdmin
     {
         $lines = array();
         try{
-            $request = "SELECT * FROM compte WHERE User = $user";
+            $request = "SELECT * FROM compte WHERE User = '".$user."'";
             $result = $this->connexion->query($request);
             $lines = $result->fetchAll();
             return $lines;
@@ -98,4 +98,53 @@ class QueryAdmin
         }
     }
 
+    function addAdmin($user,$mdp)
+    {
+        try{
+            $request = "insert into compte(User,Mdp) values('".$user."','".$mdp."')";
+            $result = $this->connexion->exec($request);
+            return true;
+        }
+        catch(PDOException $e) {
+            return false;
+        }
+    }
+
+    
+    function updateAdmin($user,$mdp)
+    {
+        try{
+            $request = "UPDATE compte SET Mdp = '".$mdp."' WHERE User = '".$user."'";
+            $result = $this->connexion->exec($request);
+            return "ok";
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
+
+    function deleteAdmin($user)
+    {
+        try{
+            $request = "DELETE FROM compte WHERE User = '".$user."'";
+            $result = $this->connexion->exec($request);
+            return "ok";
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
+
+    function getAllAdmin(){
+        $lines = array();
+        try{
+            $request = "SELECT * FROM compte";
+            $result = $this->connexion->query($request);
+            $lines = $result->fetchAll();
+            return $lines;
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
 }

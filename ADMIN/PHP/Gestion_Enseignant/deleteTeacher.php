@@ -1,5 +1,5 @@
 <?php
-require_once('QueryAdmin.php');
+require_once('../QueryAdmin.php');
 
 try {
     $lines = array();
