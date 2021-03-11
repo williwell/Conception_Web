@@ -38,6 +38,51 @@ function printCardsAdmin(list) {
 
 }
 
+function putEventDetail(list) {
+	console.log("downloading event detail");
+	for(var i=0; i < list.length; i++) {
+		$('#Event').append(
+			"<a href='"+list[i][3]+"'>"+
+			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
+				"<div class='col-md-4'>"+
+					//"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+				"</div>"+
+				"<div class='col-md-8'>"+
+					"<h3>"+list[i][1]+"</h3>"+
+					"<p>"+list[i][2]+"</p>"+
+					"<i id='ActualiteMenuI' class='material-icons'>create</i>"+
+					"<i id='ActualiteMenuI' class='material-icons' onclick=function(){"+
+					""+
+					"}>delete</i>"+
+				"</div>"+
+			"</div>"+
+			"</a>"
+		);
+	}
+}
+
+function supprimerEvent(noEvent){
+	if (confirm("Êtes-vous certain de vouloir supprimer cet Évènement?")) {
+
+		$.ajax({
+			url: "../PHP/DeleteEvent.php",
+			type: "POST",
+			data: {
+				"matricule": matricule
+			},
+			dataType: "json",
+			success: function(result){
+				location.reload();
+			},
+			error: function (message, er) {
+				console.log("error: " + er);
+			}
+		});
+	  } else {
+
+	  }
+	
+}
 
 function gestionEnseignant(matricule,prenom,nom,emploi,courriel,telephone, poste) {
 	if( $('#GestionEnseignant').is(':empty') ) {

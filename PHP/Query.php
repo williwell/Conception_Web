@@ -1,5 +1,5 @@
 <?php
-require_once('ConnexionDB.php');
+require_once('ConnexionDBAdmin.php');
 
 class Query
 {
