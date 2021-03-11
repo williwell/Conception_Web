@@ -12,8 +12,15 @@
     </head>
 
     <body>
+
+        <div class="container-fluid">
+            <div id="updateAdministrateur" class="row">
+
+            </div>
+        </div>
+
         <div id="demandeTutorat" class="row justify-content-evenly" style="margin:1%;margin-top:5%;display: flex;align-content: center;text-align: center;justify-content: center;">
-            <div  class="col-8 justify-content-evenly" style="align-content: center;text-align: center;justify-content: center;">
+            <div  class="col justify-content-evenly" style="align-content: center;text-align: center;justify-content: center;">
                 <div id="tableGestionAdminHeader" class="table justify-content-evenly" style="align-content: center;text-align: center;justify-content: center;">
                 
                 </div>
@@ -72,24 +79,28 @@
 
                 $("#tableGestionAdminHeader").append(
                 "<div class='table-header'>"+
-                    "<div class='col col-1' style='margin-right:10%;margin-left:10%;'>Nom d'utilisateur</div>"+
-                    "<div class='col col-2' style='margin-right:10%;margin-left:10%;'>Changer le mot de passe</div>"+
-                    "<div class='col col-3' style='margin-right:10%;margin-left:10%;'>Supprimer le compte</div>"+
+                    "<div class='col'>Nom d'utilisateur</div>"+
+                    "<div class='col'>Changer le mot de passe</div>"+
+                    "<div class='col'>Supprimer le compte</div>"+
                 "</div>"
                 );
                 for (var i = 0; i < result.length; i++) {
                          $("#tableGestionAdmin").append(
                             "<div class='table-row'>"+
-                        "<div class='col col-1' style='margin-right:10%;margin-left:10%;'>"+result[i][0]+"</div>"+
-                        "<div class='col col-2' style='margin-right:10%;margin-left:10%;'><p class='horizontal' ><span class='text' style='font-size:10px;margin:2%;'>Modifier</span></p></div>"+
-                        "<div class='col col-3' onclick='deleteAdmin("+result[i][0]+")' style='margin-right:10%;margin-left:10%;'><p class='horizontal' ><span class='text' style='font-size:10px;margin:2%;'>Supprimer</span></p></div>"+
+                        "<div class='col' id='"+i+"'>"+result[i][0]+"</div>"+
+                        "<div id='btnModifier' class='col' style='max-widht:50%;' onclick='updateAdminInput("+i+")'><p class='horizontal' ><span class='text' style='font-size:10px;'>Modifier</span></p></div>"+
+                        "<div id='btnSuprimmer' class='col' onclick='deleteAdmin("+result[i][0]+")'><p class='horizontal' ><span class='text' style='font-size:10px;'>Supprimer</span></p></div>"+
                         "</div>");
                      }
+                    
             },
             error: function (message, er) {
                 console.log(er);
             }
         });
+
+      
+
     });
 
     function deleteAdmin(user){
@@ -114,7 +125,46 @@
 	  }
     }
 
-    function updateAdmin(user, mdp){}
+
+    function updateAdminInput(i){
+        var id = "#"+i;
+        var user = $(id).text();
+        $("#updateAdministrateur").empty();
+        $("#updateAdministrateur").append(
+            "<input id='inputUser' readonly type='text' half placeholder='Nom du tuteur' autocomplete='no' value='"+user+"'>"+
+            "<input id='inputMdp' type='password' half placeholder='Mot de passe' autocomplete='no' >"+
+            "<p id='btnConfirmer' class='horizontal'><span class='text'>Confirmer le changement</span></p>"
+        );
+
+        $("#btnConfirmer").click(function() {
+            var mdp = $("#inputMdp").val();
+            if (confirm("Êtes-vous certain de vouloir supprimer l'administrateur: "+user)) 
+            {
+                alert(mdp);
+                if(mdp=="" || mdp==null || mdp.length>25){
+                    alert("Le mot de passe entré est invalide. Vérifiez si le champs est vide ou s'il dépasse la limite de 25 caractères");
+                }
+                else{  
+                    $.ajax({
+                    url: "../PHP/Gestion_Admin/updateAdmin.php",
+                    type: "POST",
+                    data: {
+                        "user": user,
+                        "mdp": mdp
+                    },
+                    dataType: "json",
+                    success: function(result){
+                        alert("Les informations du compte ont bien été mise à jour");
+                        location.reload();
+                    },
+                    error: function (message, er) {
+                        console.log("error: " + er);
+                    }
+                });}
+                  
+            }
+        });
+    }
 
     </script>
 </html>
