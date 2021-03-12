@@ -5,9 +5,23 @@
     border: thin solid black !important;
 }
 
+.container-actu-short{
+    margin-left: 2%;
+    margin-top: 5%;
+    margin-right: 2%;
+    border: thin solid black !important;
+}
+
 .container_pic{
     display: flex;
     flex-direction: column;
+    border-right: thin solid black !important;
+    height: 100%;
+}
+.container_pic_short{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 #texte{

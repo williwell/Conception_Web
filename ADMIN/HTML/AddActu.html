@@ -5,23 +5,25 @@
         <title>Gestion Actualité</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../CSS/Actu.css"/>
+        <link rel="stylesheet" type="text/css" href="../../CSS/Programme.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     </head>
 
     <body>
-        <div class="container-actu">
+        <div class="container-actu" id="changeSize1">
             <form action='javascript:;' onsubmit='addActu()' enctype='multipart/form-data' id='send'>
                 <div class="row" style="padding: 0px;">
-                    <div class="col-md-6">
-                        <div class="container_pic">
+                    <div class="col-md-4">
+                        <div class="container_pic" id="changeSize2">
                             <img  id='actuPicture' src='../../RESSOURCES/Photo_Actu/no_image.png' style='max-width:300px;max-height: 300px;' alt='Image preview...'></img><br>
-                            <input type="file" onchange='changePicture()' id="pic" name="pic" accept="image/png, image/jpeg"><br><br>
+                            <input type="file" onchange='changePicture()' id="pic" name="pic" accept="image/png, image/jpeg" style="display: none;">
+                            <p class='horizontal' onclick='document.getElementById("pic").click();'>Choisir photo</p><br><br>
                         </div>
                     </div>
                     
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="titre">Titre de l'actualité</label>
@@ -38,7 +40,8 @@
                                 <textarea name="texte" id="texte" rows="9" cols="40"></textarea><br><br>
                             </div>
                         </div>
-                        <input type="submit" id="submit" value="Ajouter l'actualité">
+                        <input type="submit" id="submit" style="display: none;">
+                        <p class='horizontal' onclick='document.getElementById("submit").click();'>Ajouter l'actualité</p><br><br><br><br>
                     </div>
                 </div>
             </form>
@@ -50,9 +53,15 @@
         function resize() {
             if(screen.width>800){
                 jQuery('#MenuBar').load('Menu.html#MenuOrdi');
+                document.getElementById("changeSize1").className = "container-actu";
+                document.getElementById("texte").cols = "40";
+                document.getElementById("changeSize2").className = "container_pic";
             }
             else{
                 jQuery('#MenuBar').load('MenuCell.html#MenuCell');
+                document.getElementById("changeSize1").className = "container-actu-short";
+                document.getElementById("texte").cols = "25";
+                document.getElementById("changeSize2").className = "container_pic_short";
             }
         }
         $(window).on("resize", resize);
@@ -73,6 +82,7 @@
                     processData: false,
                     success: function(result){
                         alert(result);
+                        window.location = "../ADMIN/HTML/Actualite.html";
                     },
                     error: function (message, er) {
                         console.log("erreur lors de l'ajout du fichier:" + er);

@@ -5,6 +5,7 @@
         <title>Gestion Actualité</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../CSS/Actu.css"/>
+        <link rel="stylesheet" type="text/css" href="../../CSS/Programme.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
@@ -31,8 +32,8 @@
             loadPage();
         });
 
-        function checkTitle() {
-            if (myTrim(document.getElementById("titre").value) != "" )
+        function checkTitle(id) {
+            if (myTrim(document.getElementById("titre"+id).value) != "")
             {
                 return true;  
             }
@@ -41,8 +42,8 @@
             }
         }
 
-        function checkTexte() {
-            if (myTrim(document.getElementById("texte").value) != "" )
+        function checkTexte(id) {
+            if (myTrim(document.getElementById("texte"+id).value) != "" )
             {
                 return true;  
             }
@@ -92,29 +93,35 @@
 	    }
 
         function modActu(){
-            if (confirm('Voulez-vous vraiment enregistrer ces modifications?')) {
-                var formSend = new FormData(event.target);
-                formSend.append("noActu",event.target.id);
-
-                $.ajax({
-                    url:"../PHP/modActu.php",
-                    type:"POST",
-                    dataType:"json",
-                    data: formSend,
-                    contentType: false,
-                    cache : false,
-                    processData: false,
-                    success: function(result){
-                        alert(result);
-                        loadPage();
-                        delPic();
-                    },
-                    error: function (message, er) {
-                        console.log("erreur lors de la modification de l'actualité:" + er);
-                        alert("Un erreure c'est produit lors de la modification de l'actualités!")
-                    }
-                });
-            } 
+            if( checkTitle(event.target.id) && checkTexte(event.target.id))
+            {
+                if (confirm('Voulez-vous vraiment enregistrer ces modifications?')) {
+                    var formSend = new FormData(event.target);
+                    formSend.append("noActu",event.target.id);
+                    $.ajax({
+                        url:"../PHP/modActu.php",
+                        type:"POST",
+                        dataType:"json",
+                        data: formSend,
+                        contentType: false,
+                        cache : false,
+                        processData: false,
+                        success: function(result){
+                            alert(result);
+                            loadPage();
+                            delPic();
+                        },
+                        error: function (message, er) {
+                            console.log("erreur lors de la modification de l'actualité:" + er);
+                            alert("Un erreure c'est produit lors de la modification de l'actualités!")
+                        }
+                    });
+                } 
+            }
+            else
+            {
+                alert("Vous devez au moins avoir un titre et un texte qui accompagne l'actualité")
+            }
         }
 
         function loadPage(){

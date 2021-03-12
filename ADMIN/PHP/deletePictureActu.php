@@ -26,7 +26,7 @@ try{
             }
         }
     }
-    
+    echo json_encode("good");
 }
 
 catch(PDOException $e)

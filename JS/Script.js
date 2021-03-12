@@ -283,7 +283,7 @@ function putActualiteDetail(list) {
 		$('#Actualite').append(
 			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;' id='"+list[i][1]+"'>"+
 				"<div class='col-md-4'>"+
-					"<img src='../RESSOURCES/Photo_Actu/"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+					"<img src='../RESSOURCES/Photo_Actu/"+list[i][3]+"'style='width: 100%; height: 400px; margin-top: 1%; margin-bottom: 1%;'>"+
 				"</div>"+
 				"<div class='col-md-8'>"+
 					"<h3>"+list[i][1]+"</h3>"+

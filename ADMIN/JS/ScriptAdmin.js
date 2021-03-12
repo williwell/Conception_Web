@@ -650,17 +650,23 @@ function rienAjouter(){
 }
 
 function putActualiteDetail(list){
+	var container = "container-actu";
+	var largeur = 40;
+	if(screen.width<800){
+		container = "container-actu-short";
+		largeur = 25;
+	}
 	$("#modActu").empty();
 	for (var i = 0; i < list.length; i++) {
 		$("#modActu").append(
-			"<div class='container-actu' style='border: thin solid black;'>"+
+			"<div class='"+container+"' style='border: thin solid black;'>"+
 				"<form action='javascript:;' onsubmit='modActu()' enctype='multipart/form-data' id='"+list[i][0]+"'>"+
 					"<div class='row' style='padding: 0px;'>"+
 						"<div class='col-md-3'>"+
-							"<div class='container_pic'>"+
+							"<div class='container_pic_short'>"+
 								"<img  id='actuPicture' src='../../RESSOURCES/Photo_Actu/"+list[i][3]+"' style='max-width:300px;max-height: 300px;' alt='Image preview...'></img><br>"+
 								"<input type='file' onchange='changePicture()' id='pic"+list[i][0]+"' name='pic' accept='image/png, image/jpeg' style='display: none;'><br><br>"+
-								"<input id='test' type='button' value='Changer photo' onclick='document.getElementById(\"pic"+list[i][0]+"\").click();'>"+
+								"<p class='horizontal' onclick='document.getElementById(\"pic"+list[i][0]+"\").click();'>Changer photo</p>"+
 							"</div>"+
 						"</div>"+
 						
@@ -670,7 +676,7 @@ function putActualiteDetail(list){
 									"<label for='titre'>Titre de l'actualité</label>"+
 								"</div>"+
 								"<div class='col-md-8'>"+
-									"<input type='text' id='titre' name='titre' value='"+list[i][1]+"'><br><br>"+
+									"<input type='text' id='titre"+list[i][0]+"' name='titre' value='"+list[i][1]+"'><br><br>"+
 								"</div>"+
 							"</div>"+
 							"<div class='row'>"+
@@ -678,10 +684,11 @@ function putActualiteDetail(list){
 									"<label for='texte'>Écrire le texte de l'actualité</label>"+
 								"</div>"+
 								"<div class='col-md-8'>"+
-									"<textarea name='texte' id='texte' rows='9' cols='40''>"+list[i][2]+"</textarea><br><br>"+
+									"<textarea name='texte' id='texte"+list[i][0]+"' rows='9' cols='"+largeur+"'>"+list[i][2]+"</textarea><br><br>"+
 								"</div>"+
 							"</div>"+
-							"<input type='submit' id='"+list[i][0]+"' value='Sauvegarder les chargements'>"+
+							"<input type='submit' id='sub"+list[i][0]+"' style='display: none;'>"+
+							"<p class='horizontal' onclick='document.getElementById(\"sub"+list[i][0]+"\").click();'>Sauvegarder les chargements</p><br><br><br>"+
 					   "</div>"+
 					   "<div class='col-md-1'>"+
 					   "<img onclick='deleteActu()' id='"+list[i][0]+"' src='../../RESSOURCES/delete' style='max-width:50px;max-height: 50px;' alt='Image preview...'></img><br>"+
