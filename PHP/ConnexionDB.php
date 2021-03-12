@@ -15,9 +15,12 @@ class ConnexionDB
                 $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 try {
+                    $this->connexion = new PDO("mysql:host=localhost;dbname=departement_info;charset=utf8","root","root");
+                    $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                } catch(PDOException $e){try {
                     $this->connexion = new PDO("mysql:host=localhost;dbname=h2021_420626ri_gr01_équipe_2;charset=utf8","1734055","1734055");
                     $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                } catch(PDOException $e){echo $e;} 
+                } catch(PDOException $e){echo $e;} } 
             }
         }
     }

@@ -11,6 +11,19 @@ class QueryAdmin
         $this->connexion = $constants->getConnexion();
     }
 
+    function addEvent($titre, $date, $link,$description){
+        $lines = array();
+        try {
+            $request = "INSERT INTO events (name, dateE, link,description) VALUES('".$titre."','".$date."','".$link."','".$description."')";
+            $this->connexion->exec($request);
+
+            return "OK";
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
+
 
     function deleteTeacher($matricule)
     {
@@ -40,6 +53,20 @@ class QueryAdmin
         }
     }
  
+    function updateEvent($num,$name,$date,$link,$description)
+    {
+        try
+       {
+            $request = "UPDATE events SET name = '".$name."', dateE = '".$date."', link = '".$link."', description = '".$description."' WHERE noEvent= ".$num;
+            $this->connexion->exec($request);
+
+            return "ok";
+       }
+       catch(PDOException $e) {
+           return $e;
+       }
+    }
+
     function updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
     {
         try

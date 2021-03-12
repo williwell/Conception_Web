@@ -41,6 +41,11 @@ function printCardsAdmin(list) {
 function putEventDetail(list) {
 	console.log("downloading event detail");
 	for(var i=0; i < list.length; i++) {
+		var num=list[i][0];
+		var name=list[i][1];
+		var date=list[i][2];
+		var link=list[i][3];
+		var description=list[i][4];
 		$('#Event').append(
 			"<div class='row'>"+
 			"<div class='col-md-2'></div>"+
@@ -54,7 +59,7 @@ function putEventDetail(list) {
 					"</div>"+
 					"</a>"+
 					"<div class='row justify-content-evenly' >"+
-					"<i id='ActualiteMenuI' class='material-icons' style='font-size: 32px;cursor:pointer;width:32px;' >create</i>"+
+					"<i id='ActualiteMenuI' class='material-icons' style='font-size: 32px;cursor:pointer;width:32px;' onclick='gestionEvent("+num + ",\"" + name + "\",\"" + date + "\",\"" + link + "\",\"" + description + "\")'>create</i>"+
 					"<i id='ActualiteMenuI' class='material-icons' style='font-size: 32px;cursor:pointer;width:32px;margin-bottom:10px;' onclick=supprimerEvent("+list[i][0]+")>delete</i>"+
 					"</div>"+
 				"</div>"+
@@ -83,8 +88,70 @@ function supprimerEvent(noEvent){
 		});
 	  } else {
 
-	  }
+	  }}
 	
+
+function gestionEvent(num, name, date, link, description){
+	if( $('#Gestion_event').is(':empty') ) {
+		$("#Gestion_event").append(
+			"<div class='EventCard justify-content-evenly container-fluid' style='padding:5%'>"+
+					"<div class='row justify-content-end'>"+
+						"<div class='col align-self-end'>"+
+							"<i  class='material-icons closeIcon' style='cursor:pointer;'>close</i>"+
+						"</div>"+  
+					"</div>"+ 
+		
+				"<div class='col'>"+
+					"<div class='row'>"+
+						"<div class='col'>"+
+						"<p style='font-size:50px;'>Modifier l'évènement</p>"+
+						"</div>"+ 
+					"</div>"+ 
+				"</div>"+ 	
+							"<div class='col'><br>"+
+								"<label for='num'>Numéro d'évènement</label><br>"+
+								"<input type='text' style='cursor:default;' class='form-control' id=num readonly name=num value="+num+">"+
+							"</div><br>"+
+		
+							"<div class='col'>"+
+								"<label for='name'>Titre</label><br>"+
+								"<input type='text' class='form-control' id=name name=name value="+name+">"+
+							"</div>"+
+							
+							"<div class='col'><br>"+
+								"<label for='date'>Date</label><br>"+
+								"<input type='date' style='cursor:pointer;' class='form-control' id=date name=date value="+date+">"+
+							"</div>"+
+							
+							"<div class='col'><br>"+
+								"<label for='link'>Lien vers l'évènement</label>"+
+								"<input type='text' class='form-control' id=link name=link value="+link+">"+
+							"</div><br>"+
+							
+							"<div class='col'><br>"+
+							"<label for='description'>description</label>"+
+							"<input type='textarea' class='form-control' id=description name=description value="+description+">"+
+							"</div><br>"+
+							
+							"<div class='col'>"+
+							"<div class='row justify-content-evenly'>"+
+								"<p class='horizontal' style='max-width:110px;max-height:100px;border:1px solid black;cursor:pointer;' onclick='sauvegarderEvent("+num+")'><span class='text'>Sauvegarder</span></p>"+
+								"</div>"+ 
+							"</div>"+ 
+					"</div>"+
+					
+				"</div>"+ 
+				
+				"</div>"+ 	
+		
+				"</div>"
+				
+		);
+	}
+		$(".closeIcon").click(function(){
+			nbrGestion = 0;
+			$("#Gestion_event").empty();
+		});
 }
 
 function gestionEnseignant(matricule,prenom,nom,emploi,courriel,telephone, poste) {
@@ -216,6 +283,34 @@ function rien(matricule){
 			});
    }
 
+   function AjoutEvent(titre, date, link, description){
+		if(titre.length>=75){
+			alert("Le titre est trop long");
+		}else{
+			if(link.length>=150){
+				alert("Le lien est trop long")
+			}else{
+				$.ajax({
+					url: "../PHP/AjoutEvent.php",
+					type: "POST",
+					data: {
+						"titre": titre,
+						"date":date,
+						"link":link,
+						"description":description
+					},
+					dataType: "json",
+					success: function(result){
+						window.location="Event.html";
+					},
+					error: function (message, er) {
+						console.log("error: " + er);
+					}
+				});
+			}
+		}
+}
+
 function sauvegarderEnseignant(matricule){
 	var prenom = $("#Prenom").val();
 	var nom=$("#Nom").val();
@@ -279,6 +374,50 @@ function sauvegarderEnseignant(matricule){
 	}
 	
 }
+
+function sauvegarderEvent(num){
+	var name=$("#name").val();
+	var date=$("#date").val();
+	var link=$("#link").val();
+	var description= $("#description").val();
+
+	if(name=="" || name==null || name.length>=75 ){
+		alert("Le champs Titre est obligatoire, la longeur maximale pour ce champ est de 75 caractères");
+	}
+	else{
+		if(date=="" || date==null){
+			alert("Le champs date est obligatoire");
+		}
+		else{
+			if(link.length>=150){
+				alert("La longeur maximale pour ce champ est de 200 caractères");
+			}
+			else{
+						if (confirm("Êtes-vous certain de vouloir mettre à jour les informations de l'évènement: "+num)) {
+							$.ajax({
+								url: "../PHP/updateEvent.php",
+								type: "POST",
+								data: {
+									"num":num,
+									"name":name,
+									"date":date,
+									"link":link,
+									"description":description
+								},
+								dataType: "json",
+								success: function(result){
+									$("#GestionEvent").empty();
+									location.reload();
+								},
+								error: function (message, er) {
+									console.log("error: " + er);
+								}
+							});
+						}
+					  }
+				}
+			}
+		}
 
 function supprimerEnseignant(matricule){
 	if (confirm("Êtes-vous certain de vouloir supprimer l'enseignant: "+matricule)) {

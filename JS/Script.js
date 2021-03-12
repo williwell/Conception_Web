@@ -31,14 +31,40 @@ function printProg(list){
 	console.log("téléchargement du lien: success");
 	
     for (var i = 0; i < list.length; i++) {
-		if(list[i][1]=="Prog"){
+		if(list[i][1]=="Programmation"){
 					$("#Link").append(
-					"<div class='col-md-2'></div>"+
-					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'>"
-					+"<div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
-					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
-					+"<div class='col-md-3'></div>"
+						"<div class='containerLink center'>"+
+						"<div class='card'>"+
+						  "<h2>"+list[i][4]+"</h2>"+
+						  "<hr/>"+
+						  "<p>"+list[i][2]+"</p>"+
+						  "<div id='btnLien' onclick='changerLocation(\""+list[i][3]+"\")'>lien</div>"+
+						"</div>"+
+					  "</div>"
 				  );
+			}
+	}
+}
+
+function changerLocation(liens){
+	window.location.replace(liens);
+}
+
+function printInfo(list){
+	console.log("téléchargement du lien: success");
+	
+    for (var i = 0; i < list.length; i++) {
+		if(list[i][1]=="Informatique"){
+			$("#Link").append(
+				"<div class='containerLink center'>"+
+				"<div class='card'>"+
+				  "<h2>"+list[i][4]+"</h2>"+
+				  "<hr/>"+
+				  "<p>"+list[i][2]+"</p>"+
+				  "<div id='btnLien' onclick='changerLocation(\""+list[i][3]+"\")'>lien</div>"+
+				"</div>"+
+			  "</div>"
+		  );
 			}	
 	}
 }
@@ -62,13 +88,17 @@ function printAnnonces(list){
 	console.log("téléchargement du lien: success");
 	
     for (var i = 0; i < list.length; i++) {
-		if(list[i][1]=="Annonces"){
-					$("#Link").append(
-					"<div class='col-md-2'></div>"+
-					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'><div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
-					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
-					+"<div class='col-md-3'></div>"
-				  );
+		if(list[i][1]=="Annonce"){
+			$("#Link").append(
+				"<div class='containerLink center'>"+
+				"<div class='card'>"+
+				  "<h2>"+list[i][4]+"</h2>"+
+				  "<hr/>"+
+				  "<p>"+list[i][2]+"</p>"+
+				  "<div id='btnLien' onclick='changerLocation(\""+list[i][3]+"\")'>lien</div>"+
+				"</div>"+
+			  "</div>"
+		  );
 			}	
 	}
 }
