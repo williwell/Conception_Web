@@ -1,0 +1,14 @@
+.container-actu{
+    margin-left: 20%;
+    margin-top: 5%;
+    border: black;
+}
+
+.container_pic{
+    display: flex;
+    flex-direction: column;
+}
+
+#texte{
+    vertical-align: top;
+}

@@ -58,7 +58,7 @@ class QueryAdmin
     {
         $lines = array();
         try{
-            $request = "SELECT * FROM compte WHERE User = $user";
+            $request = "SELECT * FROM compte WHERE User = '".$user."'";
             $result = $this->connexion->query($request);
             $lines = $result->fetchAll();
             return $lines;
@@ -104,5 +104,31 @@ class QueryAdmin
         catch(PDOException $e) {
             return $e;
         }
+    }
+
+    function addActu($title,$texte,$photo)
+    {
+        try{
+            $request = "insert into actualite(titreActualite,texteActu,photoActu) values('".$title."','".$texte."','".$photo."')";
+            $result = $this->connexion->exec($request);
+            return true;
+        }
+        catch(PDOException $e) {
+            return false;
+        }
+    }
+
+    function getActualite(){
+        $lines = array();
+       try {
+           $request = "SELECT * FROM actualite Order by noActualite";
+           $result = $this->connexion->query($request);
+           $lines = $result->fetchAll();
+
+           return $lines;
+       }
+       catch(PDOException $e) {
+           return $lines;
+       }
     }
 }

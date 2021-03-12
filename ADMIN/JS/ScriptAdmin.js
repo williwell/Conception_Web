@@ -451,4 +451,43 @@ function rienAjouter(){
 				});
 	}
 	
-   }
+}
+
+function putActualiteDetail(list){
+	for (var i = 0; i < list.length; i++) {
+		$("#modActu").append(
+			"<div class='container-actu'>"+
+				"<form action='javascript:;' onsubmit='addActu()' enctype='multipart/form-data' id='send'>"+
+					"<div class='row' style='padding: 0px;'>"+
+						"<div class='col-md-6'>"+
+							"<div class='container_pic'>"+
+								"<img  id='actuPicture' src='../../RESSOURCES/Photo_Actu/"+list[i][3]+"' style='max-width:300px;max-height: 300px;' alt='Image preview...'></img><br>"+
+								"<input type='file' onchange='changePicture()' id='pic' name='pic' accept='image/png, image/jpeg'><br><br>"+
+							"</div>"+
+						"</div>"+
+						
+						"<div class='col-md-6'>"+
+							"<div class='row'>"+
+								"<div class='col-md-4'>"+
+									"<label for='titre'>Titre de l'actualité</label>"+
+								"</div>"+
+								"<div class='col-md-8'>"+
+									"<input type='text' id='titre' name='titre'><br><br>"+
+								"</div>"+
+							"</div>"+
+							"<div class='row'>"+
+								"<div class='col-md-4'>"+
+									"<label for='texte'>Écrire le texte de l'actualité</label>"+
+								"</div>"+
+								"<div class='col-md-8'>"+
+									"<textarea name='texte' id='texte' rows='9' cols='40'></textarea><br><br>"+
+								"</div>"+
+							"</div>"+
+							"<input type='submit' id='submit' value='Ajouter l actualité'>"+
+					   "</div>"+
+					"</div>"+
+				"</form>"+
+			"</div>"
+		);
+	}
+}
