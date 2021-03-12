@@ -42,21 +42,24 @@ function putEventDetail(list) {
 	console.log("downloading event detail");
 	for(var i=0; i < list.length; i++) {
 		$('#Event').append(
-			"<a href='"+list[i][3]+"'>"+
-			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
-				"<div class='col-md-4'>"+
+			"<div class='row'>"+
+			"<div class='col-md-2'></div>"+
+				"<div class='col-md-4' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
 					//"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
-				"</div>"+
-				"<div class='col-md-8'>"+
+				"<a href='"+list[i][3]+"'>"+
+				"<div>"+
 					"<h3>"+list[i][1]+"</h3>"+
 					"<p>"+list[i][2]+"</p>"+
-					"<i id='ActualiteMenuI' class='material-icons'>create</i>"+
-					"<i id='ActualiteMenuI' class='material-icons' onclick=function(){"+
-					""+
-					"}>delete</i>"+
+					"<p>"+list[i][4]+"</p>"+
+					"</div>"+
+					"</a>"+
+					"<div class='row justify-content-evenly' >"+
+					"<i id='ActualiteMenuI' class='material-icons' style='font-size: 32px;cursor:pointer;width:32px;' >create</i>"+
+					"<i id='ActualiteMenuI' class='material-icons' style='font-size: 32px;cursor:pointer;width:32px;margin-bottom:10px;' onclick=supprimerEvent("+list[i][0]+")>delete</i>"+
+					"</div>"+
 				"</div>"+
-			"</div>"+
-			"</a>"
+			"</div>"
+			
 		);
 	}
 }
@@ -68,7 +71,7 @@ function supprimerEvent(noEvent){
 			url: "../PHP/DeleteEvent.php",
 			type: "POST",
 			data: {
-				"matricule": matricule
+				"noEvent": noEvent
 			},
 			dataType: "json",
 			success: function(result){

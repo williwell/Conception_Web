@@ -26,14 +26,14 @@ class QueryAdmin
         }
     }
 
-    function deleteTeacher($noevent)
+    function deleteEvent($noevent)
     {
         $lines = array();
         try {
             $request = "DELETE FROM events WHERE noEvent LIKE ".$noevent;
             $result = $this->connexion->exec($request);
  
-            return $request;
+            return $result;
         }
         catch(PDOException $e) {
             return $e;
