@@ -454,25 +454,27 @@ function rienAjouter(){
 }
 
 function putActualiteDetail(list){
+	$("#modActu").empty();
 	for (var i = 0; i < list.length; i++) {
 		$("#modActu").append(
-			"<div class='container-actu'>"+
-				"<form action='javascript:;' onsubmit='addActu()' enctype='multipart/form-data' id='send'>"+
+			"<div class='container-actu' style='border: thin solid black;'>"+
+				"<form action='javascript:;' onsubmit='modActu()' enctype='multipart/form-data' id='"+list[i][0]+"'>"+
 					"<div class='row' style='padding: 0px;'>"+
-						"<div class='col-md-6'>"+
+						"<div class='col-md-3'>"+
 							"<div class='container_pic'>"+
 								"<img  id='actuPicture' src='../../RESSOURCES/Photo_Actu/"+list[i][3]+"' style='max-width:300px;max-height: 300px;' alt='Image preview...'></img><br>"+
-								"<input type='file' onchange='changePicture()' id='pic' name='pic' accept='image/png, image/jpeg'><br><br>"+
+								"<input type='file' onchange='changePicture()' id='pic"+list[i][0]+"' name='pic' accept='image/png, image/jpeg' style='display: none;'><br><br>"+
+								"<input id='test' type='button' value='Changer photo' onclick='document.getElementById(\"pic"+list[i][0]+"\").click();'>"+
 							"</div>"+
 						"</div>"+
 						
-						"<div class='col-md-6'>"+
+						"<div class='col-md-8'>"+
 							"<div class='row'>"+
 								"<div class='col-md-4'>"+
 									"<label for='titre'>Titre de l'actualité</label>"+
 								"</div>"+
 								"<div class='col-md-8'>"+
-									"<input type='text' id='titre' name='titre'><br><br>"+
+									"<input type='text' id='titre' name='titre' value='"+list[i][1]+"'><br><br>"+
 								"</div>"+
 							"</div>"+
 							"<div class='row'>"+
@@ -480,10 +482,13 @@ function putActualiteDetail(list){
 									"<label for='texte'>Écrire le texte de l'actualité</label>"+
 								"</div>"+
 								"<div class='col-md-8'>"+
-									"<textarea name='texte' id='texte' rows='9' cols='40'></textarea><br><br>"+
+									"<textarea name='texte' id='texte' rows='9' cols='40''>"+list[i][2]+"</textarea><br><br>"+
 								"</div>"+
 							"</div>"+
-							"<input type='submit' id='submit' value='Ajouter l actualité'>"+
+							"<input type='submit' id='"+list[i][0]+"' value='Sauvegarder les chargements'>"+
+					   "</div>"+
+					   "<div class='col-md-1'>"+
+					   "<img onclick='deleteActu()' id='"+list[i][0]+"' src='../../RESSOURCES/delete' style='max-width:50px;max-height: 50px;' alt='Image preview...'></img><br>"+
 					   "</div>"+
 					"</div>"+
 				"</form>"+

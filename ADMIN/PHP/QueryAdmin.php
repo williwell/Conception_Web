@@ -131,4 +131,40 @@ class QueryAdmin
            return $lines;
        }
     }
+
+    function deleteActu($noActu){
+        $lines = array();
+        try {
+            $request = "DELETE FROM actualite where noActualite = '".$noActu."'";
+            $result = $this->connexion->query($request);
+            $lines = $result->fetchAll();
+ 
+            return "delete";
+        }
+        catch(PDOException $e) {
+            return $e;
+        } 
+    }
+
+    function modActu($noActu,$titre,$texte,$photo){
+        try{
+            $request = "UPDATE actualite SET titreActualite = '".$titre."', texteActu = '".$texte."', photoActu = '".$photo."' WHERE noActualite = '".$noActu."'";
+            $result = $this->connexion->exec($request);
+            return "ok";
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
+
+    function modActuSansPhoto($noActu,$titre,$texte){
+        try{
+            $request = "UPDATE actualite SET titreActualite = '".$titre."', texteActu = '".$texte."' WHERE noActualite = '".$noActu."'";
+            $result = $this->connexion->exec($request);
+            return "ok";
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
 }

@@ -1,7 +1,8 @@
 .container-actu{
     margin-left: 20%;
     margin-top: 5%;
-    border: black;
+    margin-right: 20%;
+    border: thin solid black !important;
 }
 
 .container_pic{
@@ -11,4 +12,8 @@
 
 #texte{
     vertical-align: top;
+}
+
+#test{
+    width: 50%;
 }

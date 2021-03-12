@@ -1,12 +1,12 @@
 <?php
-try{
-    require_once('QueryAdmin.php');
-        
-    $query = new QueryAdmin();
-    
-    $title =  $_POST['titre'];
-    $texte = $_POST['texte'];
-    
+require_once('QueryAdmin.php');
+$query = new QueryAdmin();
+
+$noActu = $_POST["noActu"];
+$title =  $_POST['titre'];
+$texte = $_POST['texte'];
+
+try{    
     if ($_FILES['pic']['size'] != 0)
     {
         $fichier = basename($_FILES["pic"]["name"]);
@@ -49,12 +49,12 @@ try{
         if ($uploadOk != 0)
         {
           if (move_uploaded_file($_FILES["pic"]["tmp_name"], $target_file)) {
-            if($query->addActu($title,$texte,$fichier))
+            if($query->modActu($noActu,$title,$texte,$fichier))
             {
-                echo json_encode("Ajout reussit");
+                echo json_encode("Modification reussit");
             }
             else{
-                echo json_encode("Un erreure c'est produit lors de l'ajout de l'actualite");
+                echo json_encode("Un erreure c'est produit lors de la modification de l'actualite");
             }
           } else {
             echo json_encode("Desoler un erreure c'est produit.");
@@ -63,18 +63,16 @@ try{
     }
     else
     {
-        if($query->addActu($title,$texte,"no_image.png"))
+        if($query->modActuSansPhoto($noActu,$title,$texte))
             {
-                echo json_encode("Ajout réussit");
+                echo json_encode("Modification reussit");
             }
             else{
-                echo json_encode("Un erreure c'est produit lors de l'ajout de l'actualite");
+                echo json_encode("Un erreure c'est produit lors de la modification de l'actualite");
             }
-    } 
+    }
 }
 catch(PDOException $e)
 {
     echo json_encode($e);
 }
-
-?>

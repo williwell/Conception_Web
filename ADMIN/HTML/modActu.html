@@ -28,18 +28,7 @@
         resize();
 
         $(document).ready(function (){
-            $.ajax({
-                    url:"../PHP/getActualite.php",
-                    type:"POST",
-                    dataType:"json",
-                    success: function(result){
-                        putActualiteDetail(result);
-                    },
-                    error: function (message, er) {
-                        console.log("erreur lors du chargement des actualité:" + er);
-                        alert("Un erreure c'est produit lors du chargement des actualités!")
-                    }
-                });
+            loadPage();
         });
 
         function checkTitle() {
@@ -80,6 +69,81 @@
             } else {
                 preview.src = "";
             }
+        }
+
+        function deleteActu(){
+		    if (confirm('Voulez-vous vraiment supprimer cette actualité?')) {
+                $.ajax({
+                    url:"../PHP/deleteActu.php",
+                    type:"POST",
+                    dataType:"json",
+                    data:{"noActu":event.target.id},
+                    success: function(result){
+                        alert("Actualité supprimer!");
+                        loadPage();
+                        delPic();
+                    },
+                    error: function (message, er) {
+                        console.log("erreur lors de la suppression de l'actualité:" + er);
+                        alert("Un erreure c'est produit lors de la suppression de l'actualités!")
+                    }
+                });
+            } 
+	    }
+
+        function modActu(){
+            if (confirm('Voulez-vous vraiment enregistrer ces modifications?')) {
+                var formSend = new FormData(event.target);
+                formSend.append("noActu",event.target.id);
+
+                $.ajax({
+                    url:"../PHP/modActu.php",
+                    type:"POST",
+                    dataType:"json",
+                    data: formSend,
+                    contentType: false,
+                    cache : false,
+                    processData: false,
+                    success: function(result){
+                        alert(result);
+                        loadPage();
+                        delPic();
+                    },
+                    error: function (message, er) {
+                        console.log("erreur lors de la modification de l'actualité:" + er);
+                        alert("Un erreure c'est produit lors de la modification de l'actualités!")
+                    }
+                });
+            } 
+        }
+
+        function loadPage(){
+            $.ajax({
+                url:"../PHP/getActualite.php",
+                type:"POST",
+                dataType:"json",
+                success: function(result){
+                    putActualiteDetail(result);
+                },
+                error: function (message, er) {
+                    console.log("erreur lors du chargement des actualité:" + er);
+                    alert("Un erreure c'est produit lors du chargement des actualités!");
+                }
+            });
+        }
+
+        function delPic(){
+            $.ajax({
+                url:"../PHP/deletePictureActu.php",
+                type:"POST",
+                dataType:"json",
+                success: function(result){
+                    console.log("photo inutiliser supprimer")
+                },
+                error: function (message, er) {
+                    console.log("erreur lors de la suppression des photo non utilisé" + er);
+                }
+            });
         }
     </script>
 </html>
