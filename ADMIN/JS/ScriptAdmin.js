@@ -221,30 +221,30 @@ function sauvegarderEnseignant(matricule){
 	var telephone= $("#Telephone").val();
 	var poste=$("#Poste").val();
 
-	if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom))){
-		alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres");
-	}
-	else{
-		if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom))){
-			alert("Le champs nom est obligatoire, il doit être composé seulement de lettres");
+		if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom)) || prenom.length>50 ){
+			alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 50 caractères");
 		}
 		else{
-			if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))){
-				alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres");
+			if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom)) || nom.length>50){
+				alert("Le champs nom est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 50 caractères");
 			}
 			else{
-				if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))){
-					alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée");
+				if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))|| typeEmployer.length>200){
+					alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 200 caractères");
 				}
 				else{
-					if(telephone=="" || telephone==null || !(/^[0-9]*$/.test(telephone)) || telephone.length>10 || telephone.length<10){
-						alert("Le champs téléphone est obligatoire, vérifiez que le numéro entrée suit le forma suivant: 1111111111");
+					if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))|| courriel.length>200){
+						alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée. Aussi, la longeur maximale pour ce champ est de 200 caractères");
 					}
 					else{
-						if(!(/^[0-9]*$/.test(poste))){
-							alert("Le champs poste doit seulement contenir des chiffres");
+						if(telephone=="" || telephone==null || !(/^[0-9]*$/.test(telephone)) || telephone.length>10 || telephone.length<10){
+							alert("Le champs téléphone est obligatoire, vérifiez que le numéro entrée suit le forma suivant: 1111111111");
 						}
 						else{
+							if(!(/^[0-9]*$/.test(poste)) || poste.length>10){
+								alert("Le champs poste doit seulement contenir des chiffres. Aussi, la longeur maximale pour ce champ est de 10 caractères");
+							}
+							else{
 							if (confirm("Êtes-vous certain de vouloir mettre à jour les informations de l'enseignant: "+matricule)) {
 								$.ajax({
 									url: "../PHP/Gestion_Enseignant/updateTeacher.php",
@@ -397,28 +397,28 @@ function ajouterEnseignant(){
 		alert("Le champs matricule est obligatoire, vérifiez que le matricule entré suit le format suivant: 1234567");
 	}
 	else{
-		if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom))){
-			alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres");
+		if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom)) || prenom.length>50 ){
+			alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 50 caractères");
 		}
 		else{
-			if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom))){
-				alert("Le champs nom est obligatoire, il doit être composé seulement de lettres");
+			if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom)) || nom.length>50){
+				alert("Le champs nom est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 50 caractères");
 			}
 			else{
-				if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))){
-					alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres");
+				if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))|| typeEmployer.length>200){
+					alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 200 caractères");
 				}
 				else{
-					if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))){
-						alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée");
+					if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))|| courriel.length>200){
+						alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée. Aussi, la longeur maximale pour ce champ est de 200 caractères");
 					}
 					else{
 						if(telephone=="" || telephone==null || !(/^[0-9]*$/.test(telephone)) || telephone.length>10 || telephone.length<10){
 							alert("Le champs téléphone est obligatoire, vérifiez que le numéro entrée suit le forma suivant: 1111111111");
 						}
 						else{
-							if(!(/^[0-9]*$/.test(poste))){
-								alert("Le champs poste doit seulement contenir des chiffres");
+							if(!(/^[0-9]*$/.test(poste)) || poste.length>10){
+								alert("Le champs poste doit seulement contenir des chiffres. Aussi, la longeur maximale pour ce champ est de 10 caractères");
 							}
 							else{
 								if (confirm("Êtes-vous certain de vouloir ajouter ce membre du personnel?"+matricule)) {
