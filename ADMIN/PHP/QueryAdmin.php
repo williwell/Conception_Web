@@ -118,4 +118,70 @@ class QueryAdmin
             return $e;
         }
     }
+
+    function getAllLink(){
+        $lines = array();
+        try{
+            $request = "SELECT * FROM liens";
+            $result = $this->connexion->query($request);
+            $lines = $result->fetchAll();
+            return $lines;
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
+
+    function addLink($type,$description,$lien,$personne)
+    {
+        try{
+            $request = "INSERT INTO liens (ID, Categorie, Description, Lien, Personne) VALUES ('', '".$type."', '".$description."', '".$lien."', '".$personne."')";
+            $result = $this->connexion->exec($request);
+
+            return true;
+        }
+        catch(PDOException $e) {
+            return false;
+        }
+    }
+
+    
+    function updateLink($id,$type,$description,$lien,$personne)
+    {
+        try{
+            $request = "UPDATE liens SET Categorie = '".$type."', Description = '".$description."', Lien = '".$lien."', Personne = '".$personne."' WHERE ID = '".$id."'";
+            $result = $this->connexion->exec($request);
+            return "ok";
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
+
+    function deleteLink($id)
+    {
+        try{
+            $request = "DELETE FROM liens WHERE ID = '".$id."'";
+            $result = $this->connexion->exec($request);
+            return "ok";
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
+
+    function getOneLink($id)
+    {
+        $lines = array();
+        try{
+            $request = "SELECT * FROM liens WHERE ID = '".$id."'";
+            $result = $this->connexion->query($request);
+            $lines = $result->fetchAll();
+            return $lines;
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
+
 }
