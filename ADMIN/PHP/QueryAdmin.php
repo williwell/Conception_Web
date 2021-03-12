@@ -25,6 +25,20 @@ class QueryAdmin
             return $e;
         }
     }
+
+    function deleteTeacher($noevent)
+    {
+        $lines = array();
+        try {
+            $request = "DELETE FROM events WHERE noEvent LIKE ".$noevent;
+            $result = $this->connexion->exec($request);
+ 
+            return $request;
+        }
+        catch(PDOException $e) {
+            return $e;
+        }
+    }
  
     function updateTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
     {
@@ -39,6 +53,21 @@ class QueryAdmin
            return $e;
        }
     }
+
+    function getEvent():array
+   {
+       $lines = array();
+       try {
+           $request = "SELECT * FROM events Order by dateE";
+           $result = $this->connexion->query($request);
+           $lines = $result->fetchAll();
+
+           return $lines;
+       }
+       catch(PDOException $e) {
+           return $lines;
+       }
+   }
 
     function addTeacher($matricule,$prenom,$nom,$typeEmploi,$courriel,$telephone,$poste)
     {
