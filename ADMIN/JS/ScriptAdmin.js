@@ -38,6 +38,121 @@ function printCardsAdmin(list) {
 
 }
 
+function putEventDetail(list) {
+	console.log("downloading event detail");
+	for(var i=0; i < list.length; i++) {
+		var num=list[i][0];
+		var name=list[i][1];
+		var date=list[i][2];
+		var link=list[i][3];
+		var description=list[i][4];
+		$('#Event').append(
+			"<div class='row'>"+
+			"<div class='col-md-2'></div>"+
+				"<div class='col-md-4' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
+					//"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+				"<a href='"+list[i][3]+"'>"+
+				"<div>"+
+					"<h3>"+list[i][1]+"</h3>"+
+					"<p>"+list[i][2]+"</p>"+
+					"<p>"+list[i][4]+"</p>"+
+					"</div>"+
+					"</a>"+
+					"<div class='row justify-content-evenly' >"+
+					"<i id='ActualiteMenuI' class='material-icons' style='font-size: 32px;cursor:pointer;width:32px;' onclick='gestionEvent("+num + ",\"" + name + "\",\"" + date + "\",\"" + link + "\",\"" + description + "\")'>create</i>"+
+					"<i id='ActualiteMenuI' class='material-icons' style='font-size: 32px;cursor:pointer;width:32px;margin-bottom:10px;' onclick=supprimerEvent("+list[i][0]+")>delete</i>"+
+					"</div>"+
+				"</div>"+
+			"</div>"
+			
+		);
+	}
+}
+
+function supprimerEvent(noEvent){
+	if (confirm("Êtes-vous certain de vouloir supprimer cet Évènement?")) {
+
+		$.ajax({
+			url: "../PHP/DeleteEvent.php",
+			type: "POST",
+			data: {
+				"noEvent": noEvent
+			},
+			dataType: "json",
+			success: function(result){
+				location.reload();
+			},
+			error: function (message, er) {
+				console.log("error: " + er);
+			}
+		});
+	  } else {
+
+	  }}
+	
+
+function gestionEvent(num, name, date, link, description){
+	if( $('#Gestion_event').is(':empty') ) {
+		$("#Gestion_event").append(
+			"<div class='EventCard justify-content-evenly container-fluid' style='padding:5%'>"+
+					"<div class='row justify-content-end'>"+
+						"<div class='col align-self-end'>"+
+							"<i  class='material-icons closeIcon' style='cursor:pointer;'>close</i>"+
+						"</div>"+  
+					"</div>"+ 
+		
+				"<div class='col'>"+
+					"<div class='row'>"+
+						"<div class='col'>"+
+						"<p style='font-size:50px;'>Modifier l'évènement</p>"+
+						"</div>"+ 
+					"</div>"+ 
+				"</div>"+ 	
+							"<div class='col'><br>"+
+								"<label for='num'>Numéro d'évènement</label><br>"+
+								"<input type='text' style='cursor:default;' class='form-control' id=num readonly name=num value="+num+">"+
+							"</div><br>"+
+		
+							"<div class='col'>"+
+								"<label for='name'>Titre</label><br>"+
+								"<input type='text' class='form-control' id=name name=name value="+name+">"+
+							"</div>"+
+							
+							"<div class='col'><br>"+
+								"<label for='date'>Date</label><br>"+
+								"<input type='date' style='cursor:pointer;' class='form-control' id=date name=date value="+date+">"+
+							"</div>"+
+							
+							"<div class='col'><br>"+
+								"<label for='link'>Lien vers l'évènement</label>"+
+								"<input type='text' class='form-control' id=link name=link value="+link+">"+
+							"</div><br>"+
+							
+							"<div class='col'><br>"+
+							"<label for='description'>description</label>"+
+							"<input type='textarea' class='form-control' id=description name=description value="+description+">"+
+							"</div><br>"+
+							
+							"<div class='col'>"+
+							"<div class='row justify-content-evenly'>"+
+								"<p class='horizontal' style='max-width:110px;max-height:100px;border:1px solid black;cursor:pointer;' onclick='sauvegarderEvent("+num+")'><span class='text'>Sauvegarder</span></p>"+
+								"</div>"+ 
+							"</div>"+ 
+					"</div>"+
+					
+				"</div>"+ 
+				
+				"</div>"+ 	
+		
+				"</div>"
+				
+		);
+	}
+		$(".closeIcon").click(function(){
+			nbrGestion = 0;
+			$("#Gestion_event").empty();
+		});
+}
 
 function gestionEnseignant(matricule,prenom,nom,emploi,courriel,telephone, poste) {
 	if( $('#GestionEnseignant').is(':empty') ) {
@@ -168,6 +283,40 @@ function rien(matricule){
 			});
    }
 
+   function AjoutEvent(titre, date, link, description){
+		if(titre=="" || titre==null || titre.length>=75){
+			alert("Le titre est obligatoire, il doit également avoir moins de 75 charactères");
+		}else{
+			if(date=="" || date==null){
+				alert("la date est obligatoire");
+			}else{
+				if(description=="" || description==null){
+					alert("la description est obligatoire");
+				}else{
+			if(link.length>=150){
+				alert("Le lien est trop long")
+			}else{
+				$.ajax({
+					url: "../PHP/AjoutEvent.php",
+					type: "POST",
+					data: {
+						"titre": titre,
+						"date":date,
+						"link":link,
+						"description":description
+					},
+					dataType: "json",
+					success: function(result){
+						window.location="Event.html";
+					},
+					error: function (message, er) {
+						console.log("error: " + er);
+					}
+				});
+			}}}
+		}
+}
+
 function sauvegarderEnseignant(matricule){
 	var prenom = $("#Prenom").val();
 	var nom=$("#Nom").val();
@@ -176,30 +325,30 @@ function sauvegarderEnseignant(matricule){
 	var telephone= $("#Telephone").val();
 	var poste=$("#Poste").val();
 
-	if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom))){
-		alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres");
-	}
-	else{
-		if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom))){
-			alert("Le champs nom est obligatoire, il doit être composé seulement de lettres");
+		if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom)) || prenom.length>50 ){
+			alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 50 caractères");
 		}
 		else{
-			if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))){
-				alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres");
+			if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom)) || nom.length>50){
+				alert("Le champs nom est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 50 caractères");
 			}
 			else{
-				if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))){
-					alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée");
+				if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))|| typeEmployer.length>200){
+					alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 200 caractères");
 				}
 				else{
-					if(telephone=="" || telephone==null || !(/^[0-9]*$/.test(telephone)) || telephone.length>10 || telephone.length<10){
-						alert("Le champs téléphone est obligatoire, vérifiez que le numéro entrée suit le forma suivant: 1111111111");
+					if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))|| courriel.length>200){
+						alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée. Aussi, la longeur maximale pour ce champ est de 200 caractères");
 					}
 					else{
-						if(!(/^[0-9]*$/.test(poste))){
-							alert("Le champs poste doit seulement contenir des chiffres");
+						if(telephone=="" || telephone==null || !(/^[0-9]*$/.test(telephone)) || telephone.length>10 || telephone.length<10){
+							alert("Le champs téléphone est obligatoire, vérifiez que le numéro entrée suit le forma suivant: 1111111111");
 						}
 						else{
+							if(!(/^[0-9]*$/.test(poste)) || poste.length>10){
+								alert("Le champs poste doit seulement contenir des chiffres. Aussi, la longeur maximale pour ce champ est de 10 caractères");
+							}
+							else{
 							if (confirm("Êtes-vous certain de vouloir mettre à jour les informations de l'enseignant: "+matricule)) {
 								$.ajax({
 									url: "../PHP/Gestion_Enseignant/updateTeacher.php",
@@ -232,9 +381,56 @@ function sauvegarderEnseignant(matricule){
 	
 }
 
+function sauvegarderEvent(num){
+	var name=$("#name").val();
+	var date=$("#date").val();
+	var link=$("#link").val();
+	var description= $("#description").val();
+
+	if(name=="" || name==null || name.length>=75 ){
+		alert("Le champs Titre est obligatoire, la longeur maximale pour ce champ est de 75 caractères");
+	}
+	else{
+		if(date=="" || date==null){
+			alert("Le champs date est obligatoire");
+		}
+		else{
+			if(link.length>=150){
+				alert("La longeur maximale pour ce champ est de 200 caractères");
+			}
+			else{
+				if(description=="" || description==null){
+					alert("Le champs description est obligatoire");
+				}
+				else{
+						if (confirm("Êtes-vous certain de vouloir mettre à jour les informations de l'évènement: "+num)) {
+							$.ajax({
+								url: "../PHP/updateEvent.php",
+								type: "POST",
+								data: {
+									"num":num,
+									"name":name,
+									"date":date,
+									"link":link,
+									"description":description
+								},
+								dataType: "json",
+								success: function(result){
+									$("#GestionEvent").empty();
+									location.reload();
+								},
+								error: function (message, er) {
+									console.log("error: " + er);
+								}
+							});
+						}}
+					  }
+				}
+			}
+		}
+
 function supprimerEnseignant(matricule){
 	if (confirm("Êtes-vous certain de vouloir supprimer l'enseignant: "+matricule)) {
-
 		$.ajax({
 			url: "../PHP/Gestion_Enseignant/deleteTeacher.php",
 			type: "POST",
@@ -353,28 +549,28 @@ function ajouterEnseignant(){
 		alert("Le champs matricule est obligatoire, vérifiez que le matricule entré suit le format suivant: 1234567");
 	}
 	else{
-		if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom))){
-			alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres");
+		if(prenom=="" || prenom==null || !(/^[a-zA-Z]+$/.test(prenom)) || prenom.length>50 ){
+			alert("Le champs prénom est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 50 caractères");
 		}
 		else{
-			if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom))){
-				alert("Le champs nom est obligatoire, il doit être composé seulement de lettres");
+			if(nom=="" || nom==null || !(/^[a-zA-Z]+$/.test(nom)) || nom.length>50){
+				alert("Le champs nom est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 50 caractères");
 			}
 			else{
-				if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))){
-					alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres");
+				if(typeEmployer=="" || typeEmployer==null || !(/^[a-zA-Z]+$/.test(typeEmployer))|| typeEmployer.length>200){
+					alert("Le champs type d'employé est obligatoire, il doit être composé seulement de lettres. Aussi, la longeur maximale pour ce champ est de 200 caractères");
 				}
 				else{
-					if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))){
-						alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée");
+					if(courriel=="" || courriel==null || !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(courriel))|| courriel.length>200){
+						alert("Le champs courriel est obligatoire, vérifiez l'adresse entrée. Aussi, la longeur maximale pour ce champ est de 200 caractères");
 					}
 					else{
 						if(telephone=="" || telephone==null || !(/^[0-9]*$/.test(telephone)) || telephone.length>10 || telephone.length<10){
 							alert("Le champs téléphone est obligatoire, vérifiez que le numéro entrée suit le forma suivant: 1111111111");
 						}
 						else{
-							if(!(/^[0-9]*$/.test(poste))){
-								alert("Le champs poste doit seulement contenir des chiffres");
+							if(!(/^[0-9]*$/.test(poste)) || poste.length>10){
+								alert("Le champs poste doit seulement contenir des chiffres. Aussi, la longeur maximale pour ce champ est de 10 caractères");
 							}
 							else{
 								if (confirm("Êtes-vous certain de vouloir ajouter ce membre du personnel?"+matricule)) {

@@ -31,29 +31,63 @@ function printProg(list){
 	console.log("téléchargement du lien: success");
 	
     for (var i = 0; i < list.length; i++) {
-		if(list[i][1]=="Prog"){
+		if(list[i][1]=="Programmation"){
 					$("#Link").append(
-					"<div class='col-md-2'></div>"+
-					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'>"
-					+"<div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
-					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
-					+"<div class='col-md-3'></div>"
+						"<div class='containerLink center'>"+
+						"<div class='card'>"+
+						  "<h2>"+list[i][4]+"</h2>"+
+						  "<hr/>"+
+						  "<p>"+list[i][2]+"</p>"+
+						  "<div id='btnLien' onclick='changerLocation(\""+list[i][3]+"\")'>lien</div>"+
+						"</div>"+
+					  "</div>"
 				  );
-			}	
+			}
 	}
+}
+
+function changerLocation(liens){
+	window.location.replace(liens);
 }
 
 function printInfo(list){
 	console.log("téléchargement du lien: success");
 	
     for (var i = 0; i < list.length; i++) {
-		if(list[i][1]=="Info"){
-					$("#Link").append(
-					"<div class='col-md-2'></div>"+
-					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'><div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
-					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
-					+"<div class='col-md-3'></div>"
-				  );
+		if(list[i][1]=="Informatique"){
+			$("#Link").append(
+				"<div class='containerLink center'>"+
+				"<div class='card'>"+
+				  "<h2>"+list[i][4]+"</h2>"+
+				  "<hr/>"+
+				  "<p>"+list[i][2]+"</p>"+
+				  "<div id='btnLien' onclick='changerLocation(\""+list[i][3]+"\")'>lien</div>"+
+				"</div>"+
+			  "</div>"
+		  );
+			}	
+	}
+}
+
+function changerLocation(liens){
+	window.location.replace(liens);
+}
+
+function printInfo(list){
+	console.log("téléchargement du lien: success");
+	
+    for (var i = 0; i < list.length; i++) {
+		if(list[i][1]=="Informatique"){
+			$("#Link").append(
+				"<div class='containerLink center'>"+
+				"<div class='card'>"+
+				  "<h2>"+list[i][4]+"</h2>"+
+				  "<hr/>"+
+				  "<p>"+list[i][2]+"</p>"+
+				  "<div id='btnLien' onclick='changerLocation(\""+list[i][3]+"\")'>lien</div>"+
+				"</div>"+
+			  "</div>"
+		  );
 			}	
 	}
 }
@@ -62,13 +96,17 @@ function printAnnonces(list){
 	console.log("téléchargement du lien: success");
 	
     for (var i = 0; i < list.length; i++) {
-		if(list[i][1]=="Annonces"){
-					$("#Link").append(
-					"<div class='col-md-2'></div>"+
-					"<a class='col-md-7' style='text-decoration: none;color: black;display: flex;flex-direction: row;'href='"+list[i][3]+"'><div style='width:60%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='Description'><p>"+list[i][2]+"</p></div>"
-					+"<div style='width:30%;border:1px solid black;display:flex;flex-direction: row;justify-content: center;' id='nom'><p>"+list[i][4]+"</p></div></a>"
-					+"<div class='col-md-3'></div>"
-				  );
+		if(list[i][1]=="Annonce"){
+			$("#Link").append(
+				"<div class='containerLink center'>"+
+				"<div class='card'>"+
+				  "<h2>"+list[i][4]+"</h2>"+
+				  "<hr/>"+
+				  "<p>"+list[i][2]+"</p>"+
+				  "<div id='btnLien' onclick='changerLocation(\""+list[i][3]+"\")'>lien</div>"+
+				"</div>"+
+			  "</div>"
+		  );
 			}	
 	}
 }
@@ -98,10 +136,42 @@ function putEventDetail(list) {
 				"<div class='col-md-8'>"+
 					"<h3>"+list[i][1]+"</h3>"+
 					"<p>"+list[i][2]+"</p>"+
+					"<p>"+list[i][4]+"</p>"+
 				"</div>"+
 			"</div>"+
 			"</a>"
 		);
+	}
+}
+
+function putEventDetailDate(list,date){
+	$('#Event').empty();
+	console.log("downloading event detail");
+	var jour;
+	var mois;
+	if(date.getMonth()<10){mois="0"+(date.getMonth()+1)}else{mois=date.getMonth();}
+	if(date.getDate()<10){jour="0"+date.getDate()}else{jour=date.getDate();}
+	for(var i=0; i < list.length; i++) {
+		if(list[i][2].substr(8,2)==jour){
+			if(list[i][2].substr(5,2)==mois){
+				if(list[i][2].substr(0,4)==date.getFullYear()){
+		$('#Event').append(
+			"<a href='"+list[i][3]+"'>"+
+			"<div class='row' style='margin-bottom: 5%; border: solid black; border-width: thin;'>"+
+				"<div class='col-md-4'>"+
+					//"<img src='"+list[i][3]+"'style='width: 100%; height: 250px;'>"+
+				"</div>"+
+				"<div class='col-md-8'>"+
+					"<h3>"+list[i][1]+"</h3>"+
+					"<p>"+list[i][2]+"</p>"+
+					"<p>"+list[i][4]+"</p>"+
+				"</div>"+
+			"</div>"+
+			"</a>"
+		);
+				}
+			}
+		}
 	}
 }
 
@@ -121,70 +191,70 @@ function putEventCal(list){
 				switch(true){
 					case (+j+y)/7<=1:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim1').style="border:1px solid #5296FF";document.getElementById('dim1').onclick=function(){var i=x;i.setDate(x.getDate()-(x.getDay()));alert(i);x.setDate(1);};break;}
-							case(1):{document.getElementById('lun1').style="border:1px solid #5296FF";document.getElementById('lun1').onclick=function(){var i=x;i.setDate(x.getDate()+(1-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(2):{document.getElementById('mar1').style="border:1px solid #5296FF";document.getElementById('mar1').onclick=function(){var i=x;i.setDate(x.getDate()+(2-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(3):{document.getElementById('mer1').style="border:1px solid #5296FF";document.getElementById('mer1').onclick=function(){var i=x;i.setDate(x.getDate()+(3-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(4):{document.getElementById('jeu1').style="border:1px solid #5296FF";document.getElementById('jeu1').onclick=function(){var i=x;i.setDate(x.getDate()+(4-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(5):{document.getElementById('ven1').style="border:1px solid #5296FF";document.getElementById('ven1').onclick=function(){var i=x;i.setDate(x.getDate()+(5-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(6):{document.getElementById('sam1').style="border:1px solid #5296FF";document.getElementById('sam1').onclick=function(){var i=x;i.setDate(x.getDate()+(6-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(0):{document.getElementById('dim1').style="border:1px solid #5296FF";document.getElementById('dim1').onclick=function(){var i=x;i.setDate(x.getDate()-(x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun1').style="border:1px solid #5296FF";document.getElementById('lun1').onclick=function(){var i=x;i.setDate(x.getDate()+(1-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar1').style="border:1px solid #5296FF";document.getElementById('mar1').onclick=function(){var i=x;i.setDate(x.getDate()+(2-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer1').style="border:1px solid #5296FF";document.getElementById('mer1').onclick=function(){var i=x;i.setDate(x.getDate()+(3-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu1').style="border:1px solid #5296FF";document.getElementById('jeu1').onclick=function(){var i=x;i.setDate(x.getDate()+(4-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven1').style="border:1px solid #5296FF";document.getElementById('ven1').onclick=function(){var i=x;i.setDate(x.getDate()+(5-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam1').style="border:1px solid #5296FF";document.getElementById('sam1').onclick=function(){var i=x;i.setDate(x.getDate()+(6-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
 						}
 						break;
 					}
 					case (+j+y)/7<=2:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim2').style="border:1px solid #5296FF";document.getElementById('dim2').onclick=function(){var i=x;i.setDate(x.getDate()+(7-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(1):{document.getElementById('lun2').style="border:1px solid #5296FF";document.getElementById('lun2').onclick=function(){var i=x;i.setDate(x.getDate()+(8-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(2):{document.getElementById('mar2').style="border:1px solid #5296FF";document.getElementById('mar2').onclick=function(){var i=x;i.setDate(x.getDate()+(9-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(3):{document.getElementById('mer2').style="border:1px solid #5296FF";document.getElementById('mer2').onclick=function(){var i=x;i.setDate(x.getDate()+(10-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(4):{document.getElementById('jeu2').style="border:1px solid #5296FF";document.getElementById('jeu2').onclick=function(){var i=x;i.setDate(x.getDate()+(11-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(5):{document.getElementById('ven2').style="border:1px solid #5296FF";document.getElementById('ven2').onclick=function(){var i=x;i.setDate(x.getDate()+(12-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(6):{document.getElementById('sam2').style="border:1px solid #5296FF";document.getElementById('sam2').onclick=function(){var i=x;i.setDate(x.getDate()+(13-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(0):{document.getElementById('dim2').style="border:1px solid #5296FF";document.getElementById('dim2').onclick=function(){var i=x;i.setDate(x.getDate()+(7-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun2').style="border:1px solid #5296FF";document.getElementById('lun2').onclick=function(){var i=x;i.setDate(x.getDate()+(8-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar2').style="border:1px solid #5296FF";document.getElementById('mar2').onclick=function(){var i=x;i.setDate(x.getDate()+(9-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer2').style="border:1px solid #5296FF";document.getElementById('mer2').onclick=function(){var i=x;i.setDate(x.getDate()+(10-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu2').style="border:1px solid #5296FF";document.getElementById('jeu2').onclick=function(){var i=x;i.setDate(x.getDate()+(11-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven2').style="border:1px solid #5296FF";document.getElementById('ven2').onclick=function(){var i=x;i.setDate(x.getDate()+(12-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam2').style="border:1px solid #5296FF";document.getElementById('sam2').onclick=function(){var i=x;i.setDate(x.getDate()+(13-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
 					}
 					break;}
 					case (+j+y)/7<=3:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim3').style="border:1px solid #5296FF";document.getElementById('dim3').onclick=function(){var i=x;i.setDate(x.getDate()+(14-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(1):{document.getElementById('lun3').style="border:1px solid #5296FF";document.getElementById('lun3').onclick=function(){var i=x;i.setDate(x.getDate()+(15-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(2):{document.getElementById('mar3').style="border:1px solid #5296FF";document.getElementById('mar3').onclick=function(){var i=x;i.setDate(x.getDate()+(16-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(3):{document.getElementById('mer3').style="border:1px solid #5296FF";document.getElementById('mer3').onclick=function(){var i=x;i.setDate(x.getDate()+(17-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(4):{document.getElementById('jeu3').style="border:1px solid #5296FF";document.getElementById('jeu3').onclick=function(){var i=x;i.setDate(x.getDate()+(18-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(5):{document.getElementById('ven3').style="border:1px solid #5296FF";document.getElementById('ven3').onclick=function(){var i=x;i.setDate(x.getDate()+(19-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(6):{document.getElementById('sam3').style="border:1px solid #5296FF";document.getElementById('sam3').onclick=function(){var i=x;i.setDate(x.getDate()+(20-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(0):{document.getElementById('dim3').style="border:1px solid #5296FF";document.getElementById('dim3').onclick=function(){var i=x;i.setDate(x.getDate()+(14-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun3').style="border:1px solid #5296FF";document.getElementById('lun3').onclick=function(){var i=x;i.setDate(x.getDate()+(15-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar3').style="border:1px solid #5296FF";document.getElementById('mar3').onclick=function(){var i=x;i.setDate(x.getDate()+(16-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer3').style="border:1px solid #5296FF";document.getElementById('mer3').onclick=function(){var i=x;i.setDate(x.getDate()+(17-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu3').style="border:1px solid #5296FF";document.getElementById('jeu3').onclick=function(){var i=x;i.setDate(x.getDate()+(18-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven3').style="border:1px solid #5296FF";document.getElementById('ven3').onclick=function(){var i=x;i.setDate(x.getDate()+(19-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam3').style="border:1px solid #5296FF";document.getElementById('sam3').onclick=function(){var i=x;i.setDate(x.getDate()+(20-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
 					}
 					break;}
 					case (+j+y)/7<=4:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim4').style="border:1px solid #5296FF";document.getElementById('dim4').onclick=function(){var i=x;i.setDate(x.getDate()+(21-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(1):{document.getElementById('lun4').style="border:1px solid #5296FF";document.getElementById('lun4').onclick=function(){var i=x;i.setDate(x.getDate()+(22-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(2):{document.getElementById('mar4').style="border:1px solid #5296FF";document.getElementById('mar4').onclick=function(){var i=x;i.setDate(x.getDate()+(23-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(3):{document.getElementById('mer4').style="border:1px solid #5296FF";document.getElementById('mer4').onclick=function(){var i=x;i.setDate(x.getDate()+(24-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(4):{document.getElementById('jeu4').style="border:1px solid #5296FF";document.getElementById('jeu4').onclick=function(){var i=x;i.setDate(x.getDate()+(25-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(5):{document.getElementById('ven4').style="border:1px solid #5296FF";document.getElementById('ven4').onclick=function(){var i=x;i.setDate(x.getDate()+(26-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(6):{document.getElementById('sam4').style="border:1px solid #5296FF";document.getElementById('sam4').onclick=function(){var i=x;i.setDate(x.getDate()+(27-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(0):{document.getElementById('dim4').style="border:1px solid #5296FF";document.getElementById('dim4').onclick=function(){var i=x;i.setDate(x.getDate()+(21-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun4').style="border:1px solid #5296FF";document.getElementById('lun4').onclick=function(){var i=x;i.setDate(x.getDate()+(22-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar4').style="border:1px solid #5296FF";document.getElementById('mar4').onclick=function(){var i=x;i.setDate(x.getDate()+(23-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer4').style="border:1px solid #5296FF";document.getElementById('mer4').onclick=function(){var i=x;i.setDate(x.getDate()+(24-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu4').style="border:1px solid #5296FF";document.getElementById('jeu4').onclick=function(){var i=x;i.setDate(x.getDate()+(25-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven4').style="border:1px solid #5296FF";document.getElementById('ven4').onclick=function(){var i=x;i.setDate(x.getDate()+(26-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam4').style="border:1px solid #5296FF";document.getElementById('sam4').onclick=function(){var i=x;i.setDate(x.getDate()+(27-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
 					}
 					break;}
 					case (+j+y)/7<=5:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim5').style="border:1px solid #5296FF";document.getElementById('dim5').onclick=function(){var i=x;i.setDate(x.getDate()+(28-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(1):{document.getElementById('lun5').style="border:1px solid #5296FF";document.getElementById('lun5').onclick=function(){var i=x;i.setDate(x.getDate()+(29-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(2):{document.getElementById('mar5').style="border:1px solid #5296FF";document.getElementById('mar5').onclick=function(){var i=x;i.setDate(x.getDate()+(30-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(3):{document.getElementById('mer5').style="border:1px solid #5296FF";document.getElementById('mer5').onclick=function(){var i=x;i.setDate(x.getDate()+(31-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(4):{document.getElementById('jeu5').style="border:1px solid #5296FF";document.getElementById('jeu5').onclick=function(){var i=x;i.setDate(x.getDate()+(32-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(5):{document.getElementById('ven5').style="border:1px solid #5296FF";document.getElementById('ven5').onclick=function(){var i=x;i.setDate(x.getDate()+(33-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(6):{document.getElementById('sam5').style="border:1px solid #5296FF";document.getElementById('sam5').onclick=function(){var i=x;i.setDate(x.getDate()+(34-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(0):{document.getElementById('dim5').style="border:1px solid #5296FF";document.getElementById('dim5').onclick=function(){var i=x;i.setDate(x.getDate()+(28-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun5').style="border:1px solid #5296FF";document.getElementById('lun5').onclick=function(){var i=x;i.setDate(x.getDate()+(29-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar5').style="border:1px solid #5296FF";document.getElementById('mar5').onclick=function(){var i=x;i.setDate(x.getDate()+(30-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer5').style="border:1px solid #5296FF";document.getElementById('mer5').onclick=function(){var i=x;i.setDate(x.getDate()+(31-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu5').style="border:1px solid #5296FF";document.getElementById('jeu5').onclick=function(){var i=x;i.setDate(x.getDate()+(32-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven5').style="border:1px solid #5296FF";document.getElementById('ven5').onclick=function(){var i=x;i.setDate(x.getDate()+(33-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam5').style="border:1px solid #5296FF";document.getElementById('sam5').onclick=function(){var i=x;i.setDate(x.getDate()+(34-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
 						}
 						break;
 					}
 					case (+j+y)/7<=6:{
 						switch(d.getDay()){
-							case(0):{document.getElementById('dim6').style="border:1px solid #5296FF";document.getElementById('dim6').onclick=function(){var i=x;i.setDate(x.getDate()+(35-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(1):{document.getElementById('lun6').style="border:1px solid #5296FF";document.getElementById('lun6').onclick=function(){var i=x;i.setDate(x.getDate()+(36-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(2):{document.getElementById('mar6').style="border:1px solid #5296FF";document.getElementById('mar6').onclick=function(){var i=x;i.setDate(x.getDate()+(37-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(3):{document.getElementById('mer6').style="border:1px solid #5296FF";document.getElementById('mer6').onclick=function(){var i=x;i.setDate(x.getDate()+(38-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(4):{document.getElementById('jeu6').style="border:1px solid #5296FF";document.getElementById('jeu6').onclick=function(){var i=x;i.setDate(x.getDate()+(39-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(5):{document.getElementById('ven6').style="border:1px solid #5296FF";document.getElementById('ven6').onclick=function(){var i=x;i.setDate(x.getDate()+(40-x.getDay()));alert(i);x.setDate(1);};break;}
-							case(6):{document.getElementById('sam6').style="border:1px solid #5296FF";document.getElementById('sam6').onclick=function(){var i=x;i.setDate(x.getDate()+(41-x.getDay()));alert(i);x.setDate(1);};break;}
+							case(0):{document.getElementById('dim6').style="border:1px solid #5296FF";document.getElementById('dim6').onclick=function(){var i=x;i.setDate(x.getDate()+(35-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(1):{document.getElementById('lun6').style="border:1px solid #5296FF";document.getElementById('lun6').onclick=function(){var i=x;i.setDate(x.getDate()+(36-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(2):{document.getElementById('mar6').style="border:1px solid #5296FF";document.getElementById('mar6').onclick=function(){var i=x;i.setDate(x.getDate()+(37-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(3):{document.getElementById('mer6').style="border:1px solid #5296FF";document.getElementById('mer6').onclick=function(){var i=x;i.setDate(x.getDate()+(38-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(4):{document.getElementById('jeu6').style="border:1px solid #5296FF";document.getElementById('jeu6').onclick=function(){var i=x;i.setDate(x.getDate()+(39-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(5):{document.getElementById('ven6').style="border:1px solid #5296FF";document.getElementById('ven6').onclick=function(){var i=x;i.setDate(x.getDate()+(40-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
+							case(6):{document.getElementById('sam6').style="border:1px solid #5296FF";document.getElementById('sam6').onclick=function(){var i=x;i.setDate(x.getDate()+(41-x.getDay()));putEventDetailDate(list,i);x.setDate(1);};break;}
 					}
 					break;}
 				}

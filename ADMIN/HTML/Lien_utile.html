@@ -15,15 +15,12 @@
     <div id="MenuBar"></div>
 
         <div class="multi-button contenantSousMenu" style="margin-top:4%">
-            <button class="buttonMenu" onclick="addAccount()">Ajouter un compte</button>
-            <button class="buttonMenu" onclick="loadAdminProfil()">Tout les profils</button>
-            <button class="buttonMenu" onclick="logOut()">Me déconnecter</button>
+            <button class="buttonMenu" onclick="addLink()">Ajouter un lien</button>
+            <button class="buttonMenu" onclick="loadLink()">Gérer les liens</button>
         </div>
 
-        <div id="info"  class="table justify-content-evenly">
-        </div>
 
-        <div id="tableAdmin" class="container-fluid">
+        <div id="page">
 
         </div>
 </body>
@@ -48,31 +45,16 @@
 
     <script type="text/javascript">
 
-    function addAccount(){
-        $("#info").empty();
-        $("#tableAdmin").empty();
-        jQuery('#info').load('AddAdmin.html#ajouterAdmin'); 
+    function addLink(){
+        $('#page').empty();
+        jQuery('#page').load('AddLink.html#addLiens');
     }
 
-    function loadAdminProfil(){
-        $("#info").empty();
-        $("#tableAdmin").empty();
-        jQuery('#tableAdmin').load('GestionAdmin.html#tableGestionAdmin'); 
+    function loadLink(){
+        $('#page').empty();
+        jQuery('#page').load('ManageLink.html#liens');
     }
 
-    function logOut(){
-        $.ajax({
-                    url: "../PHP/LogOut.php",
-                    type: "POST",
-                    dataType: "json",
-                    success: function(result){
-                        location.replace("../../HTML/Connexion.html");
-                    },
-                    error: function (message, er) {
-                        console.log("erreur lors de la connexion:" + er);
-                    }
-                });
-    }
 
     $(document).ready(function () { 
         $.ajax({

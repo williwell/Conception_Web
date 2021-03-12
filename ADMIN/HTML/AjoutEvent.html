@@ -13,10 +13,30 @@
 <body>
     <div id="MenuBar"></div>
     <div id="Event"  class="container-fluid justify-content-evenly">
-        <div id="titre" class="row row-cols-1 row-cols-md-1 g-1 justify-content-center align-items-center" style="margin-top:0%;margin-bottom:0% ;margin:4% ;"><h2>Gestion d'évènements</h2></div>
-        <div id="Gestion_event" class="row row-cols-1 row-cols-md-1 g-1 justify-content-center align-items-center" style="margin-top:0%;margin-bottom:0% ;margin-left:4%;margin-right:4%; ;padding-left:4%;padding-right:4%;"></div>
-        <div id="ajout_event" class="row row-cols-1 row-cols-md-1 g-1 justify-content-center align-items-center" style="margin-top:0%;margin-bottom:0% ;margin-left:10%;"><i id="AjoutEvent" class="material-icons" onclick="window.location='AjoutEvent.html'" style="font-size: 32px;cursor:pointer;">add_box</i></div>
-    
+        <div id="Gestion_event" class="row row-cols-1 row-cols-md-1 g-1 justify-content-center align-items-center" style="margin-top:0%;margin-bottom:0% ;margin:4% ;padding:4%;"><h2>Ajout d'évènements</h2></div>
+        <div class="row"> 
+            <form style="padding-left: 30%;">
+            <div class='col-md-2' style="display: flex;flex-direction: row;">
+            <div style="display:flex;flex-direction: column;">
+                <label for="titre" style="margin:7px;">Titre:</label><br>
+                <label for="date" style="margin:7px;">Date:</label><br>
+                <label for="link" style="margin:7px;">Lien:</label><br>
+                <label for="description" style="margin:7px;">Description:</label>
+            </div>
+            <div style="display:flex;flex-direction: column;width:600px;">
+            <input type="text" id="titre" style="margin:5px;"><br>
+            <input type="date" id="date" style="margin:5px;"><br>
+            <div style="display:flex;flex-direction:row;">
+            <input type="text" id="link" style="margin:5px;">
+            <div onclick="window.open(document.getElementById('link').value)" style="height:30px;margin:5px;width:50%;border:1px solid black;cursor:pointer;">Tester</div></div><br>
+            <input type="textarea" id="description" style="margin:5px;"><br>
+            </div>
+        </div>
+        </form>
+        <div class="col-md-4"></div>
+        <div class="col-md-2" onclick="AjoutEvent(document.getElementById('titre').value, document.getElementById('date').value, document.getElementById('link').value,document.getElementById('description').value)" style="height:30px;margin:5px;border:1px solid black;cursor:pointer;display:flex;flex-direction:column ; align-items: center;">Ajouter</div>
+    </div>
+    </div>
     </div>
     
     
@@ -64,19 +84,6 @@
                 location.replace("http://localhost/my-app/Conception_web/HTML/Connexion.html");
             }
         });
-        $.ajax({
-        url:"../PHP/GetEvent.php",
-        type: "POST",
-        dataType: "Json",
-        success:function(result){
-          var evenements=new Array;
-          putEventDetail(result);
-          evenements=(result);
-        },
-        error: function(message, er) {
-          console.log("erreur lors du chargement des évènements:" + er);
-        }
-      });
     });
     
 </script>
