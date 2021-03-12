@@ -7,8 +7,6 @@ try {
     
     $lines = $query->deleteEvent($_POST['noEvent']);
     echo json_encode($lines);
-
-    unlink($dir);
 }
 catch(PDOException $e) {
     return $lines;

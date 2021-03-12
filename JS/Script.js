@@ -98,6 +98,7 @@ function putEventDetail(list) {
 				"<div class='col-md-8'>"+
 					"<h3>"+list[i][1]+"</h3>"+
 					"<p>"+list[i][2]+"</p>"+
+					"<p>"+list[i][4]+"</p>"+
 				"</div>"+
 			"</div>"+
 			"</a>"
@@ -125,6 +126,7 @@ function putEventDetailDate(list,date){
 				"<div class='col-md-8'>"+
 					"<h3>"+list[i][1]+"</h3>"+
 					"<p>"+list[i][2]+"</p>"+
+					"<p>"+list[i][4]+"</p>"+
 				"</div>"+
 			"</div>"+
 			"</a>"
