@@ -284,9 +284,15 @@ function rien(matricule){
    }
 
    function AjoutEvent(titre, date, link, description){
-		if(titre.length>=75){
-			alert("Le titre est trop long");
+		if(titre=="" || titre==null || titre.length>=75){
+			alert("Le titre est obligatoire, il doit également avoir moins de 75 charactères");
 		}else{
+			if(date=="" || date==null){
+				alert("la date est obligatoire");
+			}else{
+				if(description=="" || description==null){
+					alert("la description est obligatoire");
+				}else{
 			if(link.length>=150){
 				alert("Le lien est trop long")
 			}else{
@@ -307,7 +313,7 @@ function rien(matricule){
 						console.log("error: " + er);
 					}
 				});
-			}
+			}}}
 		}
 }
 
@@ -393,6 +399,10 @@ function sauvegarderEvent(num){
 				alert("La longeur maximale pour ce champ est de 200 caractères");
 			}
 			else{
+				if(description=="" || description==null){
+					alert("Le champs description est obligatoire");
+				}
+				else{
 						if (confirm("Êtes-vous certain de vouloir mettre à jour les informations de l'évènement: "+num)) {
 							$.ajax({
 								url: "../PHP/updateEvent.php",
@@ -413,7 +423,7 @@ function sauvegarderEvent(num){
 									console.log("error: " + er);
 								}
 							});
-						}
+						}}
 					  }
 				}
 			}
